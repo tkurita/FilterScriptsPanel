@@ -35,10 +35,11 @@ on makeObj()
 		end closePanel
 		
 		on makeNewScript()
+			--log "start makeNewScript"
 			set newName to contents of text field "NewScriptName" of my targetWindow
 			set templateAlias to getSelectedItem()
 			
-			set targetFolderPath to (scriptFolder of ScriptListObj) as Unicode text
+			set targetFolderPath to (targetFolder of ScriptListObj) as Unicode text
 			if isExists(targetFolderPath & newName) of UtilityHandlers then
 				set isExistsMsg to localized string "isExists"
 				set theMessage to newName & space & isExistsMsg
@@ -46,7 +47,7 @@ on makeObj()
 				return
 			else
 				closePanel()
-				set targetItem to copyItem(templateAlias, scriptFolder of ScriptListObj, newName) of UtilityHandlers
+				set targetItem to copyItem(templateAlias, targetFolder of ScriptListObj, newName) of UtilityHandlers
 				rebuild() of ScriptListObj
 				tell application "Finder"
 					open targetItem
