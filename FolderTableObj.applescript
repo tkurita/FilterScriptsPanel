@@ -16,22 +16,22 @@ property selectedDataRow : missing value
 property lastRebuildDate : missing value
 
 on initialize(targetName)
-	log "start initialize in FolderTableObj"
+	--log "start initialize in FolderTableObj"
 	set listName to targetName & "_list"
 	set lastRebuidDateLabel to targetName & "_lastRebuildDate"
 	
 	set FolderItemSorter to makeObj(targetName) of ScriptSorterObj
 	set targetFolder to getContainer() of FolderItemSorter
 	set isInitialized to true
-	log "end  initialize in FolderTableObj"
+	--log "end  initialize in FolderTableObj"
 end initialize
 
 on readTableContents()
-	log "start readTableContents"
+	--log "start readTableContents"
 	if exists default entry lastRebuidDateLabel of user defaults then
-		log "exists entry"
+		--log "exists entry"
 		set lastRebuildDate to contents of default entry lastRebuidDateLabel of user defaults
-		log "afterf read"
+		--log "afterf read"
 		tell application "System Events"
 			set currentModDate to modification date of targetFolder
 		end tell
@@ -39,9 +39,9 @@ on readTableContents()
 		
 		if lastRebuildDate > currentModDate then
 			set scriptList to readDefaultValueWith(listName, scriptList) of DefaultsManager
-			log "before append"
+			--log "before append"
 			append targetDataSource with scriptList
-			log "after append"
+			--log "after append"
 		else
 			rebuild()
 			writeTableContents()
@@ -51,11 +51,11 @@ on readTableContents()
 		rebuild()
 		makeTableContentsDefaults()
 	end if
-	log "end readTableContents"
+	--log "end readTableContents"
 end readTableContents
 
 on updateTableContents()
-	log "start updateTableContetns"
+	--log "start updateTableContetns"
 	tell application "System Events"
 		set currentModDate to modification date of targetFolder
 	end tell
@@ -69,14 +69,14 @@ on updateTableContents()
 end updateTableContents
 
 on makeTableContentsDefaults()
-	log "start makeTableContentsDefaults"
+	--log "start makeTableContentsDefaults"
 	make new default entry at end of default entries of user defaults with properties {name:listName, contents:scriptList}
 	make new default entry at end of default entries of user defaults with properties {name:lastRebuidDateLabel, contents:current date}
-	log "end makeTableContentsDefaults"
+	--log "end makeTableContentsDefaults"
 end makeTableContentsDefaults
 
 on rebuild()
-	log "start rebuild"
+	--log "start rebuild"
 	set {pathList, nameList, indexList} to sortByView() of FolderItemSorter
 	set scriptList to {}
 	repeat with ith from 1 to length of nameList
@@ -87,7 +87,7 @@ on rebuild()
 end rebuild
 
 on writeTableContents()
-	log "start writeTableContents"
+	--log "start writeTableContents"
 	set contents of default entry listName of user defaults to scriptList
 	set contents of default entry (lastRebuidDateLabel) of user defaults to current date
 end writeTableContents
