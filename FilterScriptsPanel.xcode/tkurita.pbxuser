@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	29B97313FDCFA39411CA2CEA = {
-		activeBuildStyle = 4A9504CCFFE6A4B311CA0CBA;
+		activeBuildStyle = 4A9504CDFFE6A4B311CA0CBA;
 		activeExecutable = DA206CF0015C4D9F03C91932;
 		activeTarget = 29B97326FDCFA39411CA2CEA;
 		addToTargets = (
@@ -752,6 +752,12 @@
 			2C42EF2607B66C6900C8005B = 2C42EF2607B66C6900C8005B;
 			2C42EF2707B66C6900C8005B = 2C42EF2707B66C6900C8005B;
 			2C42EF2807B66C6900C8005B = 2C42EF2807B66C6900C8005B;
+			2C42EF2A07B66CA200C8005B = 2C42EF2A07B66CA200C8005B;
+			2C42EF2C07B66CAA00C8005B = 2C42EF2C07B66CAA00C8005B;
+			2C42EF2D07B66CC900C8005B = 2C42EF2D07B66CC900C8005B;
+			2C42EF2E07B66CCE00C8005B = 2C42EF2E07B66CCE00C8005B;
+			2C42EF2F07B66CCE00C8005B = 2C42EF2F07B66CCE00C8005B;
+			2C42EF3007B66CCE00C8005B = 2C42EF3007B66CCE00C8005B;
 			2C4DBDF10792DCC200175CBE = 2C4DBDF10792DCC200175CBE;
 			2C744792079375CE00FDC383 = 2C744792079375CE00FDC383;
 			2C7447A00793788C00FDC383 = 2C7447A00793788C00FDC383;
@@ -2182,6 +2188,74 @@
 		};
 	};
 	2C42EF2807B66C6900C8005B = {
+		fRef = 2C10B9910616C1AA00598626;
+		isa = PBXTextBookmark;
+		name = "ScriptListObj.applescript: 127";
+		rLen = 0;
+		rLoc = 4223;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 2232;
+	};
+	2C42EF2A07B66CA200C8005B = {
+		fRef = 2C10B9910616C1AA00598626;
+		isa = PBXTextBookmark;
+		name = "ScriptListObj.applescript: 127";
+		rLen = 0;
+		rLoc = 4223;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 2232;
+	};
+	2C42EF2C07B66CAA00C8005B = {
+		fRef = 2C10B9910616C1AA00598626;
+		isa = PBXTextBookmark;
+		name = "ScriptListObj.applescript: 127";
+		rLen = 0;
+		rLoc = 4223;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 2232;
+	};
+	2C42EF2D07B66CC900C8005B = {
+		fRef = 2C10B9910616C1AA00598626;
+		isa = PBXTextBookmark;
+		name = "ScriptListObj.applescript: 127";
+		rLen = 0;
+		rLoc = 4223;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 2232;
+	};
+	2C42EF2E07B66CCE00C8005B = {
+		fRef = 2C82E57F07939E4C00D28509;
+		isa = PBXTextBookmark;
+		name = "FolderTableObj.applescript: 6";
+		rLen = 0;
+		rLoc = 164;
+		rType = 0;
+		vrLen = 523;
+		vrLoc = 552;
+	};
+	2C42EF2F07B66CCE00C8005B = {
+		isa = PBXTargetBookmark;
+		trg = 29B97326FDCFA39411CA2CEA;
+		uiCtxt = {
+			TOCViewDetailVisibleRect = "{{0, 551}, {536, 239}}";
+			TOCViewExpandedItems = (
+				"com.apple.target-editor-pane.settings",
+				"com.apple.target-editor-pane.settings.simple",
+				"com.apple.target-editor-pane.info-plist",
+				"com.apple.target-editor-pane.info-plist.simple",
+				"com.apple.target-editor-pane.buildphases",
+			);
+			TOCViewMasterVisibleRect = "{{0, 124}, {212, 239}}";
+			TOCViewSelectedItems = (
+				"com.apple.target-editor-pane.info-plist.simple",
+			);
+		};
+	};
+	2C42EF3007B66CCE00C8005B = {
 		fRef = 2C10B9910616C1AA00598626;
 		isa = PBXTextBookmark;
 		name = "ScriptListObj.applescript: 127";
