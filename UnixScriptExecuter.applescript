@@ -80,15 +80,22 @@ on newFilterScriptExecuter from theScriptFile
 	end if
 	
 	set theBaseExecuter to newBaseExecuter(theScriptFile, theScriptCommand)
+	set preOption of theBaseExecuter to "pbpaste|"
 	
 	script FilterScriptExecuter
 		property parent : theBaseExecuter
 		
 		on runScript()
-			--log "start runScript in FilterScriptExecuter"
+			log "start runScript in FilterScriptExecuter"
 			set allCommand to my buildCommand()
 			--log "exec command : " & allCommand
-			return do shell script allCommand
+			try
+				--return do shell script allCommand
+				set theResult to do shell script allCommand
+			on error errMsg number errNum
+				display dialog errNum & return & errMsg
+			end try
+			return theResult
 		end runScript
 	end script
 end newFilterScriptExecuter
