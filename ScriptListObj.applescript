@@ -1,8 +1,6 @@
-global lineFeed
+
 global UtilityHandlers
 global DialogOwner
-global StringEngine
-global UnixScriptExecuter
 global DefaultsManager
 global FolderTableObj
 
@@ -13,29 +11,35 @@ on makeObj()
 	
 	script FilterScriptListObj
 		property parent : newFolderTableObj
+		global UnixScriptExecuter
+		global FilterPaletteController
+		global StringEngine
+		global lineFeed
 		
 		on initialize(targetName)
 			--log "start initilize of ScriptListObj"
 			set my targetWindow to window "FilterScripts"
 			set my targetTable to table view "ScriptList" of scroll view "ScriptList" of my targetWindow
 			set my targetDataSource to data source of my targetTable
+			--log "before continue initialize"
 			continue initialize(targetName)
-			
-			if my scriptList is missing value then
+			--log "after continue initialize"
+			if my itemList is missing value then
 				readTableContents()
 			else
 				updateTableContents()
 			end if
+			--log "end initialize of ScriptListObj"
 		end initialize
 		
 		on doRename(theReply)
 			set theButton to button returned of theReply
 			set newName to text returned of theReply
-			if (theButton is "OK") and (newName is not lastItemName) then
-				tell application "System Events"
-					set name of selectedItemAlias to newName
+			if (theButton is "OK") and (newName is not my lastItemName) then
+				tell application "Finder"
+					set name of my selectedItemAlias to newName
 				end tell
-				set contents of data cell "Name" of selectedDataRow to newName
+				set contents of data cell "Name" of my selectedDataRow to newName
 			end if
 			set DialogOwner to missing value
 		end doRename
@@ -48,7 +52,7 @@ on makeObj()
 		end renameScript
 		
 		on runFilterScript()
-			log "start runFilterScript"
+			--log "start runFilterScript"
 			(*get input data from mi*)
 			tell application "mi"
 				if exists front document then
@@ -64,15 +68,21 @@ on makeObj()
 			if (pathText ends with ".scptd:") or (pathText ends with ".scpt") then
 				set isAppleScript to true
 			else
-				log "before get file type"
+				--log "before get file type"
 				set infoRecord to info for theScriptFile
 				set isAppleScript to ((file type of infoRecord) is "osas")
-				log "after get file type"
+				--log "after get file type"
 			end if
 			
-			log "before execution"
+			--log "before execution"
 			if isAppleScript then
-				set theResult to run script theScriptFile with parameters {theText}
+				try
+					set theResult to run script theScriptFile with parameters {theText}
+				on error errMsg number errNum
+					set contents of text view "ScriptError" of scroll view "ScriptError" of window "ScriptError" to errMsg
+					attachPanel(window "ScriptError") of FilterPaletteController
+					set theResult to ""
+				end try
 			else
 				set theList to every paragraph of theText
 				--set beginning of theList to "<<EndOfData"
@@ -81,14 +91,20 @@ on makeObj()
 				set theText to joinStringList of StringEngine for theList by lineFeed
 				stopStringEngine() of StringEngine
 				set contents of pasteboard "general" to theText
-				log "berfore newFilterScriptExecuter"
-				set theFilterScriptExecuter to newFilterScriptExecuter of UnixScriptExecuter from theScriptFile
+				--log "berfore newFilterScriptExecuter"
+				set theFilterScriptExecuter to makeObj(theScriptFile) of UnixScriptExecuter
 				--set postOption of theFilterScriptExecuter to theText
-				log "before execution of a unix script"
-				set theResult to runScript() of theFilterScriptExecuter
-				log "after execution of a unix script"
+				--log "before execution of a unix script"
+				try
+					set theResult to runScript() of theFilterScriptExecuter
+				on error errMsg number errNum
+					set contents of text view "ScriptError" of scroll view "ScriptError" of window "ScriptError" to errMsg
+					attachPanel(window "ScriptError") of FilterPaletteController
+					set theResult to ""
+				end try
+				--log "after execution of a unix script"
 			end if
-			log "after execution"
+			--log "after execution"
 			
 			if theResult is not "" then
 				set useNewWindow to ((state of cell "InNewWindow" of matrix "ResultMode" of my targetWindow) is on state)
@@ -105,7 +121,7 @@ on makeObj()
 				end if
 			end if
 			beep
-			log "end runFilterScript"
+			--log "end runFilterScript"
 		end runFilterScript
 	end script
 end makeObj
