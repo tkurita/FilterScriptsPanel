@@ -9,6 +9,7 @@ property DefaultsManager : missing value
 
 property ScriptListObj : missing value
 property FilterPaletteController : missing value
+property CommandBuilder : missing value
 property UnixScriptExecuter : missing value
 property UnixScriptObj : missing value
 property WindowController : missing value
@@ -45,11 +46,12 @@ on importScript(scriptName)
 end importScript
 
 on launched theObject
-	(*debug code*)
 	--log "start launched"
 	openWindow() of FilterPaletteController
+	(*debug code*)
 	--openPanel() of NewFilterScriptObj
 	(*end of debug code*)
+	--log "end launched"
 end launched
 
 on open theObject
@@ -105,6 +107,8 @@ on clicked theObject
 		makeNewScript() of NewFilterScriptObj
 	else if theName is "NewScriptCancel" then
 		closePanel() of NewFilterScriptObj
+	else if theName is "ScriptErrorOK" then
+		closeAttachedPanel() of FilterPaletteController
 	end if
 end clicked
 
@@ -146,6 +150,7 @@ on will finish launching theObject
 	set UtilityHandlers to importScript("UtilityHandlers")
 	set MessageUtility to importScript("MessageUtility")
 	
+	set CommandBuilder to importScript("CommandBuilder")
 	set UnixScriptExecuter to importScript("UnixScriptExecuter")
 	
 	set ScriptSorterObj to importScript("ScriptSorterObj")
@@ -155,6 +160,7 @@ on will finish launching theObject
 	set ScriptListObj to makeObj() of ScriptListObj
 	set NewFilterScriptObj to importScript("NewFilterScriptObj")
 	set NewFilterScriptObj to makeObj() of NewFilterScriptObj
+	
 	
 	set WindowController to importScript("WindowController")
 	set FilterPaletteController to importScript("FilterPaletteController")
@@ -181,7 +187,7 @@ end will close
 on should zoom theObject proposed bounds proposedBounds
 	set theName to name of theObject
 	if theName is "FilterScripts" then
-		return toggleCollapsePanel of FilterPaletteController
+		return toggleCollapsePanel() of FilterPaletteController
 	end if
 end should zoom
 
