@@ -1,10 +1,6 @@
 /*UnixScriptExecuter*/
-"aDocument" = "書類";
-"isModified" = "は修正されています。";
 "startQuote" ="“";
 "endQuote" ="”";
-"doYouSave" = "実行前に保存しますか？";
-"isNotSaved" = "は保存されていません。";
 
 "NoSelection_ScriptList" = "スクリプトが選択されていません。";
 "NoSelection_TemplateList" = "テンプレートが選択されていません。";
