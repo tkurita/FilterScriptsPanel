@@ -44,11 +44,11 @@ on makeObj()
 			getSelectedItem()
 			set enterNewNameMsg to localized string "enterNewName"
 			set DialogOwner to "RenameScript"
-			set theReply to display dialog enterNewNameMsg attached to targetWindow default answer lastScriptName
+			set theReply to display dialog enterNewNameMsg attached to my targetWindow default answer my lastItemName
 		end renameScript
 		
 		on runFilterScript()
-			--log "start runFilterScript"
+			log "start runFilterScript"
 			(*get input data from mi*)
 			tell application "mi"
 				if exists front document then
@@ -64,31 +64,36 @@ on makeObj()
 			if (pathText ends with ".scptd:") or (pathText ends with ".scpt") then
 				set isAppleScript to true
 			else
-				--log "before get file type"
+				log "before get file type"
 				set infoRecord to info for theScriptFile
-				set isAppleScript to ((file kind of infoRecord) is "osas")
-				--log "after get file type"
+				set isAppleScript to ((file type of infoRecord) is "osas")
+				log "after get file type"
 			end if
 			
+			log "before execution"
 			if isAppleScript then
 				set theResult to run script theScriptFile with parameters {theText}
 			else
 				set theList to every paragraph of theText
-				set beginning of theList to "<<EndOfData"
-				set end of theList to "EndOfData"
+				--set beginning of theList to "<<EndOfData"
+				--set end of theList to "EndOfData"
 				startStringEngine() of StringEngine
 				set theText to joinStringList of StringEngine for theList by lineFeed
 				stopStringEngine() of StringEngine
-				
+				set contents of pasteboard "general" to theText
+				log "berfore newFilterScriptExecuter"
 				set theFilterScriptExecuter to newFilterScriptExecuter of UnixScriptExecuter from theScriptFile
-				set postOption of theFilterScriptExecuter to theText
+				--set postOption of theFilterScriptExecuter to theText
+				log "before execution of a unix script"
 				set theResult to runScript() of theFilterScriptExecuter
+				log "after execution of a unix script"
 			end if
+			log "after execution"
 			
 			if theResult is not "" then
-				set useNewWindow to ((state of cell "InNewWindow" of matrix "ResultMode" of targetWindow) is on state)
+				set useNewWindow to ((state of cell "InNewWindow" of matrix "ResultMode" of my targetWindow) is on state)
 				if useNewWindow then
-					set docTitle to lastScriptName & "-stdout-" & ((current date) as string)
+					set docTitle to my lastItemName & "-stdout-" & ((current date) as string)
 					tell application "mi"
 						make new document with data theResult with properties {name:docTitle}
 						--set asksaving of document docTitle to false
@@ -100,6 +105,7 @@ on makeObj()
 				end if
 			end if
 			beep
+			log "end runFilterScript"
 		end runFilterScript
 	end script
 end makeObj
