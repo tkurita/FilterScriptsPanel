@@ -16,14 +16,10 @@
 				DA206CF3015C4E8B03C91932,
 				2C82E57F07939E4C00D28509,
 				2C7447C307937C4E00FDC383,
-				2CACC460079C04FC00B6E543,
 				2C7447B50793797800FDC383,
-				2C6FB98006243FF3004731C7,
 				2C10B9CB0617E97200598626,
 				2C6FB982062440FA004731C7,
 				2C10B9910616C1AA00598626,
-				2CC8C941078829FA00085682,
-				2CB30A4C0650EC5100BD0857,
 			);
 			isa = PBXGroup;
 			name = Scripts;
@@ -139,6 +135,7 @@
 		29B97314FDCFA39411CA2CEA = {
 			children = (
 				080E96DDFE201D6D7F000001,
+				2C42EE0D07B3797200C8005B,
 				29B97317FDCFA39411CA2CEA,
 				29B97315FDCFA39411CA2CEA,
 				29B97323FDCFA39411CA2CEA,
@@ -257,7 +254,7 @@
 	<key>CFBundleExecutable</key>
 	<string>FilterScriptsPanel</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0 copyright 2005, Tetsuro KURITA</string>
+	<string>1.0.1 copyright 2005, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>FilterScriptsPanel Help</string>
 	<key>CFBundleHelpBookName</key>
@@ -272,13 +269,17 @@
 	<string>FilterScriptsPanel</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSAppleScriptEnabled</key>
+	<string>YES</string>
+	<key>NSJavaNeeded</key>
 	<string>YES</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
@@ -369,6 +370,37 @@
 		};
 		2C10B9CC0617E97200598626 = {
 			fileRef = 2C10B9CB0617E97200598626;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					Debug,
+				);
+			};
+		};
+		2C42EE0D07B3797200C8005B = {
+			children = (
+				2C42EE1E07B3799B00C8005B,
+				2CACC460079C04FC00B6E543,
+				2C6FB98006243FF3004731C7,
+				2CC8C941078829FA00085682,
+				2CB30A4C0650EC5100BD0857,
+			);
+			isa = PBXGroup;
+			name = "Library Scripts";
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2C42EE1E07B3799B00C8005B = {
+			fileEncoding = "-2147483647";
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.applescript;
+			path = CommandBuilder.applescript;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2C42EE1F07B3799B00C8005B = {
+			fileRef = 2C42EE1E07B3799B00C8005B;
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
@@ -697,6 +729,7 @@
 				2C7447C407937C4E00FDC383,
 				2C82E58007939E4C00D28509,
 				2CACC461079C04FC00B6E543,
+				2C42EE1F07B3799B00C8005B,
 			);
 			isSharedContext = 0;
 			isa = PBXAppleScriptBuildPhase;
