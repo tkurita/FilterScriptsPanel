@@ -13,9 +13,12 @@ on makeObj(theWindow)
 		property scriptTable : missing value
 		
 		on initialize()
+			--log "start initialize in FilterPaletteController"
 			set scriptTable to table view "ScriptList" of scroll view "ScriptList" of my targetWindow
+			--log "before initialize of ScriptListObj"
 			initialize("Scripts") of ScriptListObj
 			continue initialize()
+			--log "end initialize in FilterPaletteController"
 		end initialize
 		
 		on readDefaults()
