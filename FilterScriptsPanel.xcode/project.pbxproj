@@ -174,7 +174,6 @@
 				2C82E5900793A8E800D28509,
 				29B97318FDCFA39411CA2CEA,
 				DA206CF4015C4E8B03C91932,
-				2CC8C94A07882A3600085682,
 				2C9E42BE052215CB00248965,
 			);
 			isa = PBXGroup;
@@ -260,7 +259,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>1.0 copyright 2005, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
-	<string>FilterScripts for mi Help</string>
+	<string>FilterScriptsPanel Help</string>
 	<key>CFBundleHelpBookName</key>
 	<string>FilterScripts for mi ヘルプ</string>
 	<key>CFBundleIconFile</key>
@@ -303,7 +302,6 @@
 				2C9E42C0052215CB00248965,
 				2C82E5B20793AC0400D28509,
 				2CFD5E8206521AC50068FEBB,
-				2CC8C94B07882A3600085682,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,20 +564,6 @@
 				);
 			};
 		};
-		2CC8C94A07882A3600085682 = {
-			fileEncoding = "-2147483647";
-			isa = PBXFileReference;
-			lastKnownFileType = text.xml;
-			path = FactorySettings.plist;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		2CC8C94B07882A3600085682 = {
-			fileRef = 2CC8C94A07882A3600085682;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
 		2CD607E60569023A00FAFD6B = {
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -613,7 +597,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$BUILD_STYLE\" = 'Development' ]; then\nhelpdir=\"$OBJROOT/$TARGET_NAME.app/Contents/Resources/$TARGET_NAME Help/\"\nmkdir -p \"$helpdir\"\nsitetears_path='/Users/tkurita/Factories/Perl factory/ProjectsX/SiteTears/SiteTears.pl'\nmanual_path='/Users/tkurita/Factories/Websites/scriptfactory folder/scriptfactory/ScriptGallery/TheOtherScripts/UnixScriptToolsFormi/manual/index.html'\nperl \"$sitetears_path\" \"$manual_path\" \"$helpdir/index.html\"\nopen -a '/Developer/Applications/Utilities/Apple Help Indexing Tool.app' \"$helpdir\"\nfi\n";
+			shellScript = "if [ \"$BUILD_STYLE\" = 'Deployment' ]; then\nhelpdir=\"$OBJROOT/$TARGET_NAME.app/Contents/Resources/$TARGET_NAME Help/\"\nmkdir -p \"$helpdir\"\nsitetears_path='/Users/tkurita/Factories/Perl factory/ProjectsX/SiteTears/SiteTears.pl'\nmanual_path='/Users/tkurita/Factories/Websites/scriptfactory folder/scriptfactory/ScriptGallery/TheOtherScripts/FilterScripts/manual/index.html'\nperl \"$sitetears_path\" \"$manual_path\" \"$helpdir/index.html\"\nopen -a '/Developer/Applications/Utilities/Apple Help Indexing Tool.app' \"$helpdir\"\nfi\n";
 		};
 //2C0
 //2C1
