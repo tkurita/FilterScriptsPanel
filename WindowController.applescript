@@ -1,6 +1,17 @@
 global DefaultsManager
 
-on makeObj(theWindow)
+on makeObj(argument)
+	--log (class of argument as unicode text)
+	if class of argument is in {window, panel} then
+		--log "argument is window"
+		set theWindow to argument
+		set theName to name of theWindow
+	else
+		--log "argument is not window"
+		set theWindow to missing value
+		set theName to argument
+	end if
+	
 	script WindowController
 		property DialogOwner : missing value
 		property isAttached : false
@@ -9,6 +20,7 @@ on makeObj(theWindow)
 		property isOpened : false
 		property isShown : false
 		property targetWindow : theWindow
+		property windowName : theName
 		property isInitialized : false
 		property windowBounds : {}
 		property windowBoundsKey : missing value
@@ -17,7 +29,13 @@ on makeObj(theWindow)
 		
 		on initialize()
 			--log "start initialize in WindowController"
-			set windowBoundsKey to "WindowBounds_" & (name of targetWindow)
+			if targetWindow is missing value then
+				load nib windowName
+				--log "after load nib"
+				set targetWindow to window windowName
+			end if
+			
+			set windowBoundsKey to "WindowBounds_" & windowName
 			readDefaults()
 			applyDefaults()
 			set isInitialized to true
@@ -32,6 +50,10 @@ on makeObj(theWindow)
 			if not isOpened then
 				showWindow()
 				set isOpened to true
+			else
+				if isShown then
+					show targetWindow
+				end if
 			end if
 		end openWindow
 		
@@ -88,7 +110,7 @@ on makeObj(theWindow)
 			if not (isAttached) then
 				set isAttached to true
 				display dialog theMessage attached to targetWindow buttons {"OK"} default button "OK"
-				set DialogOwner to "Message_" & (name of targetWindow)
+				set DialogOwner to "Message_" & windowName
 				return true
 			else
 				return false
@@ -127,6 +149,7 @@ on makeObj(theWindow)
 			else
 				set bounds of targetWindow to windowBounds
 			end if
+			--log "end applyDefaults in WindowController"
 		end applyDefaults
 		
 		on toggleCollapseWIndow()
