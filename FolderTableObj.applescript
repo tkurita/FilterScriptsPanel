@@ -8,11 +8,12 @@ property targetTable : missing value
 
 property listName : missing value
 property lastRebuidDateLabel : missing value
-property scriptList : missing value
+property itemList : missing value
 property FolderItemSorter : missing value
 property isInitialized : false
 property lastItemName : missing value
 property selectedDataRow : missing value
+property selectedItemAlias : missing value
 property lastRebuildDate : missing value
 
 on initialize(targetName)
@@ -38,9 +39,9 @@ on readTableContents()
 		--display dialog (lastRebuildDate as string) & return & (currentModDate as string)
 		
 		if lastRebuildDate > currentModDate then
-			set scriptList to readDefaultValueWith(listName, scriptList) of DefaultsManager
+			set itemList to readDefaultValueWith(listName, itemList) of DefaultsManager
 			--log "before append"
-			append targetDataSource with scriptList
+			append targetDataSource with itemList
 			--log "after append"
 		else
 			rebuild()
@@ -70,7 +71,7 @@ end updateTableContents
 
 on makeTableContentsDefaults()
 	--log "start makeTableContentsDefaults"
-	make new default entry at end of default entries of user defaults with properties {name:listName, contents:scriptList}
+	make new default entry at end of default entries of user defaults with properties {name:listName, contents:itemList}
 	make new default entry at end of default entries of user defaults with properties {name:lastRebuidDateLabel, contents:current date}
 	--log "end makeTableContentsDefaults"
 end makeTableContentsDefaults
@@ -78,17 +79,17 @@ end makeTableContentsDefaults
 on rebuild()
 	--log "start rebuild"
 	set {pathList, nameList, indexList} to sortByView() of FolderItemSorter
-	set scriptList to {}
+	set itemList to {}
 	repeat with ith from 1 to length of nameList
-		set end of scriptList to {|name|:item ith of nameList}
+		set end of itemList to {|name|:item ith of nameList}
 	end repeat
 	delete (every data row of targetDataSource)
-	append targetDataSource with scriptList
+	append targetDataSource with itemList
 end rebuild
 
 on writeTableContents()
 	--log "start writeTableContents"
-	set contents of default entry listName of user defaults to scriptList
+	set contents of default entry listName of user defaults to itemList
 	set contents of default entry (lastRebuidDateLabel) of user defaults to current date
 end writeTableContents
 
