@@ -73,7 +73,7 @@ on open theObject
 end open
 
 on idle theObject
-	log "start idle"
+	--log "start idle"
 	
 	if (FreeTime) > lifeTime then
 		quit
@@ -142,7 +142,6 @@ end dialog ended
 on will finish launching theObject
 	--log "start will finish launching"
 	set DefaultsManager to importScript("DefaultsManager")
-	loadFactorySettings("FactorySettings") of DefaultsManager
 	
 	set UtilityHandlers to importScript("UtilityHandlers")
 	set MessageUtility to importScript("MessageUtility")
@@ -161,7 +160,7 @@ on will finish launching theObject
 	set FilterPaletteController to importScript("FilterPaletteController")
 	set FilterPaletteController to makeObj(window "FilterScripts") of FilterPaletteController
 	
-	log "end of importScripts"
+	--log "end of importScripts"
 	--log (path to current application)
 	tell application "System Events"
 		set currentAppName to name of (path to current application)
@@ -169,7 +168,7 @@ on will finish launching theObject
 	
 	--center window "Setting"
 	--set miAppRef to path to application "mi" as alias
-	log "end finish launching"
+	--log "end finish launching"
 end will finish launching
 
 on will close theObject
@@ -185,4 +184,10 @@ on should zoom theObject proposed bounds proposedBounds
 		return toggleCollapsePanel of FilterPaletteController
 	end if
 end should zoom
+
+on will quit theObject
+	if isOpened of FilterPaletteController then
+		prepareClose() of FilterPaletteController
+	end if
+end will quit
 
