@@ -1,4 +1,3 @@
-global CommandBuilder
 global MessageUtility
 global lineFeed
 
@@ -18,17 +17,7 @@ on makeObj(theScriptFile)
 		error "The document does not start with #!." number 1620
 	end if
 	
-	set theCommandBuilder to makeObj(theScriptFile, theScriptCommand) of CommandBuilder
-	set preOption of theCommandBuilder to "pbpaste|"
-	
-	script FilterScriptExecuter
-		property parent : theCommandBuilder
-		
-		on runScript()
-			--log "start runScript in FilterScriptExecuter"
-			set allCommand to my buildCommand()
-			--log "exec command : " & allCommand
-			return do shell script allCommand
-		end runScript
-	end script
+	set scriptRunner to call method "alloc" of class "ScriptRunner"
+	call method "initWithScriptFile:withCommand:" of scriptRunner with parameters {POSIX path of theScriptFile, theScriptCommand}
+	return scriptRunner
 end makeObj

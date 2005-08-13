@@ -8,27 +8,17 @@ property MessageUtility : missing value
 property DefaultsManager : missing value
 
 property ScriptListObj : missing value
-property FilterPaletteController : missing value
-property CommandBuilder : missing value
 property UnixScriptExecuter : missing value
-property UnixScriptObj : missing value
-property WindowController : missing value
 property ScriptSorterObj : missing value
 property NewFilterScriptObj : missing value
 property FolderTableObj : missing value
+property SheetManager : missing value
 
+property PaletteWindowController : missing value
 (*shared constants *)
 property dQ : ASCII character 34
 property yenmark : ASCII character 92
 property lineFeed : ASCII character 10
-property idleTime : 1
-
-(* shared variable *)
-property isShouldShow : false
-property FreeTime : 0 -- second
-property DialogOwner : missing value
-property currentAppName : missing value
--- property miAppRef : missing value
 
 (* application setting *)
 property lifeTime : 60 * 60 -- sec
@@ -47,7 +37,7 @@ end importScript
 
 on launched theObject
 	--log "start launched"
-	openWindow() of FilterPaletteController
+	call method "showWindow:" of PaletteWindowController
 	(*debug code*)
 	--openPanel() of NewFilterScriptObj
 	(*end of debug code*)
@@ -64,7 +54,7 @@ on open theObject
 		end try
 		
 		if theCommandID is "ShowFilterScripts" then
-			openWindow() of FilterPaletteController
+			call method "showWindow:" of PaletteWindowController
 		else if theCommandID is "Help" then
 			call method "showHelp:"
 		end if
@@ -73,24 +63,6 @@ on open theObject
 	--display dialog theCommandID
 	return true
 end open
-
-on idle theObject
-	--log "start idle"
-	
-	if (FreeTime) > lifeTime then
-		quit
-	end if
-	
-	if (isOpened of FilterPaletteController) then
-		set frontAppPath to path to frontmost application as Unicode text
-		set isShouldShow to (frontAppPath ends with (":" & currentAppName & ":")) or (frontAppPath ends with ":mi:")
-		updateVisibility(isShouldShow) of FilterPaletteController
-	else
-		set FreeTime to FreeTime + idleTime
-	end if
-	
-	return idleTime
-end idle
 
 on clicked theObject
 	set theName to name of theObject
@@ -107,8 +79,15 @@ on clicked theObject
 		makeNewScript() of NewFilterScriptObj
 	else if theName is "NewScriptCancel" then
 		closePanel() of NewFilterScriptObj
-	else if theName is "ScriptErrorOK" then
-		closeAttachedPanel() of FilterPaletteController
+	else if theName is "RemoveScript" then
+		removeScript() of ScriptListObj
+	else if theName is "ReloadScripts" then
+		rebuild() of ScriptListObj
+	else if theName is "OpenScriptsFolder" then
+		tell application "Finder"
+			activate
+			open targetFolder of ScriptListObj
+		end tell
 	end if
 end clicked
 
@@ -116,8 +95,8 @@ on awake from nib theObject
 	set theName to name of theObject
 	--log "start awake from nib for " & theName
 	if theName is "FilterScripts" then
-		set hides when deactivated of theObject to false
-		set floating of theObject to true
+		--set hides when deactivated of theObject to false
+		--set floating of theObject to true
 		
 	else if theName is "scriptDataSource" then
 		tell theObject
@@ -127,20 +106,25 @@ on awake from nib theObject
 		tell theObject
 			make new data column at the end of the data columns with properties {name:"name"}
 		end tell
+	else if theName is "PaletteWindowController" then
+		set PaletteWindowController to theObject
+	else if theName is "ScriptList" then
+		initialize("Scripts") of ScriptListObj
 	end if
 	--log "end awake from nib"
 end awake from nib
 
 on double clicked theObject
+	set theIndicator to progress indicator "workingIndicator" of window "FilterScripts"
+	call method "setHidden:" of theIndicator with parameters {false}
+	start theIndicator
 	runFilterScript() of ScriptListObj
+	stop theIndicator
+	call method "setHidden:" of theIndicator with parameters {true}
 end double clicked
 
 on dialog ended theObject with reply theReply
-	if DialogOwner is "RenameScript" then
-		doRename(theReply) of ScriptListObj
-	else if DialogOwner is "NewScript" then
-		--makeNewScript(theReply) of ScriptListObj
-	end if
+	transferToOwner of SheetManager for theReply from theObject
 end dialog ended
 
 on will finish launching theObject
@@ -150,7 +134,6 @@ on will finish launching theObject
 	set UtilityHandlers to importScript("UtilityHandlers")
 	set MessageUtility to importScript("MessageUtility")
 	
-	set CommandBuilder to importScript("CommandBuilder")
 	set UnixScriptExecuter to importScript("UnixScriptExecuter")
 	
 	set ScriptSorterObj to importScript("ScriptSorterObj")
@@ -161,39 +144,9 @@ on will finish launching theObject
 	set NewFilterScriptObj to importScript("NewFilterScriptObj")
 	set NewFilterScriptObj to makeObj() of NewFilterScriptObj
 	
+	set SheetManager to importScript("SheetManager")
 	
-	set WindowController to importScript("WindowController")
-	set FilterPaletteController to importScript("FilterPaletteController")
-	set FilterPaletteController to makeObj(window "FilterScripts") of FilterPaletteController
-	
-	--log "end of importScripts"
-	--log (path to current application)
-	tell application "System Events"
-		set currentAppName to name of (path to current application)
-	end tell
-	
-	--center window "Setting"
-	--set miAppRef to path to application "mi" as alias
 	--log "end finish launching"
 end will finish launching
 
-on will close theObject
-	set theName to name of theObject
-	if theName is "FilterScripts" then
-		prepareClose() of FilterPaletteController
-	end if
-end will close
-
-on should zoom theObject proposed bounds proposedBounds
-	set theName to name of theObject
-	if theName is "FilterScripts" then
-		return toggleCollapsePanel() of FilterPaletteController
-	end if
-end should zoom
-
-on will quit theObject
-	if isOpened of FilterPaletteController then
-		prepareClose() of FilterPaletteController
-	end if
-end will quit
 

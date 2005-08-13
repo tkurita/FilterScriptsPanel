@@ -1,9 +1,7 @@
-global FilterPaletteController
 global FolderTableObj
 global ScriptListObj
 global UtilityHandlers
-
-global DialogOwner
+global SheetManager
 
 on makeObj()
 	copy FolderTableObj to newFolderTableObj
@@ -27,11 +25,11 @@ on makeObj()
 			else
 				updateTableContents()
 			end if
-			attachPanel(my targetWindow) of FilterPaletteController
+			display my targetWindow attached to window "FilterScripts"
 		end openPanel
 		
 		on closePanel()
-			closeAttachedPanel() of FilterPaletteController
+			close panel my targetWindow
 		end closePanel
 		
 		on makeNewScript()
@@ -56,8 +54,13 @@ on makeObj()
 		end makeNewScript
 		
 		on displayNewScriptName(theMessage)
-			set DialogOwner to "NewScript"
-			set theReply to display dialog theMessage attached to my targetWindow buttons {"OK"} default button "OK"
+			display dialog theMessage attached to my targetWindow buttons {"OK"} default button "OK"
+			script newNameTransfer
+				on sheetEnded(theReply)
+					makeNewScript(theReply)
+				end sheetEnded
+			end script
+			addSheetRecord of SheetManager given parentWindow:my targetWindow, ownerObject:newNameTransfer
 		end displayNewScriptName
 		
 	end script
