@@ -11,7 +11,7 @@
 	BOOL isMiLaunched = NO;
 	while (appDict = [enumerator nextObject]) {
 		NSString *appName = [appDict objectForKey:@"NSApplicationName"];
-		if ([appName isEqualToString:appName] ) {
+		if ([appName isEqualToString:@"mi"] ) {
 			isMiLaunched = YES;
 			break;
 		}
@@ -33,7 +33,7 @@
 #pragma mark delegate of NSApplication
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	NSLog(@"start applicationDidFinishLaunching");
+	//NSLog(@"start applicationDidFinishLaunching");
 	appQuitTimer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(checkQuit:) userInfo:nil repeats:YES];
 	[appQuitTimer retain];
 	
@@ -44,8 +44,6 @@
 	NSDictionary *defautlsDict = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	[userDefaults registerDefaults:defautlsDict];
-	//NSArray *tmpEnvVariables = [userDefaults arrayForKey:@"enviromentVariables"];
-	//NSLog([tmpEnvVariables description]);
 }
 
 @end
