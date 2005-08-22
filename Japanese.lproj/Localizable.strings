@@ -17,5 +17,7 @@
 /*ScriptListObj::makeNewScript*/
 "isExists" = "は既に存在します。\r別のスクリプト名を入力してください。";
 
+"removeConfirm" = "スクリプト $1 を削除しますか？";
+
 /*FolderTableObj::getSelectedItem*/
 "noOriginalItem" = "エイリアスファイルのオリジナルが見つかりません。";
