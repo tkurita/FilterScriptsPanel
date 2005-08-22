@@ -1,83 +1,68 @@
 #import "PaletteWindowController.h"
-#import "ScriptRunner.h"
-#import "PrefsWindowController.h"
 
-static const int DIALOG_OK		= 128;
-//static const int DIALOG_ABORT	= 129;
+#define useLog 0
 
 @implementation PaletteWindowController
 
 #pragma mark init and actions
-- (id)init
-{
-	[super init];
-	isCollapsed = NO;
-	frameName = @"FilterScriptsPanel";
-	return self;
-}
 
 - (IBAction)showWindow:(id)sender
 {
-	//NSLog(@"showWindow");
+#if useLog
+	NSLog(@"start showWindow");
+#endif
+	id theWindow = [self window];
+	[theWindow center];
+	[theWindow setFrameUsingName:frameName];
+	
 	[super showWindow:sender];
 	[self setDisplayToggleTime];
-	//[self toggleCollapse];
+
+	NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
+	[notiCenter addObserver:self selector:@selector(willApplicationQuit:) name:NSApplicationWillTerminateNotification object:nil];	
 }
 
-- (IBAction)showPrefsWindow:(id)sender
+- (void)dealloc
 {
-	PrefsWindowController *prefsController = [[PrefsWindowController alloc] initWithWindowNibName:@"PreferenceWindow"];
-	[[NSApplication sharedApplication] beginSheet:[prefsController window] 
-								   modalForWindow:[self window] 
-									modalDelegate:self 
-								   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) 
-									  contextInfo:nil];
+	[frameName release];
+	[contentViewBuffer release];
+	
+	[super dealloc];
 }
 
+- (void)setFrameName:(NSString *)theName
+{
+	[frameName autorelease];
+	frameName = [theName retain];
+}
+
+- (void)setApplicationsFloatingOnFromDefaultName:(NSString *)entryName
+{
+#if useLog
+	NSLog(@"setApplicationsFloatingOnFromDefaultName");
+#endif
+	[applicationsFloatingOn autorelease];
+	applicationsFloatingOn = [[[NSUserDefaults standardUserDefaults] arrayForKey:entryName] retain];
+}
 
 #pragma mark methods for others
-- (void)saveDefaults:(NSNotification *)aNotification
+- (void)willApplicationQuit:(NSNotification *)aNotification
 {
-	int selectedIndex = [scriptList selectedRow];
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setInteger:selectedIndex forKey:@"selectedItem"];	
+	[self saveDefaults];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-#pragma mark methods for sheets
-- (IBAction)newScriptCancel:(id)sender
+- (void)saveDefaults
 {
+	NSWindow *theWindow = [self window];
+	if (!isCollapsed) [theWindow saveFrameUsingName:frameName];
 }
 
-- (IBAction)newScriptOK:(id)sender
+- (void)useFloating
 {
-}
-
-#pragma mark methods for error message sheets
-- (IBAction)errorOK:(id)sender
-{
-	[[NSApplication sharedApplication] endSheet: [sender window] returnCode:DIALOG_OK];
-}
-
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
-{
-    [sheet orderOut:self];
-}
-
-- (void)showErrorMessage:(NSString *)errorText
-{	
-	[[NSApplication sharedApplication] beginSheet:errorPanel 
-								   modalForWindow:[self window] 
-									modalDelegate:self 
-								   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) 
-									  contextInfo:nil];
-	[errorTextView setString:errorText];
-}
-
-- (void)showErrorMessageWithNotification:(NSNotification *)aNotification
-{
-	ScriptRunner *theRunner = [aNotification object];
-	[self showErrorMessage:[theRunner standardError]];
+	id theWindow = [self window];
+	[theWindow setHidesOnDeactivate:NO];
+	[theWindow setLevel:NSFloatingWindowLevel];
 }
 
 
@@ -94,31 +79,31 @@ static const int DIALOG_OK		= 128;
 
 - (void)collapseAction
 {
-	[self toggleCollapseWithDisplay:NO];
+	[self toggleCollapseWithAnimate:NO];
 }
 
-- (void)toggleCollapseWithDisplay:(BOOL)flag
+- (void)toggleCollapseWithAnimate:(BOOL)flag
 {
-	id theWindow = [self window];
+	NSWindow *theWindow = [self window];
 	NSRect windowRect = [theWindow frame];
 
 	if (isCollapsed) {
 		windowRect.origin.y = windowRect.origin.y - expandedRect.size.height + windowRect.size.height;
 		windowRect.size.height = expandedRect.size.height;
-		[theWindow setFrame:windowRect display:flag animate:flag];
+		[theWindow setFrame:windowRect display:YES animate:flag];
 		[theWindow saveFrameUsingName:frameName];
-		[scrollView setFrame:scriptListFrame];
+		[theWindow setContentView:contentViewBuffer];
 		isCollapsed = NO;
 		
 	}
 	else {
 		expandedRect = windowRect;
 		NSRect contentRect = [NSWindow contentRectForFrameRect:windowRect styleMask:[theWindow styleMask]];
-		scriptListFrame = [scrollView frame];
 		windowRect.origin.y = windowRect.origin.y + NSHeight(contentRect);
 		windowRect.size.height = NSHeight(windowRect) - NSHeight(contentRect);
 		[theWindow saveFrameUsingName:frameName];
-		[theWindow setFrame:windowRect display:flag animate:flag];
+		[theWindow setContentView:nil];
+		[theWindow setFrame:windowRect display:YES animate:flag];
 		
 		isCollapsed = YES;		
 	}
@@ -126,13 +111,17 @@ static const int DIALOG_OK		= 128;
 
 - (void)updateVisibility:(NSTimer *)theTimer
 {
+#if useLog
+	NSLog(@"updateVisibility:");
+#endif
 	NSString *appName = [[[NSWorkspace sharedWorkspace] activeApplication] objectForKey:@"NSApplicationName"];
 	if (appName == nil) {
 		return;
 	}
 
 	id theWindow = [self window];
-	if ([appName isEqualToString:@"mi"]) {
+
+	if ([applicationsFloatingOn containsObject:appName]){
 		if (![theWindow isVisible]) [super showWindow:self];
 	}
 	else {
@@ -144,52 +133,57 @@ static const int DIALOG_OK		= 128;
 
 - (void)setDisplayToggleTime
 {
+#if useLog
+	NSLog(@"setDisplayToggleTime");
+#endif
+	if (displayToggleTime != nil) {
+		[displayToggleTime invalidate];
+	}
 	[displayToggleTime release];
 	displayToggleTime = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateVisibility:) userInfo:nil repeats:YES];
 	[displayToggleTime retain];
 }
 
-#pragma mark delegates
+- (void)useWindowCollapse
+{
+	isCollapsed = NO;
+	id theWindow = [self window];
+	contentViewBuffer = [[theWindow contentView] retain];
+	NSButton *zoomButton = [theWindow standardWindowButton:NSWindowZoomButton];
+	[zoomButton setTarget:self];
+	[zoomButton setAction:@selector(collapseAction)];
+}
+
+#pragma mark delegates and overriding methods
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize
+{
+	if (isCollapsed) {
+		NSRect currentRect = [sender frame];
+		return currentRect.size;
+	}
+	else {
+		return proposedFrameSize;
+	}
+}
+
 - (void)windowWillClose:(NSNotification *)aNotification
 {
+#if useLog
 	NSLog(@"start windowWillClose:");
-	if (!isCollapsed) [[aNotification object] saveFrameUsingName:frameName];
-	int selectedIndex = [scriptList selectedRow];
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setInteger:selectedIndex forKey:@"selectedItem"];
-	//[userDefaults synchronize];
+#endif
+	[self saveDefaults];
 }
 
 - (BOOL)windowShouldClose:(id)sender
 {
-	NSLog(@"windowShouldClose");
-	[displayToggleTime invalidate];
-	if (!isCollapsed) [sender saveFrameUsingName:frameName];
+#if useLog
+	NSLog(@"start windowShouldClose");
+#endif
+	if (displayToggleTime != nil) {
+		[displayToggleTime invalidate];
+	}
+	[self saveDefaults];
 	return YES;
 }
 
-- (void)awakeFromNib
-{
-	NSLog(@"start awakeFromNib in PaletteWindowController");
-	id theWindow = [self window];
-	[theWindow center];
-	//[theWindow setFrameAutosaveName:@"FilterScriptsPanel"];	
-	//setup window properties
-	[theWindow setFrameUsingName:frameName];
-	[theWindow setHidesOnDeactivate:NO];
-	[theWindow setLevel:NSFloatingWindowLevel];
-	[theWindow setWindowController:self];
-	
-	//set zoom button
-	NSButton *zoomButton = [theWindow standardWindowButton:NSWindowZoomButton];
-	[zoomButton setTarget:self];
-	[zoomButton setAction:@selector(collapseAction)];
-	
-	//setup notification
-	NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
-	[notiCenter addObserver:self selector:@selector(showErrorMessageWithNotification:) name:@"ScriputRunnerDidEndWithError" object:nil];
-	[notiCenter addObserver:self selector:@selector(saveDefaults:) name:NSApplicationWillTerminateNotification object:nil];
-	//read apply user defaults
-	NSLog(@"end awakeFromNib in PaletteWindowController");
-}
 @end

@@ -4,28 +4,31 @@
 
 @interface PaletteWindowController : NSWindowController
 {
-    IBOutlet id errorPanel;
-    IBOutlet id errorTextView;
-    IBOutlet id newScriptPanel;
-    IBOutlet id progressIndicator;
-	IBOutlet id scriptList;
-	IBOutlet id scrollView;
 	NSTimer *displayToggleTime;
 	BOOL isCollapsed;
 	NSRect expandedRect;
 	NSString *frameName;
-	NSRect scriptListFrame;
+	id contentViewBuffer;
+	NSArray *applicationsFloatingOn;
 }
-- (IBAction)errorOK:(id)sender;
-- (IBAction)newScriptCancel:(id)sender;
-- (IBAction)newScriptOK:(id)sender;
-- (IBAction)showPrefsWindow:(id)sender;
 
+//accessor methods
+- (void)setFrameName:(NSString *)theName;
+
+//setup behavior
+- (void)setApplicationsFloatingOnFromDefaultName:(NSString *)entryName;
+- (void)useWindowCollapse;
+- (void)useFloating;
+
+//methods for override
+- (void)saveDefaults;
+
+//private
+- (void)collapseAction;
 - (void)setDisplayToggleTime;
 - (void)updateVisibility:(NSTimer *)theTimer;
 - (float)titleBarHeight;
-- (void)toggleCollapseWithDisplay:(BOOL)flag;
-- (void)collapseAction;
-- (void)showErrorMessage:(NSString *)errorText;
+- (void)toggleCollapseWithAnimate:(BOOL)flag;
+- (void)willApplicationQuit:(NSNotification *)aNotification;
 
 @end
