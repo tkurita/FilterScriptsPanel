@@ -14,7 +14,6 @@ property NewFilterScriptObj : missing value
 property FolderTableObj : missing value
 property SheetManager : missing value
 
-property PaletteWindowController : missing value
 (*shared constants *)
 property dQ : ASCII character 34
 property yenmark : ASCII character 92
@@ -37,7 +36,7 @@ end importScript
 
 on launched theObject
 	--log "start launched"
-	call method "showWindow:" of PaletteWindowController
+	openWindow() of ScriptListObj
 	(*debug code*)
 	--openPanel() of NewFilterScriptObj
 	(*end of debug code*)
@@ -54,7 +53,7 @@ on open theObject
 		end try
 		
 		if theCommandID is "ShowFilterScripts" then
-			call method "showWindow:" of PaletteWindowController
+			openWindow() of ScriptListObj
 		else if theCommandID is "Help" then
 			call method "showHelp:"
 		end if
@@ -66,6 +65,7 @@ end open
 
 on clicked theObject
 	set theName to name of theObject
+	--log "clicked " & theName
 	if theName is "EditScript" then
 		set theScript to getSelectedItem() of ScriptListObj
 		tell application "Finder"
@@ -79,15 +79,22 @@ on clicked theObject
 		makeNewScript() of NewFilterScriptObj
 	else if theName is "NewScriptCancel" then
 		closePanel() of NewFilterScriptObj
+	else if theName is "ReloadNewScripts" then
+		rebuild() of NewFilterScriptObj
+	else if theName is "OpenNewScriptFolder" then
+		tell application "Finder"
+			open targetFolder of NewFilterScriptObj
+		end tell
+		call method "smartActivate:" with parameter "MACS"
 	else if theName is "RemoveScript" then
 		removeScript() of ScriptListObj
 	else if theName is "ReloadScripts" then
 		rebuild() of ScriptListObj
 	else if theName is "OpenScriptsFolder" then
 		tell application "Finder"
-			activate
 			open targetFolder of ScriptListObj
 		end tell
+		call method "smartActivate:" with parameter "MACS"
 	end if
 end clicked
 
@@ -106,10 +113,6 @@ on awake from nib theObject
 		tell theObject
 			make new data column at the end of the data columns with properties {name:"name"}
 		end tell
-	else if theName is "PaletteWindowController" then
-		set PaletteWindowController to theObject
-	else if theName is "ScriptList" then
-		initialize("Scripts") of ScriptListObj
 	end if
 	--log "end awake from nib"
 end awake from nib
@@ -142,7 +145,6 @@ on will finish launching theObject
 	set ScriptListObj to importScript("ScriptListObj")
 	set ScriptListObj to makeObj() of ScriptListObj
 	set NewFilterScriptObj to importScript("NewFilterScriptObj")
-	set NewFilterScriptObj to makeObj() of NewFilterScriptObj
 	
 	set SheetManager to importScript("SheetManager")
 	

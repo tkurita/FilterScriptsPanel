@@ -2,20 +2,30 @@ global UtilityHandlers
 global DefaultsManager
 global FolderTableObj
 global SheetManager
-global PaletteWindowController
+global NewFilterScriptObj
 
 on makeObj()
 	copy FolderTableObj to newFolderTableObj
 	
 	script FilterScriptListObj
 		property parent : newFolderTableObj
+		property WindowController : missing value
 		global UnixScriptExecuter
 		global StringEngine
 		global lineFeed
 		
+		on openWindow()
+			if WindowController is missing value then
+				initialize("Scripts")
+			end if
+			call method "showWindow:" of WindowController
+		end openWindow
+		
 		on initialize(targetName)
 			--log "start initilize of ScriptListObj"
-			set my targetWindow to window "FilterScripts"
+			set WindowController to call method "alloc" of class "ScriptListController"
+			set WindowController to call method "initWithWindowNibName:" of WindowController with parameter "ScriptWindow"
+			set my targetWindow to call method "window" of WindowController
 			set my targetTable to table view "ScriptList" of scroll view "ScriptListScroll" of my targetWindow
 			set my targetDataSource to data source of my targetTable
 			--log "before continue initialize"
@@ -28,7 +38,7 @@ on makeObj()
 			end if
 			set selectedItem to readDefaultValueWith("selectedItem", -1) of DefaultsManager
 			set selected row of my targetTable to selectedItem + 1
-			
+			set NewFilterScriptObj to makeObj() of NewFilterScriptObj
 			--log "end initialize of ScriptListObj"
 		end initialize
 		
@@ -66,10 +76,12 @@ on makeObj()
 			script removeTransfer
 				property targetItem : selectedItem
 				on sheetEnded(theReply)
-					tell application "Finder"
-						delete targetItem
-					end tell
-					rebuild()
+					if (text returned of theReply is "OK") then
+						tell application "Finder"
+							delete targetItem
+						end tell
+						rebuild()
+					end if
 				end sheetEnded
 			end script
 			addSheetRecord of SheetManager given parentWindow:my targetWindow, ownerObject:removeTransfer
@@ -100,7 +112,7 @@ on makeObj()
 				try
 					set theResult to run script theScriptFile with parameters {theText}
 				on error errMsg number errNum
-					call method "showErrorMessage:" of PaletteWindowController with parameter errMsg
+					call method "showErrorMessage:" of WindowController with parameter errMsg
 					--set contents of text view "ScriptError" of scroll view "ScriptError" of window "ScriptError" to errMsg
 					--display targetPanel attached to my targetWindow
 					set theResult to ""
