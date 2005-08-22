@@ -1,10 +1,13 @@
 #import "ScriptRunner.h"
 
+#define useLog 0
 
 @implementation ScriptRunner
 - (id)initWithScriptFile:(NSString *)path withCommand:(NSString *)command;
 {
+#if useLog
 	NSLog(@"start initWithScriptFile");
+#endif
 	[self init];
 	[self setScriptTask:[self taskWithEnviroments]];
 	NSString *dirPath = [path stringByDeletingLastPathComponent];
@@ -40,8 +43,9 @@
 	}
 	[argArray addObject:path];
 	[scriptTask setArguments:argArray];
-
+#if useLog
 	NSLog(@"end initWithScriptFile");
+#endif
 	return self;
 }
 
@@ -98,7 +102,9 @@
 // public methods
 - (void)launchTaskWithString:(NSString *)inputString;
 {
-	//NSLog(@"start launchTaskWithString");
+#if useLog
+	NSLog(@"start launchTaskWithString");
+#endif
 	NSPipe *inputPipe = [NSPipe pipe];
 	NSFileHandle *inputHandle = [inputPipe fileHandleForWriting];
 	[scriptTask setStandardInput:inputPipe];
@@ -116,8 +122,9 @@
 		NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
 		[notiCenter postNotificationName:@"ScriputRunnerDidEndWithError" object:self];
 	}
-	
+#if useLog	
 	NSLog(@"end launchTaskWithString");
+#endif
 }
 
 - (int)terminationStatus
@@ -146,6 +153,5 @@
 	[scriptTask release];
 	scriptTask = aTask;
 }
-
 
 @end
