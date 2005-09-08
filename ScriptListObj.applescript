@@ -118,10 +118,10 @@ on makeObj()
 					set theResult to ""
 				end try
 			else
-				set thelist to every paragraph of theText
+				set theList to every paragraph of theText
 				startStringEngine() of StringEngine
 				--set theText to joinStringList of StringEngine for thelist by lineFeed
-				set theText to joinUTextList of StringEngine for thelist by lineFeed
+				set theText to joinUTextList of StringEngine for theList by lineFeed
 				stopStringEngine() of StringEngine
 				set theFilterScriptExecuter to makeObj(theScriptFile) of UnixScriptExecuter
 				--log "before launchTaskWithString"
@@ -131,6 +131,11 @@ on makeObj()
 				set terminationStatus to call method "terminationStatus" of theFilterScriptExecuter
 				if terminationStatus is 0 then
 					set theResult to call method "standardOutput" of theFilterScriptExecuter
+					set theList to every paragraph of theResult
+					startStringEngine() of StringEngine
+					set theResult to joinStringList of StringEngine for theList by return
+					stopStringEngine() of StringEngine
+					
 				else
 					set theResult to ""
 				end if
@@ -145,7 +150,7 @@ on makeObj()
 				if useNewWindow then
 					set docTitle to (my lastItemName & "-stdout-" & (current date)) as Unicode text
 					tell application "mi"
-						--make new document with data theResult with properties {name:docTitle}
+						--make new document with data theResult with properties {name:docTitle} -- does not work with mi 2.1.7
 						make new document with properties {name:docTitle, content:theResult}
 						--set asksaving of document docTitle to false
 					end tell
