@@ -113,10 +113,14 @@
 - (void)sendData:(NSString *)inputString
 {
 	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
-	NSData *inputData = [inputString dataUsingEncoding:NSUTF8StringEncoding];
+   	NSMutableString *string = [inputString mutableCopy];
+	[string replaceOccurrencesOfString:@"\r" withString:@"\n" options:NULL range: NSMakeRange(0, [inputString length])];
+
+	NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
 	NSFileHandle *inputHandle = [[scriptTask standardInput] fileHandleForWriting];
 	[inputHandle writeData:inputData];
 	[inputHandle closeFile];
+	
 	[pool release];
 #if useLog
 	NSLog(@"end of sendData");
@@ -187,7 +191,9 @@
 
 - (NSString *)outputString
 {
-	return [[[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding] autorelease];
+	NSMutableString *string = [[[NSMutableString alloc] initWithData:outputData encoding:NSUTF8StringEncoding] autorelease];
+	[string replaceOccurrencesOfString:@"\n" withString:@"\r" options:NULL range: NSMakeRange(0, [string length])];
+	return string;
 }
 
 - (int)terminationStatus
