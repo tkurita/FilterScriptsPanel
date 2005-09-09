@@ -55,6 +55,18 @@ static const int DIALOG_OK		= 128;
 	[self showErrorMessage:[theRunner standardError]];
 }
 
+- (void)didEndScriptRunner:(NSNotification *)aNotification
+{
+#if useLog
+	NSLog(@"didEndScriptRunner");
+#endif
+	[endOfTask performClick:self];
+	ScriptRunner *theRunner = [aNotification object];
+	if ([theRunner terminationStatus] != 0) {
+		[self showErrorMessageWithNotification:aNotification];
+	}
+}
+
 #pragma mark delgate and override and notification
 
 - (void)saveDefaults
@@ -77,7 +89,7 @@ static const int DIALOG_OK		= 128;
 	
 	//setup notification
 	NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
-	[notiCenter addObserver:self selector:@selector(showErrorMessageWithNotification:) name:@"ScriputRunnerDidEndWithError" object:nil];
+	[notiCenter addObserver:self selector:@selector(didEndScriptRunner:) name:@"ScriptRunnerDidEndNotification" object:nil];
 }
 
 @end

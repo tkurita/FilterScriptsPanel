@@ -3,6 +3,9 @@
 #define useLog 0
 
 @implementation ScriptRunner
+
+#pragma mark init and dealloc
+
 - (id)initWithScriptFile:(NSString *)path withCommand:(NSString *)command;
 {
 #if useLog
@@ -43,6 +46,11 @@
 	}
 	[argArray addObject:path];
 	[scriptTask setArguments:argArray];
+	
+	//setup notification
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndTask:) name:NSTaskDidTerminateNotification object:scriptTask];
+	
+	outputData = [[NSMutableData data] retain];
 #if useLog
 	NSLog(@"end initWithScriptFile");
 #endif
@@ -52,10 +60,11 @@
 - (void)dealloc
 {
 	[scriptTask release];
+	[outputData release];
 	[super dealloc];
 }
 
-//internal methods
+#pragma mark internal methods of setup task
 - (NSString *)findCommandPath:(NSString *)commandPath
 {
 	NSTask *whichTask = [self taskWithEnviroments];
@@ -99,32 +108,86 @@
 	return aTask;
 }
 
-// public methods
+#pragma mark read wirte data
+
+- (void)sendData:(NSString *)inputString
+{
+	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
+	NSData *inputData = [inputString dataUsingEncoding:NSUTF8StringEncoding];
+	NSFileHandle *inputHandle = [[scriptTask standardInput] fileHandleForWriting];
+	[inputHandle writeData:inputData];
+	[inputHandle closeFile];
+	[pool release];
+#if useLog
+	NSLog(@"end of sendData");
+#endif
+}
+
+- (void)getData: (NSNotification *)aNotification
+{
+    NSData *data = [[aNotification userInfo] objectForKey:NSFileHandleNotificationDataItem];
+    if ([data length])
+    {
+		[outputData appendData:data];
+		[[aNotification object] readInBackgroundAndNotify];
+    } else {
+#if useLog
+        NSLog(@"No output data");
+#endif
+    }
+}
+
+- (void)didEndTask:(NSNotification *)aNotification
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+										name:NSFileHandleReadCompletionNotification 
+										object: [[scriptTask standardOutput] fileHandleForReading]];
+	int status = [[aNotification object] terminationStatus];
+    if (status == 0) {
+		//NSLog([self standardOutput]);
+		NSPipe *outPipe = [scriptTask standardOutput];
+		NSFileHandle *outHandle = [outPipe fileHandleForReading];
+		[outputData appendData:[outHandle availableData]];
+	}
+	NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
+	[notiCenter postNotificationName:@"ScriptRunnerDidEndNotification" object:self];
+#if useLog
+	NSLog(@"end of didEndTask");
+#endif
+}
+
+#pragma mark public methods
 - (void)launchTaskWithString:(NSString *)inputString;
 {
 #if useLog
 	NSLog(@"start launchTaskWithString");
 #endif
 	NSPipe *inputPipe = [NSPipe pipe];
-	NSFileHandle *inputHandle = [inputPipe fileHandleForWriting];
 	[scriptTask setStandardInput:inputPipe];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(getData:) 
+												 name: NSFileHandleReadCompletionNotification 
+											   object: [[scriptTask standardOutput] fileHandleForReading]];
+	 [[[scriptTask standardOutput] fileHandleForReading] readInBackgroundAndNotify];
+	 
+#if useLog
+	NSLog(@"task will launch");
+#endif
 	[scriptTask launch];
-	NSData *inputData = [inputString dataUsingEncoding:NSUTF8StringEncoding];
-	[inputHandle writeData:inputData];
-	[inputHandle closeFile];
-	//NSLog([self standardOutput]);
-	
-	if ([scriptTask isRunning]) {
-		[scriptTask waitUntilExit];
-	}
-	
-	if ([scriptTask terminationStatus] != 0 ) {
-		NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
-		[notiCenter postNotificationName:@"ScriputRunnerDidEndWithError" object:self];
-	}
+#if useLog
+	NSLog(@"after task launch");
+#endif
+	[NSThread detachNewThreadSelector:@selector(sendData:)
+							 toTarget:self withObject:inputString];
 #if useLog	
 	NSLog(@"end launchTaskWithString");
 #endif
+}
+
+- (NSString *)outputString
+{
+	return [[[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (int)terminationStatus
@@ -146,7 +209,7 @@
 	return [[[NSString alloc] initWithData:ouputData encoding:NSUTF8StringEncoding] autorelease];
 }
 
-//accessor methods
+#pragma mark accessor methods
 - (void)setScriptTask:(NSTask *)aTask
 {
 	[aTask retain];

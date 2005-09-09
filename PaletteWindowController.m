@@ -25,6 +25,7 @@
 - (void)dealloc
 {
 	[frameName release];
+	[applicationsFloatingOn release];
 	[contentViewBuffer release];
 	
 	[super dealloc];

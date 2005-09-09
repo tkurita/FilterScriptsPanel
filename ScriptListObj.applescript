@@ -10,6 +10,7 @@ on makeObj()
 	script FilterScriptListObj
 		property parent : newFolderTableObj
 		property WindowController : missing value
+		property currentExecuter : missing value
 		global UnixScriptExecuter
 		global StringEngine
 		global lineFeed
@@ -94,7 +95,7 @@ on makeObj()
 					set theText to content of selection object 1 of front document
 				else
 					beep
-					return
+					return true
 				end if
 			end tell
 			
@@ -113,38 +114,40 @@ on makeObj()
 					set theResult to run script theScriptFile with parameters {theText}
 				on error errMsg number errNum
 					call method "showErrorMessage:" of WindowController with parameter errMsg
-					--set contents of text view "ScriptError" of scroll view "ScriptError" of window "ScriptError" to errMsg
-					--display targetPanel attached to my targetWindow
 					set theResult to ""
 				end try
+				sendDataTomi(theResult)
+				beep
+				return true
 			else
 				set theList to every paragraph of theText
 				startStringEngine() of StringEngine
 				--set theText to joinStringList of StringEngine for thelist by lineFeed
 				set theText to joinUTextList of StringEngine for theList by lineFeed
 				stopStringEngine() of StringEngine
-				set theFilterScriptExecuter to makeObj(theScriptFile) of UnixScriptExecuter
+				set currentExecuter to makeObj(theScriptFile) of UnixScriptExecuter
 				--log "before launchTaskWithString"
-				call method "launchTaskWithString:" of theFilterScriptExecuter with parameter theText
+				call method "launchTaskWithString:" of currentExecuter with parameter theText
 				--log "after call method launchTaskWithString"
-				
-				set terminationStatus to call method "terminationStatus" of theFilterScriptExecuter
-				if terminationStatus is 0 then
-					set theResult to call method "standardOutput" of theFilterScriptExecuter
-					set theList to every paragraph of theResult
-					startStringEngine() of StringEngine
-					set theResult to joinStringList of StringEngine for theList by return
-					stopStringEngine() of StringEngine
-					
-				else
-					set theResult to ""
-				end if
-				call method "release" of theFilterScriptExecuter
-				
 				--log "after execution of a unix script"
+				return false
 			end if
-			--log "after execution"
-			
+		end runFilterScript
+		
+		on didEndTask()
+			set terminationStatus to call method "terminationStatus" of currentExecuter
+			if terminationStatus is 0 then
+				set theResult to call method "outputString" of currentExecuter
+				set theList to every paragraph of theResult
+				startStringEngine() of StringEngine
+				set theResult to joinStringList of StringEngine for theList by return
+				stopStringEngine() of StringEngine
+				sendDataTomi(theResult)
+			end if
+			call method "release" of currentExecuter
+		end didEndTask
+		
+		on sendDataTomi(theResult)
 			if theResult is not "" then
 				set useNewWindow to ((state of cell "InNewWindow" of matrix "ResultMode" of my targetWindow) is on state)
 				if useNewWindow then
@@ -160,8 +163,6 @@ on makeObj()
 					end tell
 				end if
 			end if
-			beep
-			--log "end runFilterScript"
-		end runFilterScript
+		end sendDataTomi
 	end script
 end makeObj

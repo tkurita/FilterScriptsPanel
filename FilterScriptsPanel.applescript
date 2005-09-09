@@ -19,8 +19,7 @@ property dQ : ASCII character 34
 property yenmark : ASCII character 92
 property lineFeed : ASCII character 10
 
-(* application setting *)
-property lifeTime : 60 * 60 -- sec
+property isTaskRunning : false
 
 (* events of application*)
 
@@ -66,7 +65,13 @@ end open
 on clicked theObject
 	set theName to name of theObject
 	--log "clicked " & theName
-	if theName is "EditScript" then
+	if theName is "endOfTask" then
+		didEndTask() of ScriptListObj
+		set theIndicator to progress indicator "workingIndicator" of window "FilterScripts"
+		stop theIndicator
+		call method "setHidden:" of theIndicator with parameters {true}
+		set isTaskRunning to false
+	else if theName is "EditScript" then
 		set theScript to getSelectedItem() of ScriptListObj
 		tell application "Finder"
 			open theScript
@@ -101,11 +106,7 @@ end clicked
 on awake from nib theObject
 	set theName to name of theObject
 	--log "start awake from nib for " & theName
-	if theName is "FilterScripts" then
-		--set hides when deactivated of theObject to false
-		--set floating of theObject to true
-		
-	else if theName is "scriptDataSource" then
+	if theName is "scriptDataSource" then
 		tell theObject
 			make new data column at the end of the data columns with properties {name:"name"}
 		end tell
@@ -118,12 +119,17 @@ on awake from nib theObject
 end awake from nib
 
 on double clicked theObject
-	set theIndicator to progress indicator "workingIndicator" of window "FilterScripts"
-	call method "setHidden:" of theIndicator with parameters {false}
-	start theIndicator
-	runFilterScript() of ScriptListObj
-	stop theIndicator
-	call method "setHidden:" of theIndicator with parameters {true}
+	if not isTaskRunning then
+		set theIndicator to progress indicator "workingIndicator" of window "FilterScripts"
+		call method "setHidden:" of theIndicator with parameters {false}
+		start theIndicator
+		if (runFilterScript() of ScriptListObj) then
+			stop theIndicator
+			call method "setHidden:" of theIndicator with parameters {true}
+		else
+			set isTaskRunning to true
+		end if
+	end if
 end double clicked
 
 on dialog ended theObject with reply theReply
@@ -150,5 +156,3 @@ on will finish launching theObject
 	
 	--log "end finish launching"
 end will finish launching
-
-
