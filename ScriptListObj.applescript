@@ -12,8 +12,6 @@ on makeObj()
 		property WindowController : missing value
 		property currentExecuter : missing value
 		global UnixScriptExecuter
-		global StringEngine
-		global lineFeed
 		
 		on openWindow()
 			if WindowController is missing value then
@@ -120,16 +118,10 @@ on makeObj()
 				beep
 				return true
 			else
-				set theList to every paragraph of theText
-				startStringEngine() of StringEngine
-				--set theText to joinStringList of StringEngine for thelist by lineFeed
-				set theText to joinUTextList of StringEngine for theList by lineFeed
-				stopStringEngine() of StringEngine
 				set currentExecuter to makeObj(theScriptFile) of UnixScriptExecuter
 				--log "before launchTaskWithString"
 				call method "launchTaskWithString:" of currentExecuter with parameter theText
 				--log "after call method launchTaskWithString"
-				--log "after execution of a unix script"
 				return false
 			end if
 		end runFilterScript
@@ -138,10 +130,6 @@ on makeObj()
 			set terminationStatus to call method "terminationStatus" of currentExecuter
 			if terminationStatus is 0 then
 				set theResult to call method "outputString" of currentExecuter
-				set theList to every paragraph of theResult
-				startStringEngine() of StringEngine
-				set theResult to joinStringList of StringEngine for theList by return
-				stopStringEngine() of StringEngine
 				sendDataTomi(theResult)
 			end if
 			call method "release" of currentExecuter
