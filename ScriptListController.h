@@ -2,13 +2,14 @@
 #import <Cocoa/Cocoa.h>
 #import "PaletteWindowController.h"
 
-@interface ScriptListController : PaletteWindowController 
+@interface ScriptListController : PaletteWindowController
 {
+    IBOutlet id endOfTask;
     IBOutlet id errorPanel;
     IBOutlet id errorTextView;
     IBOutlet id newScriptPanel;
     IBOutlet id progressIndicator;
-	IBOutlet id scriptList;
+    IBOutlet id scriptList;
 }
 
 - (IBAction)errorOK:(id)sender;
