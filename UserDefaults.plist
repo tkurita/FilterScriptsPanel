@@ -4,7 +4,10 @@
 <dict>
 	<key>applicationsFloatingOn</key>
 	<array>
-		<string>mi</string>
+		<dict>
+			<key>appName</key>
+			<string>mi</string>
+		</dict>
 	</array>
 	<key>enviromentVariables</key>
 	<array>
