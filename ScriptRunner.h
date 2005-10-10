@@ -4,6 +4,7 @@
 @interface ScriptRunner : NSObject {
 	NSTask *scriptTask;
 	NSMutableData *outputData;
+	NSMutableData *errorData;
 }
 
 - (id)initWithScriptFile:(NSString *)path withCommand:(NSString *)command;
@@ -16,6 +17,8 @@
 - (void)didEndTask:(NSNotification *)aNotification;
 - (void)sendData:(NSString *)inputString;
 - (NSString *)outputString;
+- (BOOL)hasErrorData;
+- (NSString *)errorString;
 
 //accessor methods
 - (void)setScriptTask:(NSTask *)aTask;

@@ -56,7 +56,7 @@ static const int DIALOG_OK		= 128;
 - (void)showErrorMessageWithNotification:(NSNotification *)aNotification
 {
 	ScriptRunner *theRunner = [aNotification object];
-	[self showErrorMessage:[theRunner standardError]];
+	[self showErrorMessage:[theRunner errorString]];
 }
 
 - (void)didEndScriptRunner:(NSNotification *)aNotification
@@ -66,7 +66,12 @@ static const int DIALOG_OK		= 128;
 #endif
 	[endOfTask performClick:self];
 	ScriptRunner *theRunner = [aNotification object];
+	/*
 	if ([theRunner terminationStatus] != 0) {
+		[self showErrorMessageWithNotification:aNotification];
+	}
+	*/
+	if ([theRunner hasErrorData]) {
 		[self showErrorMessageWithNotification:aNotification];
 	}
 }

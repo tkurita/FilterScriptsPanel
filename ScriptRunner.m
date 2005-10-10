@@ -51,6 +51,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndTask:) name:NSTaskDidTerminateNotification object:scriptTask];
 	
 	outputData = [[NSMutableData data] retain];
+	errorData = [[NSMutableData data] retain];
 #if useLog
 	NSLog(@"end initWithScriptFile");
 #endif
@@ -61,6 +62,7 @@
 {
 	[scriptTask release];
 	[outputData release];
+	[errorData release];
 	[super dealloc];
 }
 
@@ -112,6 +114,9 @@
 
 - (void)sendData:(NSString *)inputString
 {
+#if useLog
+	NSLog(@"start sendData");
+#endif
 	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
    	NSMutableString *string = [inputString mutableCopy];
 	[string replaceOccurrencesOfString:@"\r" withString:@"\n" options:NULL range: NSMakeRange(0, [inputString length])];
@@ -129,6 +134,9 @@
 
 - (void)getData: (NSNotification *)aNotification
 {
+#if useLog
+	NSLog(@"start getData");
+#endif
     NSData *data = [[aNotification userInfo] objectForKey:NSFileHandleNotificationDataItem];
     if ([data length])
     {
@@ -141,18 +149,50 @@
     }
 }
 
+-(void)getErrorData: (NSNotification *)aNotification
+{
+#if useLog
+	NSLog(@"start getErrorData");
+#endif
+    NSData *data = [[aNotification userInfo] objectForKey:NSFileHandleNotificationDataItem];
+    if ([data length])
+    {
+		[errorData appendData:data];
+		[[aNotification object] readInBackgroundAndNotify];
+    } else {
+#if useLog
+        NSLog(@"No  errorData");
+#endif
+    }
+}
+
 - (void)didEndTask:(NSNotification *)aNotification
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self 
 										name:NSFileHandleReadCompletionNotification 
 										object: [[scriptTask standardOutput] fileHandleForReading]];
 	int status = [[aNotification object] terminationStatus];
-    if (status == 0) {
-		//NSLog([self standardOutput]);
+
+    NSData *theData;
+	if (status == 0) {
+#if useLog
+		NSLog(@"task finished with status 0");
+#endif
 		NSPipe *outPipe = [scriptTask standardOutput];
 		NSFileHandle *outHandle = [outPipe fileHandleForReading];
-		[outputData appendData:[outHandle availableData]];
+		theData = [outHandle availableData];
+		if ([theData length]) {
+			[outputData appendData:theData];
+		}
 	}
+
+	NSPipe *errorPipe = [scriptTask standardError];
+	NSFileHandle *errorHandle = [errorPipe fileHandleForReading];
+	theData = [errorHandle availableData];
+	if ([theData length]) {
+		[errorData appendData:theData];
+	}
+	
 	NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
 	[notiCenter postNotificationName:@"ScriptRunnerDidEndNotification" object:self];
 #if useLog
@@ -175,6 +215,12 @@
 											   object: [[scriptTask standardOutput] fileHandleForReading]];
 	 [[[scriptTask standardOutput] fileHandleForReading] readInBackgroundAndNotify];
 	 
+	 [[NSNotificationCenter defaultCenter] addObserver:self 
+											  selector:@selector(getErrorData:) 
+												  name: NSFileHandleReadCompletionNotification 
+												object: [[scriptTask standardError] fileHandleForReading]];
+	 [[[scriptTask standardError] fileHandleForReading] readInBackgroundAndNotify];
+	 
 #if useLog
 	NSLog(@"task will launch");
 #endif
@@ -187,6 +233,17 @@
 #if useLog	
 	NSLog(@"end launchTaskWithString");
 #endif
+}
+
+- (BOOL)hasErrorData
+{
+	return ([errorData length] != 0);
+}
+
+- (NSString *)errorString
+{
+	NSMutableString *string = [[[NSMutableString alloc] initWithData:errorData encoding:NSUTF8StringEncoding] autorelease];
+	return string;
 }
 
 - (NSString *)outputString
