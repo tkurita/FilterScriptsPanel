@@ -1,5 +1,13 @@
 To Do
 
+2005.10.09
+	standardError も読み込んで行かないと途中で止まってしまうようだ。
+	
+2005.10.07
+	なぜか、ScriptWindow.nib でのコネクションが切れまくっていた。
+	version 2.0.2 は問題があり。
+	Tiger での互換性を改善。
+	
 2005.09.08
 	非同期にstandardInput に書き込むには thread を使うしかない？
 	
