@@ -1,0 +1,21 @@
+{
+    IBClasses = (
+        {CLASS = AppController; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {errorOK = id; newScriptCancel = id; newScriptOK = id; showPrefsWindow = id; }; 
+            CLASS = PaletteWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                contentViewBuffer = id; 
+                errorPanel = id; 
+                errorTextView = id; 
+                newScriptPanel = id; 
+                progressIndicator = id; 
+                scriptList = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}
