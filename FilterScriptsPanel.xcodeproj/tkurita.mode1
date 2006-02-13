@@ -225,8 +225,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,7 +265,6 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>2C42EE0D07B3797200C8005B</string>
-								<string>2C13EBED08AF09620035C47A</string>
 								<string>2CA3150708AA7EE400ADA32C</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>2CA923B408B84A3F00A6B73C</string>
@@ -280,12 +277,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
+									<integer>27</integer>
+									<integer>25</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {241, 655}}</string>
+							<string>{{0, 170}, {241, 655}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -317,12 +315,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ScriptRunner.m</string>
+								<string>Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,25 +330,28 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ScriptRunner.m</string>
+										<string>Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2C59265A09A09DE6000BC6BA</string>
+										<string>2C5926C509A0AF7F000BC6BA</string>
 										<key>history</key>
 										<array>
-											<string>2C59250709A07DA4000BC6BA</string>
 											<string>2C59250909A07DA4000BC6BA</string>
 											<string>2C59250A09A07DA4000BC6BA</string>
-											<string>2C5925A309A08C1D000BC6BA</string>
 											<string>2C5925A409A08C1D000BC6BA</string>
-											<string>2C5925A609A08C1D000BC6BA</string>
 											<string>2C5925A709A08C1D000BC6BA</string>
 											<string>2C5925A809A08C1D000BC6BA</string>
 											<string>2C5925A909A08C1D000BC6BA</string>
 											<string>2C59260509A09975000BC6BA</string>
-											<string>2C59260609A09975000BC6BA</string>
-											<string>2C59265909A09DE6000BC6BA</string>
+											<string>2C5926A309A0AE3A000BC6BA</string>
+											<string>2C5926A409A0AE3A000BC6BA</string>
+											<string>2C5926A509A0AE3A000BC6BA</string>
+											<string>2C5926A609A0AE3A000BC6BA</string>
+											<string>2C5926A709A0AE3A000BC6BA</string>
+											<string>2C5926A909A0AE3A000BC6BA</string>
+											<string>2C5926BC09A0AEF4000BC6BA</string>
+											<string>2C5926BD09A0AEF4000BC6BA</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -372,6 +375,17 @@
 											<string>2C5925B509A08C1D000BC6BA</string>
 											<string>2C59260809A09975000BC6BA</string>
 											<string>2C59260909A09975000BC6BA</string>
+											<string>2C5926AA09A0AE3A000BC6BA</string>
+											<string>2C5926AB09A0AE3A000BC6BA</string>
+											<string>2C5926AC09A0AE3A000BC6BA</string>
+											<string>2C5926AD09A0AE3A000BC6BA</string>
+											<string>2C5926AE09A0AE3A000BC6BA</string>
+											<string>2C5926AF09A0AE3A000BC6BA</string>
+											<string>2C5926B009A0AE3A000BC6BA</string>
+											<string>2C5926B109A0AE3A000BC6BA</string>
+											<string>2C5926B209A0AE3A000BC6BA</string>
+											<string>2C5926B309A0AE3A000BC6BA</string>
+											<string>2C5926BE09A0AEF4000BC6BA</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -570,9 +584,9 @@
 		<string>2C59261D09A0999D000BC6BA</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>2C59261C09A0999D000BC6BA</string>
+		<string>1C0AD2B3069F1EA900FABCE6</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>2C59246309A06811000BC6BA</string>
-		<string>1C0AD2B3069F1EA900FABCE6</string>
 		<string>/Users/tkurita/Factories/Script factory/ProjectsX/FilterScripts for mi/trunk/FilterScriptsPanel.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -1030,7 +1044,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C0AD2B3069F1EA900FABCE6</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

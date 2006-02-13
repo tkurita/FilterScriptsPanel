@@ -9,7 +9,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>2.0.4 copyright 2005-2006, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
-	<string>FilterScriptsPanel Help</string>
+	<string>FilterScriptsPanelHelp</string>
 	<key>CFBundleHelpBookName</key>
 	<string>FilterScripts for mi ヘルプ</string>
 	<key>CFBundleIconFile</key>
