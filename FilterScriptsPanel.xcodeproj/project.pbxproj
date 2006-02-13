@@ -221,7 +221,7 @@
 			children = (
 				2CF7364A08A1F0E6000BD158 /* History.txt */,
 				080E96DDFE201D6D7F000001 /* Scripts */,
-				2C42EE0D07B3797200C8005B /* Library Scripts */,
+				2C42EE0D07B3797200C8005B /* LibraryScripts */,
 				2C13EBED08AF09620035C47A /* Classes */,
 				2CA3150708AA7EE400ADA32C /* Images */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -287,7 +287,7 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		2C42EE0D07B3797200C8005B /* Library Scripts */ = {
+		2C42EE0D07B3797200C8005B /* LibraryScripts */ = {
 			isa = PBXGroup;
 			children = (
 				2C0B8BDD08A4744900B1ACDE /* SheetManager.applescript */,
@@ -295,7 +295,7 @@
 				2CC8C941078829FA00085682 /* DefaultsManager.applescript */,
 				2CB30A4C0650EC5100BD0857 /* UtilityHandlers.applescript */,
 			);
-			name = "Library Scripts";
+			path = LibraryScripts;
 			sourceTree = "<group>";
 		};
 		2CA3150708AA7EE400ADA32C /* Images */ = {
@@ -581,6 +581,7 @@
 		2C59245B09A067BD000BC6BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Debug;
@@ -592,6 +593,8 @@
 					ppc,
 					i386,
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Release;
@@ -606,6 +609,7 @@
 		2C59245E09A067BD000BC6BA /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Default;
