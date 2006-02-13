@@ -2,7 +2,7 @@
 
 TARGET_NAME="UnixScriptServer"
 sitetear_path='/usr/local/bin/sitetear'
-manual_folder='/Users/tkurita/Factories/Websites/scriptfactory folder/scriptfactory/ScriptGallery/TheOtherScripts/FilterScripts/manual'
+manual_folder='/Users/tkurita/Factories/Websites/scriptfactory/scriptfactory/ScriptGallery/TheOtherScripts/FilterScripts/manual'
 #iconPath="$manual_folder/TeXCompileServerIcon16.png"
 
 copyHelp() {
