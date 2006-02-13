@@ -122,10 +122,14 @@
 	[string replaceOccurrencesOfString:@"\r" withString:@"\n" options:nil range: NSMakeRange(0, [inputString length])];
 
 	NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
-	NSFileHandle *inputHandle = [[scriptTask standardInput] fileHandleForWriting];
-	[inputHandle writeData:inputData];
-	[inputHandle closeFile];
-	
+	@try {
+		NSFileHandle *inputHandle = [[scriptTask standardInput] fileHandleForWriting];
+		[inputHandle writeData:inputData];
+		[inputHandle closeFile];
+	}
+	@catch (NSException *exception) {
+		NSLog(@"main: Caught %@: %@", [exception name], [exception reason]);
+	}
 	[pool release];
 #if useLog
 	NSLog(@"end of sendData");
