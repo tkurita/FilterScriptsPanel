@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>FilterScriptsPanel</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0.3 copyright 2005, Tetsuro KURITA</string>
+	<string>2.0.4 copyright 2005-2006, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>FilterScriptsPanel Help</string>
 	<key>CFBundleHelpBookName</key>
@@ -25,7 +25,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.3</string>
+	<string>2.0.4</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSAppleScriptEnabled</key>
