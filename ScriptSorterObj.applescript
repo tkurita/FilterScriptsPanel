@@ -1,5 +1,4 @@
-property LibraryFolder : "IGAGURI HD:Users:tkurita:Factories:Script factory:ProjectsX:FilterScripts for mi:Library Scripts:"
-property FileSorter : load script file (LibraryFolder & "FileSorter")
+property FileSorter : load("FileSorter") of application "FilterScriptsLib"
 
 on makeObj(folderName)
 	copy FileSorter to theFileSorter
@@ -10,11 +9,11 @@ on makeObj(folderName)
 		on getTargetItems()
 			set nameList to list folder my targetContainer without invisibles
 			set containerPath to my targetContainer as Unicode text
-			set theList to {}
+			set thelist to {}
 			repeat with ith from 1 to length of nameList
-				set end of theList to (containerPath & (item ith of nameList)) as alias
+				set end of thelist to (containerPath & (item ith of nameList)) as alias
 			end repeat
-			return {theList, nameList}
+			return {thelist, nameList}
 		end getTargetItems
 		
 		on buildIndexArray()

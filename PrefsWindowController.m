@@ -1,5 +1,7 @@
 #import "PrefsWindowController.h"
 
+#define useLog 0
+
 @implementation PrefsWindowController
 #pragma mark actions
 - (IBAction)cancelAction:(id)sender
@@ -41,7 +43,9 @@
 
 - (id)init
 {
+#if useLog
 	NSLog(@"start init in PrefsWindowController");
+#endif
 	return [super init];
 }
 
