@@ -41,6 +41,10 @@ static const int DIALOG_OK		= 128;
 
 - (void)showErrorMessage:(NSString *)errorText
 {	
+#if useLog
+	NSLog(@"didEndScriptRunner");
+	NSLog(errorText);
+#endif
 	[[NSApplication sharedApplication] beginSheet:errorPanel 
 								   modalForWindow:[self window] 
 									modalDelegate:self 
@@ -52,7 +56,7 @@ static const int DIALOG_OK		= 128;
 - (void)showErrorMessageWithNotification:(NSNotification *)aNotification
 {
 	ScriptRunner *theRunner = [aNotification object];
-	[self showErrorMessage:[theRunner standardError]];
+	[self showErrorMessage:[theRunner errorString]];
 }
 
 - (void)didEndScriptRunner:(NSNotification *)aNotification
@@ -62,12 +66,26 @@ static const int DIALOG_OK		= 128;
 #endif
 	[endOfTask performClick:self];
 	ScriptRunner *theRunner = [aNotification object];
+	/*
 	if ([theRunner terminationStatus] != 0) {
+		[self showErrorMessageWithNotification:aNotification];
+	}
+	*/
+	if ([theRunner hasErrorData]) {
 		[self showErrorMessageWithNotification:aNotification];
 	}
 }
 
 #pragma mark delgate and override and notification
+
+- (BOOL)windowShouldClose:(id)sender
+{
+	[super windowShouldClose:sender];
+	
+	/* To support AppleScript Studio of MacOS 10.4 */
+	[[self window] orderOut:self];
+	return NO;
+}
 
 - (void)saveDefaults
 {

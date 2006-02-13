@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                addRecrodAction = id; 
+                cancelAction = id; 
+                okAction = id; 
+                removeRecrodAction = id; 
+            }; 
+            CLASS = PrefsWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {OKButton = id; envVariableTable = id; envVariables = id; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,7 +1,5 @@
-(* shared script objects *)
-property LibraryFolder : "IGAGURI HD:Users:tkurita:Factories:Script factory:ProjectsX:UnixScriptTools for mi:Library Scripts:"
-property PathAnalyzer : load script file (LibraryFolder & "PathAnalyzer")
-property StringEngine : load script file (LibraryFolder & "StringEngine")
+property PathAnalyzer : load("PathAnalyzer") of application "FilterScriptsLib"
+property StringEngine : load("StringEngine") of application "FilterScriptsLib"
 
 property UtilityHandlers : missing value
 property MessageUtility : missing value

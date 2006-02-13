@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXAppleScriptBuildPhase section */
+		2CDBB50608A066CA005B4E3D /* AppleScript */ = {
+			isa = PBXAppleScriptBuildPhase;
+			buildActionMask = 2147483647;
+			contextName = "";
+			files = (
+				2CDBB50708A066CA005B4E3D /* FilterScriptsPanel.applescript in AppleScript */,
+				2CDBB50808A066CA005B4E3D /* ScriptListObj.applescript in AppleScript */,
+				2CDBB50A08A066CA005B4E3D /* MessageUtility.applescript in AppleScript */,
+				2CDBB50B08A066CA005B4E3D /* UnixScriptExecuter.applescript in AppleScript */,
+				2CDBB50C08A066CA005B4E3D /* UtilityHandlers.applescript in AppleScript */,
+				2CDBB50D08A066CA005B4E3D /* DefaultsManager.applescript in AppleScript */,
+				2CDBB50E08A066CA005B4E3D /* NewFilterScriptObj.applescript in AppleScript */,
+				2CDBB50F08A066CA005B4E3D /* ScriptSorterObj.applescript in AppleScript */,
+				2CDBB51008A066CA005B4E3D /* FolderTableObj.applescript in AppleScript */,
+				2C0B8BDE08A4744900B1ACDE /* SheetManager.applescript in AppleScript */,
+			);
+			isSharedContext = 0;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXAppleScriptBuildPhase section */
+
+/* Begin PBXBuildFile section */
+		2C0B8BDE08A4744900B1ACDE /* SheetManager.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C0B8BDD08A4744900B1ACDE /* SheetManager.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2C13EE4A08B0A1B50035C47A /* SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C13EE4808B0A1B50035C47A /* SmartActivate.m */; };
+		2C13EE4B08B0A1B50035C47A /* SmartActivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C13EE4908B0A1B50035C47A /* SmartActivate.h */; };
+		2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */; };
+		2C3E043008A0A572007344A9 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E042E08A0A572007344A9 /* AppController.h */; };
+		2C3E043108A0A572007344A9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E042F08A0A572007344A9 /* AppController.m */; };
+		2C59258509A08A9B000BC6BA /* setuphelp.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2C59258409A08A9B000BC6BA /* setuphelp.sh */; };
+		2CA3150608AA7ED800ADA32C /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3150508AA7ED800ADA32C /* plus.png */; };
+		2CA3151208AA7F4B00ADA32C /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151108AA7F4B00ADA32C /* minus.png */; };
+		2CA3151B08AA7FF800ADA32C /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151A08AA7FF800ADA32C /* Reload.png */; };
+		2CA3152B08AA813100ADA32C /* rename.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3152A08AA813100ADA32C /* rename.png */; };
+		2CA3153808AAEB1500ADA32C /* generalpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3153708AAEB1500ADA32C /* generalpref.png */; };
+		2CA3154308AAEC4000ADA32C /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3154208AAEC4000ADA32C /* edit.png */; };
+		2CA3155D08AB1DB100ADA32C /* PreferenceWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3155B08AB1DB100ADA32C /* PreferenceWindow.nib */; };
+		2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3155E08AB1E6800ADA32C /* PrefsWindowController.h */; };
+		2CA3156108AB1E6800ADA32C /* PrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA3155F08AB1E6800ADA32C /* PrefsWindowController.m */; };
+		2CA3156508AB248200ADA32C /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3156408AB248200ADA32C /* UserDefaults.plist */; };
+		2CA315EB08AB4DE000ADA32C /* smallMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA315E908AB4DDF00ADA32C /* smallMinus.png */; };
+		2CA315EC08AB4DE000ADA32C /* smallPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA315EA08AB4DDF00ADA32C /* smallPlus.png */; };
+		2CA923B608B84A3F00A6B73C /* ScriptWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA923B408B84A3F00A6B73C /* ScriptWindow.nib */; };
+		2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA9241708B8C17700A6B73C /* ScriptListController.h */; };
+		2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9241808B8C17700A6B73C /* ScriptListController.m */; };
+		2CDBB50508A066CA005B4E3D /* PaletteWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C09988B089F443C0004414C /* PaletteWindowController.h */; };
+		2CDBB50708A066CA005B4E3D /* FilterScriptsPanel.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = DA206CF3015C4E8B03C91932 /* FilterScriptsPanel.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50808A066CA005B4E3D /* ScriptListObj.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C10B9910616C1AA00598626 /* ScriptListObj.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50A08A066CA005B4E3D /* MessageUtility.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C6FB98006243FF3004731C7 /* MessageUtility.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50B08A066CA005B4E3D /* UnixScriptExecuter.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C6FB982062440FA004731C7 /* UnixScriptExecuter.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50C08A066CA005B4E3D /* UtilityHandlers.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2CB30A4C0650EC5100BD0857 /* UtilityHandlers.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50D08A066CA005B4E3D /* DefaultsManager.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2CC8C941078829FA00085682 /* DefaultsManager.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50E08A066CA005B4E3D /* NewFilterScriptObj.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C7447B50793797800FDC383 /* NewFilterScriptObj.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB50F08A066CA005B4E3D /* ScriptSorterObj.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C7447C307937C4E00FDC383 /* ScriptSorterObj.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB51008A066CA005B4E3D /* FolderTableObj.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C82E57F07939E4C00D28509 /* FolderTableObj.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		2CDBB51408A066CA005B4E3D /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		2CDBB51508A066CA005B4E3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C9E42BE052215CB00248965 /* Localizable.strings */; };
+		2CDBB51608A066CA005B4E3D /* Templates.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2C82E5900793A8E800D28509 /* Templates.zip */; };
+		2CDBB51708A066CA005B4E3D /* Scripts.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD5E8106521AC50068FEBB /* Scripts.zip */; };
+		2CDBB51908A066CA005B4E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		2CDBB51A08A066CA005B4E3D /* PaletteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09988C089F443C0004414C /* PaletteWindowController.m */; };
+		2CDBB51C08A066CA005B4E3D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		2CDBB51D08A066CA005B4E3D /* AppleScriptKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */; };
+		2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF7350308A11823000BD158 /* ScriptRunner.h */; };
+		2CF7350608A11823000BD158 /* ScriptRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7350408A11823000BD158 /* ScriptRunner.m */; };
+		2CF7373D08A20535000BD158 /* stringExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF7373B08A20535000BD158 /* stringExtra.h */; };
+		2CF7373E08A20535000BD158 /* stringExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7373C08A20535000BD158 /* stringExtra.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		2CD607E60569023A00FAFD6B /* SDDebug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_OSAFLAGS = "-l \\\"AppleScript Debugger\\\"";
+			};
+			name = SDDebug;
+		};
+		4A9504CCFFE6A4B311CA0CBA /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OPTIMIZATION_CFLAGS = "-O0";
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		4A9504CDFFE6A4B311CA0CBA /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 3.1;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_OSAFLAGS = "-x";
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXFileReference section */
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2C09988B089F443C0004414C /* PaletteWindowController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = PaletteWindowController.h; sourceTree = "<group>"; };
+		2C09988C089F443C0004414C /* PaletteWindowController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = PaletteWindowController.m; sourceTree = "<group>"; };
+		2C0B8BDD08A4744900B1ACDE /* SheetManager.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = SheetManager.applescript; sourceTree = "<group>"; };
+		2C10B9910616C1AA00598626 /* ScriptListObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = ScriptListObj.applescript; sourceTree = "<group>"; };
+		2C13EE4808B0A1B50035C47A /* SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartActivate.m; sourceTree = "<group>"; };
+		2C13EE4908B0A1B50035C47A /* SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartActivate.h; sourceTree = "<group>"; };
+		2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenFolderIcon.png; sourceTree = "<group>"; };
+		2C3E042E08A0A572007344A9 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		2C3E042F08A0A572007344A9 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		2C59258409A08A9B000BC6BA /* setuphelp.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setuphelp.sh; sourceTree = "<group>"; };
+		2C6FB98006243FF3004731C7 /* MessageUtility.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = MessageUtility.applescript; sourceTree = "<group>"; };
+		2C6FB982062440FA004731C7 /* UnixScriptExecuter.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = UnixScriptExecuter.applescript; sourceTree = "<group>"; };
+		2C7447B50793797800FDC383 /* NewFilterScriptObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = NewFilterScriptObj.applescript; sourceTree = "<group>"; };
+		2C7447C307937C4E00FDC383 /* ScriptSorterObj.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = ScriptSorterObj.applescript; sourceTree = "<group>"; };
+		2C82E57F07939E4C00D28509 /* FolderTableObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = FolderTableObj.applescript; sourceTree = "<group>"; };
+		2C82E5900793A8E800D28509 /* Templates.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Templates.zip; sourceTree = "<group>"; };
+		2C8C1DD80520B0DB009688D1 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		2C9E42C1052215F000248965 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CA3150508AA7ED800ADA32C /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		2CA3151108AA7F4B00ADA32C /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		2CA3151A08AA7FF800ADA32C /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
+		2CA3152A08AA813100ADA32C /* rename.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rename.png; sourceTree = "<group>"; };
+		2CA3153708AAEB1500ADA32C /* generalpref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generalpref.png; sourceTree = "<group>"; };
+		2CA3154208AAEC4000ADA32C /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		2CA3155C08AB1DB100ADA32C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/PreferenceWindow.nib; sourceTree = "<group>"; };
+		2CA3155E08AB1E6800ADA32C /* PrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = PrefsWindowController.h; sourceTree = "<group>"; };
+		2CA3155F08AB1E6800ADA32C /* PrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = PrefsWindowController.m; sourceTree = "<group>"; };
+		2CA3156408AB248200ADA32C /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		2CA315E908AB4DDF00ADA32C /* smallMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallMinus.png; sourceTree = "<group>"; };
+		2CA315EA08AB4DDF00ADA32C /* smallPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallPlus.png; sourceTree = "<group>"; };
+		2CA923B508B84A3F00A6B73C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/ScriptWindow.nib; sourceTree = "<group>"; };
+		2CA9241708B8C17700A6B73C /* ScriptListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptListController.h; sourceTree = "<group>"; };
+		2CA9241808B8C17700A6B73C /* ScriptListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptListController.m; sourceTree = "<group>"; };
+		2CB30A4C0650EC5100BD0857 /* UtilityHandlers.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = UtilityHandlers.applescript; sourceTree = "<group>"; };
+		2CC8C941078829FA00085682 /* DefaultsManager.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = DefaultsManager.applescript; sourceTree = "<group>"; };
+		2CDBB52008A066CA005B4E3D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; lineEnding = 0; path = Info.plist; sourceTree = "<group>"; };
+		2CDBB52108A066CB005B4E3D /* FilterScriptsPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterScriptsPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CF7350308A11823000BD158 /* ScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptRunner.h; sourceTree = "<group>"; };
+		2CF7350408A11823000BD158 /* ScriptRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptRunner.m; sourceTree = "<group>"; };
+		2CF7364A08A1F0E6000BD158 /* History.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; lineEnding = 0; path = History.txt; sourceTree = "<group>"; };
+		2CF7373B08A20535000BD158 /* stringExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringExtra.h; sourceTree = "<group>"; };
+		2CF7373C08A20535000BD158 /* stringExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringExtra.m; sourceTree = "<group>"; };
+		2CFD5E8106521AC50068FEBB /* Scripts.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Scripts.zip; sourceTree = "<group>"; };
+		DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptKit.framework; path = /System/Library/Frameworks/AppleScriptKit.framework; sourceTree = "<absolute>"; };
+		DA206CF3015C4E8B03C91932 /* FilterScriptsPanel.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = FilterScriptsPanel.applescript; sourceTree = "<group>"; };
+		DA206CF4015C4E8B03C91932 /* AppleScriptKit.asdictionary */ = {isa = PBXFileReference; lastKnownFileType = archive.asdictionary; name = AppleScriptKit.asdictionary; path = /System/Library/Frameworks/AppleScriptKit.framework/Versions/A/Resources/AppleScriptKit.asdictionary; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CDBB51B08A066CA005B4E3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CDBB51C08A066CA005B4E3D /* Cocoa.framework in Frameworks */,
+				2CDBB51D08A066CA005B4E3D /* AppleScriptKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				DA206CF3015C4E8B03C91932 /* FilterScriptsPanel.applescript */,
+				2C82E57F07939E4C00D28509 /* FolderTableObj.applescript */,
+				2C7447C307937C4E00FDC383 /* ScriptSorterObj.applescript */,
+				2C7447B50793797800FDC383 /* NewFilterScriptObj.applescript */,
+				2C6FB982062440FA004731C7 /* UnixScriptExecuter.applescript */,
+				2C10B9910616C1AA00598626 /* ScriptListObj.applescript */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CDBB52108A066CB005B4E3D /* FilterScriptsPanel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2CF7364A08A1F0E6000BD158 /* History.txt */,
+				080E96DDFE201D6D7F000001 /* Scripts */,
+				2C42EE0D07B3797200C8005B /* LibraryScripts */,
+				2C13EBED08AF09620035C47A /* Classes */,
+				2CA3150708AA7EE400ADA32C /* Images */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CA3156408AB248200ADA32C /* UserDefaults.plist */,
+				2CDBB52008A066CA005B4E3D /* Info.plist */,
+				2CFD5E8106521AC50068FEBB /* Scripts.zip */,
+				2C82E5900793A8E800D28509 /* Templates.zip */,
+				2C9E42BE052215CB00248965 /* Localizable.strings */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				DA206CF4015C4E8B03C91932 /* AppleScriptKit.asdictionary */,
+				2CA923B408B84A3F00A6B73C /* ScriptWindow.nib */,
+				2CA3155B08AB1DB100ADA32C /* PreferenceWindow.nib */,
+				2C59258409A08A9B000BC6BA /* setuphelp.sh */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C13EBED08AF09620035C47A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2CA9241708B8C17700A6B73C /* ScriptListController.h */,
+				2CA9241808B8C17700A6B73C /* ScriptListController.m */,
+				2C13EE4808B0A1B50035C47A /* SmartActivate.m */,
+				2C13EE4908B0A1B50035C47A /* SmartActivate.h */,
+				2CF7350308A11823000BD158 /* ScriptRunner.h */,
+				2CF7350408A11823000BD158 /* ScriptRunner.m */,
+				2C09988B089F443C0004414C /* PaletteWindowController.h */,
+				2C09988C089F443C0004414C /* PaletteWindowController.m */,
+				2C3E042E08A0A572007344A9 /* AppController.h */,
+				2C3E042F08A0A572007344A9 /* AppController.m */,
+				2CA3155E08AB1E6800ADA32C /* PrefsWindowController.h */,
+				2CA3155F08AB1E6800ADA32C /* PrefsWindowController.m */,
+				2CF7373B08A20535000BD158 /* stringExtra.h */,
+				2CF7373C08A20535000BD158 /* stringExtra.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2C42EE0D07B3797200C8005B /* LibraryScripts */ = {
+			isa = PBXGroup;
+			children = (
+				2C0B8BDD08A4744900B1ACDE /* SheetManager.applescript */,
+				2C6FB98006243FF3004731C7 /* MessageUtility.applescript */,
+				2CC8C941078829FA00085682 /* DefaultsManager.applescript */,
+				2CB30A4C0650EC5100BD0857 /* UtilityHandlers.applescript */,
+			);
+			path = LibraryScripts;
+			sourceTree = "<group>";
+		};
+		2CA3150708AA7EE400ADA32C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */,
+				2CA315E908AB4DDF00ADA32C /* smallMinus.png */,
+				2CA315EA08AB4DDF00ADA32C /* smallPlus.png */,
+				2CA3153708AAEB1500ADA32C /* generalpref.png */,
+				2CA3151108AA7F4B00ADA32C /* minus.png */,
+				2CA3152A08AA813100ADA32C /* rename.png */,
+				2CA3151A08AA7FF800ADA32C /* Reload.png */,
+				2CA3150508AA7ED800ADA32C /* plus.png */,
+				2CA3154208AAEC4000ADA32C /* edit.png */,
+			);
+			includeInIndex = 1;
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2CDBB50408A066CA005B4E3D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CDBB50508A066CA005B4E3D /* PaletteWindowController.h in Headers */,
+				2C3E043008A0A572007344A9 /* AppController.h in Headers */,
+				2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */,
+				2CF7373D08A20535000BD158 /* stringExtra.h in Headers */,
+				2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */,
+				2C13EE4B08B0A1B50035C47A /* SmartActivate.h in Headers */,
+				2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2CDBB50308A066CA005B4E3D /* FilterScriptsPanel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C59245509A067BD000BC6BA /* Build configuration list for PBXNativeTarget "FilterScriptsPanel" */;
+			buildPhases = (
+				2CDBB50408A066CA005B4E3D /* Headers */,
+				2CDBB50608A066CA005B4E3D /* AppleScript */,
+				2CDBB51308A066CA005B4E3D /* Resources */,
+				2CDBB51808A066CA005B4E3D /* Sources */,
+				2CDBB51B08A066CA005B4E3D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = FilterScriptsPanel;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			name = FilterScriptsPanel;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Application;
+			productReference = 2CDBB52108A066CB005B4E3D /* FilterScriptsPanel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 2C59245A09A067BD000BC6BA /* Build configuration list for PBXProject "FilterScriptsPanel" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				4A9504CCFFE6A4B311CA0CBA /* Development */,
+				4A9504CDFFE6A4B311CA0CBA /* Deployment */,
+				2CD607E60569023A00FAFD6B /* SDDebug */,
+			);
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Application */;
+			projectDirPath = "";
+			targets = (
+				2CDBB50308A066CA005B4E3D /* FilterScriptsPanel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2CDBB51308A066CA005B4E3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CDBB51408A066CA005B4E3D /* MainMenu.nib in Resources */,
+				2CDBB51508A066CA005B4E3D /* Localizable.strings in Resources */,
+				2CDBB51608A066CA005B4E3D /* Templates.zip in Resources */,
+				2CDBB51708A066CA005B4E3D /* Scripts.zip in Resources */,
+				2CA3150608AA7ED800ADA32C /* plus.png in Resources */,
+				2CA3151208AA7F4B00ADA32C /* minus.png in Resources */,
+				2CA3151B08AA7FF800ADA32C /* Reload.png in Resources */,
+				2CA3152B08AA813100ADA32C /* rename.png in Resources */,
+				2CA3153808AAEB1500ADA32C /* generalpref.png in Resources */,
+				2CA3154308AAEC4000ADA32C /* edit.png in Resources */,
+				2CA3155D08AB1DB100ADA32C /* PreferenceWindow.nib in Resources */,
+				2CA3156508AB248200ADA32C /* UserDefaults.plist in Resources */,
+				2CA315EB08AB4DE000ADA32C /* smallMinus.png in Resources */,
+				2CA315EC08AB4DE000ADA32C /* smallPlus.png in Resources */,
+				2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */,
+				2CA923B608B84A3F00A6B73C /* ScriptWindow.nib in Resources */,
+				2C59258509A08A9B000BC6BA /* setuphelp.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CDBB51808A066CA005B4E3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CDBB51908A066CA005B4E3D /* main.m in Sources */,
+				2CDBB51A08A066CA005B4E3D /* PaletteWindowController.m in Sources */,
+				2C3E043108A0A572007344A9 /* AppController.m in Sources */,
+				2CF7350608A11823000BD158 /* ScriptRunner.m in Sources */,
+				2CF7373E08A20535000BD158 /* stringExtra.m in Sources */,
+				2CA3156108AB1E6800ADA32C /* PrefsWindowController.m in Sources */,
+				2C13EE4A08B0A1B50035C47A /* SmartActivate.m in Sources */,
+				2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C8C1DD80520B0DB009688D1 /* Japanese */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		2C9E42BE052215CB00248965 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C9E42C1052215F000248965 /* Japanese */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		2CA3155B08AB1DB100ADA32C /* PreferenceWindow.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CA3155C08AB1DB100ADA32C /* Japanese */,
+			);
+			name = PreferenceWindow.nib;
+			sourceTree = "<group>";
+		};
+		2CA923B408B84A3F00A6B73C /* ScriptWindow.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CA923B508B84A3F00A6B73C /* Japanese */,
+			);
+			name = ScriptWindow.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C59245609A067BD000BC6BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
+				LIBRARY_SEARCH_PATHS = "";
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = FilterScriptsPanel;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		2C59245709A067BD000BC6BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 3.1;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_OSAFLAGS = "-x";
+				PRODUCT_NAME = FilterScriptsPanel;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		2C59245809A067BD000BC6BA /* SDDebug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
+				LIBRARY_SEARCH_PATHS = "";
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_OSAFLAGS = "-l \\\"AppleScript Debugger\\\"";
+				PRODUCT_NAME = FilterScriptsPanel;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = SDDebug;
+		};
+		2C59245909A067BD000BC6BA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = FilterScriptsPanel;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		2C59245B09A067BD000BC6BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		2C59245C09A067BD000BC6BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+		2C59245D09A067BD000BC6BA /* SDDebug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = SDDebug;
+		};
+		2C59245E09A067BD000BC6BA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C59245509A067BD000BC6BA /* Build configuration list for PBXNativeTarget "FilterScriptsPanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C59245609A067BD000BC6BA /* Debug */,
+				2C59245709A067BD000BC6BA /* Release */,
+				2C59245809A067BD000BC6BA /* SDDebug */,
+				2C59245909A067BD000BC6BA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		2C59245A09A067BD000BC6BA /* Build configuration list for PBXProject "FilterScriptsPanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C59245B09A067BD000BC6BA /* Debug */,
+				2C59245C09A067BD000BC6BA /* Release */,
+				2C59245D09A067BD000BC6BA /* SDDebug */,
+				2C59245E09A067BD000BC6BA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

@@ -127,11 +127,17 @@
 	NSLog(appName);
 #endif
 	if ([applicationsFloatingOn containsObject:appName]){
-		if (![theWindow isVisible]) [super showWindow:self];
+		if (![theWindow isVisible]) {
+			//[super showWindow:self];
+			[theWindow orderBack:self];
+		}
 	}
 	else {
 		if ([theWindow isVisible]) {
-			if ([theWindow attachedSheet] == nil) [self close];	
+			if ([theWindow attachedSheet] == nil) {
+				//[self close];
+				[theWindow orderOut:self];
+			}
 		}
 	}
 }
