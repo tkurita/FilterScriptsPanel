@@ -31,6 +31,7 @@
 
 //methods for override
 - (void)saveDefaults;
+- (BOOL)shouldUpdateVisibilityForApp:(NSString *)appName suggestion:(BOOL)shouldShow;
 
 //private
 - (void)collapseAction;

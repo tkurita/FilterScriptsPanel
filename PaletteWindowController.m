@@ -7,12 +7,8 @@
 #pragma mark init and actions
 - (IBAction)showWindow:(id)sender
 {
-#if useLog
-	NSLog(@"start showWindow");
-#endif
 	[super showWindow:sender];
 	[self setDisplayToggleTimer];
-
 	NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
 	[notiCenter addObserver:self selector:@selector(willApplicationQuit:) name:NSApplicationWillTerminateNotification object:nil];
 }
@@ -111,6 +107,10 @@
 	return [displayToggleTimer isValid];
 }
 
+- (BOOL)shouldUpdateVisibilityForApp:(NSString *)appName suggestion:(BOOL)shouldShow {
+	return shouldShow;
+}
+
 - (void)updateVisibility:(NSTimer *)theTimer
 {
 #if useLog
@@ -126,16 +126,17 @@
 	NSLog([applicationsFloatingOn description]);
 	NSLog(appName);
 #endif
-	if ([applicationsFloatingOn containsObject:appName]){
+	BOOL shouldShow = [applicationsFloatingOn containsObject:appName];
+	shouldShow = [self shouldUpdateVisibilityForApp:appName suggestion:shouldShow];
+	
+	if (shouldShow){
 		if (![theWindow isVisible]) {
-			//[super showWindow:self];
 			[theWindow orderBack:self];
 		}
 	}
 	else {
 		if ([theWindow isVisible]) {
 			if ([theWindow attachedSheet] == nil) {
-				//[self close];
 				[theWindow orderOut:self];
 			}
 		}
