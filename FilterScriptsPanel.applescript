@@ -1,5 +1,5 @@
-property PathAnalyzer : load("PathAnalyzer") of application "FilterScriptsLib"
-property StringEngine : load("StringEngine") of application "FilterScriptsLib"
+property PathAnalyzer : loadLib("PathAnalyzer") of application "FilterScriptsLib"
+property StringEngine : loadLib("StringEngine") of application "FilterScriptsLib"
 
 property UtilityHandlers : missing value
 property MessageUtility : missing value
