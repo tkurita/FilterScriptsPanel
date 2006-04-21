@@ -30,8 +30,9 @@
 
 /* Begin PBXBuildFile section */
 		2C0B8BDE08A4744900B1ACDE /* SheetManager.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C0B8BDD08A4744900B1ACDE /* SheetManager.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
-		2C13EE4A08B0A1B50035C47A /* SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C13EE4808B0A1B50035C47A /* SmartActivate.m */; };
-		2C13EE4B08B0A1B50035C47A /* SmartActivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C13EE4908B0A1B50035C47A /* SmartActivate.h */; };
+		2C1655C909F8CC3400CE5422 /* SmartActivate.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C1655C609F8CC3300CE5422 /* SmartActivate.c */; };
+		2C1655CA09F8CC3400CE5422 /* SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1655C709F8CC3300CE5422 /* SmartActivate.m */; };
+		2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1655C809F8CC3300CE5422 /* SmartActivate.h */; };
 		2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */; };
 		2C3E043008A0A572007344A9 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E042E08A0A572007344A9 /* AppController.h */; };
 		2C3E043108A0A572007344A9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E042F08A0A572007344A9 /* AppController.m */; };
@@ -122,6 +123,9 @@
 		2C10B9910616C1AA00598626 /* ScriptListObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = ScriptListObj.applescript; sourceTree = "<group>"; };
 		2C13EE4808B0A1B50035C47A /* SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartActivate.m; sourceTree = "<group>"; };
 		2C13EE4908B0A1B50035C47A /* SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartActivate.h; sourceTree = "<group>"; };
+		2C1655C609F8CC3300CE5422 /* SmartActivate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SmartActivate.c; sourceTree = "<group>"; };
+		2C1655C709F8CC3300CE5422 /* SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartActivate.m; sourceTree = "<group>"; };
+		2C1655C809F8CC3300CE5422 /* SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartActivate.h; sourceTree = "<group>"; };
 		2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenFolderIcon.png; sourceTree = "<group>"; };
 		2C3E042E08A0A572007344A9 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		2C3E042F08A0A572007344A9 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		29B97314FDCFA39411CA2CEA /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				2C16550909F8CBF900CE5422 /* SmartActivate */,
 				2CF7364A08A1F0E6000BD158 /* History.txt */,
 				080E96DDFE201D6D7F000001 /* Scripts */,
 				2C42EE0D07B3797200C8005B /* ASSudioScriptLib */,
@@ -287,6 +292,16 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		2C16550909F8CBF900CE5422 /* SmartActivate */ = {
+			isa = PBXGroup;
+			children = (
+				2C1655C609F8CC3300CE5422 /* SmartActivate.c */,
+				2C1655C709F8CC3300CE5422 /* SmartActivate.m */,
+				2C1655C809F8CC3300CE5422 /* SmartActivate.h */,
+			);
+			path = SmartActivate;
+			sourceTree = "<group>";
+		};
 		2C42EE0D07B3797200C8005B /* ASSudioScriptLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,8 +342,8 @@
 				2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */,
 				2CF7373D08A20535000BD158 /* stringExtra.h in Headers */,
 				2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */,
-				2C13EE4B08B0A1B50035C47A /* SmartActivate.h in Headers */,
 				2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */,
+				2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,8 +448,9 @@
 				2CF7350608A11823000BD158 /* ScriptRunner.m in Sources */,
 				2CF7373E08A20535000BD158 /* stringExtra.m in Sources */,
 				2CA3156108AB1E6800ADA32C /* PrefsWindowController.m in Sources */,
-				2C13EE4A08B0A1B50035C47A /* SmartActivate.m in Sources */,
 				2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */,
+				2C1655C909F8CC3400CE5422 /* SmartActivate.c in Sources */,
+				2C1655CA09F8CC3400CE5422 /* SmartActivate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +597,7 @@
 		2C59245B09A067BD000BC6BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -593,6 +610,7 @@
 					ppc,
 					i386,
 				);
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
@@ -602,6 +620,7 @@
 		2C59245D09A067BD000BC6BA /* SDDebug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = SDDebug;
@@ -609,6 +628,7 @@
 		2C59245E09A067BD000BC6BA /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};

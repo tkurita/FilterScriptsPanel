@@ -262,11 +262,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>080E96DDFE201D6D7F000001</string>
+								<string>2C16550909F8CBF900CE5422</string>
 								<string>2C42EE0D07B3797200C8005B</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>2CA923B408B84A3F00A6B73C</string>
-								<string>2CA3155B08AB1DB100ADA32C</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -274,8 +271,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>12</integer>
-									<integer>9</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -317,7 +313,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>DefaultsManager.applescript</string>
+								<string>ScriptListObj.applescript</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,15 +321,13 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>DefaultsManager.applescript</string>
+										<string>ScriptListObj.applescript</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2C9AE62C09F8BC5500F69136</string>
+										<string>2C1655C309F8CC2100CE5422</string>
 										<key>history</key>
 										<array>
-											<string>2C59250909A07DA4000BC6BA</string>
-											<string>2C59250A09A07DA4000BC6BA</string>
 											<string>2C5925A409A08C1D000BC6BA</string>
 											<string>2C5925A709A08C1D000BC6BA</string>
 											<string>2C5925A809A08C1D000BC6BA</string>
@@ -342,7 +336,6 @@
 											<string>2C5926A509A0AE3A000BC6BA</string>
 											<string>2C5926A609A0AE3A000BC6BA</string>
 											<string>2C5926BC09A0AEF4000BC6BA</string>
-											<string>2C8F4EE009AEF30700997C75</string>
 											<string>2C8F4EE109AEF30700997C75</string>
 											<string>2C8F4EF009AEF41D00997C75</string>
 											<string>2CF73C7609B8751A00EF8406</string>
@@ -351,7 +344,10 @@
 											<string>2C9AE62509F8BC5500F69136</string>
 											<string>2C9AE62609F8BC5500F69136</string>
 											<string>2C9AE62709F8BC5500F69136</string>
-											<string>2C9AE62809F8BC5500F69136</string>
+											<string>2C9AE62C09F8BC5500F69136</string>
+											<string>2C1654F909F8CB9D00CE5422</string>
+											<string>2C1654FA09F8CB9D00CE5422</string>
+											<string>2C16550E09F8CC1900CE5422</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -374,9 +370,6 @@
 											<string>2C8F4EE509AEF30700997C75</string>
 											<string>2C8F4EE609AEF30700997C75</string>
 											<string>2C8F4EE709AEF30700997C75</string>
-											<string>2C9AE62909F8BC5500F69136</string>
-											<string>2C9AE62A09F8BC5500F69136</string>
-											<string>2C9AE62B09F8BC5500F69136</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -434,9 +427,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2C9AE62D09F8BC5500F69136</string>
+				<string>2C1655C409F8CC2100CE5422</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2C9AE62E09F8BC5500F69136</string>
+				<string>2C1655C509F8CC2100CE5422</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -797,7 +790,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ScriptListObj.applescript</string>
+										<string>FilterScriptsPanel.applescript</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -853,8 +846,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>2C8F4EDD09AEEDAA00997C75</string>
-				<string>2C8F4EDE09AEEDAA00997C75</string>
+				<string>2C1654F709F8CB9B00CE5422</string>
+				<string>2C1654F809F8CB9B00CE5422</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>

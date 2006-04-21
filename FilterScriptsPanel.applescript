@@ -1,5 +1,9 @@
-property PathAnalyzer : loadLib("PathAnalyzer") of application "FilterScriptsLib"
-property StringEngine : loadLib("StringEngine") of application "FilterScriptsLib"
+on loadLib(theName)
+	return loadLib(theName) of application (get "FilterScriptsLib")
+end loadLib
+
+property PathAnalyzer : loadLib("PathAnalyzer")
+property StringEngine : loadLib("StringEngine")
 
 property UtilityHandlers : missing value
 property MessageUtility : missing value
@@ -88,7 +92,7 @@ on clicked theObject
 		tell application "Finder"
 			open targetFolder of NewFilterScriptObj
 		end tell
-		call method "smartActivate:" with parameter "MACS"
+		call method "activateAppOfType:" of class "SmartAcrivate" with parameter "MACS"
 	else if theName is "RemoveScript" then
 		removeScript() of ScriptListObj
 	else if theName is "ReloadScripts" then
@@ -97,7 +101,7 @@ on clicked theObject
 		tell application "Finder"
 			open targetFolder of ScriptListObj
 		end tell
-		call method "smartActivate:" with parameter "MACS"
+		call method "activateAppOfType:" of class "SmartAcrivate" with parameter "MACS"
 	end if
 end clicked
 
