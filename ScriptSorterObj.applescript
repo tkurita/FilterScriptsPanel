@@ -1,4 +1,4 @@
-property FileSorter : load("FileSorter") of application "FilterScriptsLib"
+property FileSorter : loadLib("FileSorter") of application "FilterScriptsLib"
 
 on makeObj(folderName)
 	copy FileSorter to theFileSorter
