@@ -122,14 +122,15 @@
 	[string replaceOccurrencesOfString:@"\r" withString:@"\n" options:nil range: NSMakeRange(0, [inputString length])];
 
 	NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
+	NSFileHandle *inputHandle;
+	inputHandle = [[scriptTask standardInput] fileHandleForWriting];
 	@try {
-		NSFileHandle *inputHandle = [[scriptTask standardInput] fileHandleForWriting];
 		[inputHandle writeData:inputData];
-		[inputHandle closeFile];
 	}
 	@catch (NSException *exception) {
-		NSLog(@"main: Caught %@: %@", [exception name], [exception reason]);
+		NSLog(@"sendData: Caught %@: %@", [exception name], [exception reason]);
 	}
+	[inputHandle closeFile];
 	[pool release];
 #if useLog
 	NSLog(@"end of sendData");
@@ -172,6 +173,9 @@
 
 - (void)didEndTask:(NSNotification *)aNotification
 {
+#if useLog
+	NSLog(@"task finished with status 0");
+#endif
 	[[NSNotificationCenter defaultCenter] removeObserver:self 
 										name:NSFileHandleReadCompletionNotification 
 										object: [[scriptTask standardOutput] fileHandleForReading]];
@@ -188,6 +192,11 @@
 		if ([theData length]) {
 			[outputData appendData:theData];
 		}
+	}
+	else {
+#if useLog
+		NSLog(@"task did not finish with status 0");
+#endif
 	}
 
 	NSPipe *errorPipe = [scriptTask standardError];
@@ -228,7 +237,13 @@
 #if useLog
 	NSLog(@"task will launch");
 #endif
-	[scriptTask launch];
+	@try{
+		[scriptTask launch];
+	}
+	@catch (NSException *exception) {
+		NSLog(@"launchTaskWithString: Caught %@: %@", [exception name], [exception reason]);
+	}
+	
 #if useLog
 	NSLog(@"after task launch");
 #endif

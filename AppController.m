@@ -1,6 +1,7 @@
 #import "AppController.h"
 
 #define useLog 0
+#include <signal.h>
 
 @implementation AppController
 
@@ -42,7 +43,8 @@
 	NSString *defaultsPlistPath = [[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"];
 	NSDictionary *defautlsDict = [NSDictionary dictionaryWithContentsOfFile:defaultsPlistPath];
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults registerDefaults:defautlsDict];	
+	[userDefaults registerDefaults:defautlsDict];
+	signal(SIGPIPE, SIG_IGN);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -55,6 +57,11 @@
 	
 	NSNotificationCenter *notifyCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
 	[notifyCenter addObserver:self selector:@selector(anApplicationIsTerminated:) name:NSWorkspaceDidTerminateApplicationNotification object:nil];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+	NSLog(@"wll application terminate");
 }
 
 @end
