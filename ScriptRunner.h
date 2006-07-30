@@ -1,5 +1,5 @@
 #import <Cocoa/Cocoa.h>
-#import "stringExtra.h"
+#import "CocoaLib/StringExtra.h"
 
 @interface ScriptRunner : NSObject {
 	NSTask *scriptTask;

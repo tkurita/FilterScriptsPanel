@@ -101,7 +101,8 @@ static const int DIALOG_OK		= 128;
 	NSLog(@"start awakeFromNib in ScriptListController");
 #endif
 	[self setFrameName:@"FilterScriptsPanel"];
-	[self setApplicationsFloatingOnFromDefaultName:@"applicationsFloatingOn"];
+	//[self setApplicationsFloatingOnFromDefaultName:@"applicationsFloatingOn"];
+	[self bindApplicationsFloatingOnForKey:@"applicationsFloatingOn"];
 	[self useFloating];
 	[self useWindowCollapse];
 	

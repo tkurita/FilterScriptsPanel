@@ -36,6 +36,15 @@
 		2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */; };
 		2C3E043008A0A572007344A9 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E042E08A0A572007344A9 /* AppController.h */; };
 		2C3E043108A0A572007344A9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E042F08A0A572007344A9 /* AppController.m */; };
+		2C4AC36E0A7A23C700089872 /* PathExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC3680A7A23C700089872 /* PathExtra.h */; };
+		2C4AC36F0A7A23C700089872 /* PathExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC3690A7A23C700089872 /* PathExtra.m */; };
+		2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC36A0A7A23C700089872 /* StringExtra.h */; };
+		2C4AC3710A7A23C700089872 /* StringExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC36B0A7A23C700089872 /* StringExtra.m */; };
+		2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC36C0A7A23C700089872 /* WindowVisibilityController.h */; };
+		2C4AC3730A7A23C700089872 /* WindowVisibilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC36D0A7A23C700089872 /* WindowVisibilityController.m */; };
+		2C4AC4EB0A7BC7CA00089872 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4AC4D60A7BC7C900089872 /* Carbon.framework */; };
+		2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */; };
+		2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */; };
 		2C59258509A08A9B000BC6BA /* setuphelp.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2C59258409A08A9B000BC6BA /* setuphelp.sh */; };
 		2CA3150608AA7ED800ADA32C /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3150508AA7ED800ADA32C /* plus.png */; };
 		2CA3151208AA7F4B00ADA32C /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151108AA7F4B00ADA32C /* minus.png */; };
@@ -52,7 +61,6 @@
 		2CA923B608B84A3F00A6B73C /* ScriptWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA923B408B84A3F00A6B73C /* ScriptWindow.nib */; };
 		2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA9241708B8C17700A6B73C /* ScriptListController.h */; };
 		2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9241808B8C17700A6B73C /* ScriptListController.m */; };
-		2CDBB50508A066CA005B4E3D /* PaletteWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C09988B089F443C0004414C /* PaletteWindowController.h */; };
 		2CDBB50708A066CA005B4E3D /* FilterScriptsPanel.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = DA206CF3015C4E8B03C91932 /* FilterScriptsPanel.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		2CDBB50808A066CA005B4E3D /* ScriptListObj.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C10B9910616C1AA00598626 /* ScriptListObj.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		2CDBB50A08A066CA005B4E3D /* MessageUtility.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C6FB98006243FF3004731C7 /* MessageUtility.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
@@ -67,13 +75,10 @@
 		2CDBB51608A066CA005B4E3D /* Templates.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2C82E5900793A8E800D28509 /* Templates.zip */; };
 		2CDBB51708A066CA005B4E3D /* Scripts.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD5E8106521AC50068FEBB /* Scripts.zip */; };
 		2CDBB51908A066CA005B4E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		2CDBB51A08A066CA005B4E3D /* PaletteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09988C089F443C0004414C /* PaletteWindowController.m */; };
 		2CDBB51C08A066CA005B4E3D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2CDBB51D08A066CA005B4E3D /* AppleScriptKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */; };
 		2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF7350308A11823000BD158 /* ScriptRunner.h */; };
 		2CF7350608A11823000BD158 /* ScriptRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7350408A11823000BD158 /* ScriptRunner.m */; };
-		2CF7373D08A20535000BD158 /* stringExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF7373B08A20535000BD158 /* stringExtra.h */; };
-		2CF7373E08A20535000BD158 /* stringExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7373C08A20535000BD158 /* stringExtra.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,8 +86,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2C09988B089F443C0004414C /* PaletteWindowController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = PaletteWindowController.h; sourceTree = "<group>"; };
-		2C09988C089F443C0004414C /* PaletteWindowController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = PaletteWindowController.m; sourceTree = "<group>"; };
 		2C0B8BDD08A4744900B1ACDE /* SheetManager.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = SheetManager.applescript; sourceTree = "<group>"; };
 		2C10B9910616C1AA00598626 /* ScriptListObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = ScriptListObj.applescript; sourceTree = "<group>"; };
 		2C1655C609F8CC3300CE5422 /* SmartActivate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SmartActivate.c; sourceTree = "<group>"; };
@@ -91,7 +94,15 @@
 		2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenFolderIcon.png; sourceTree = "<group>"; };
 		2C3E042E08A0A572007344A9 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		2C3E042F08A0A572007344A9 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		2C47F83B0A7782C8001809FA /* History.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; lineEnding = 0; path = History.txt; sourceTree = "<group>"; };
+		2C4AC3680A7A23C700089872 /* PathExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathExtra.h; sourceTree = "<group>"; };
+		2C4AC3690A7A23C700089872 /* PathExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathExtra.m; sourceTree = "<group>"; };
+		2C4AC36A0A7A23C700089872 /* StringExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtra.h; sourceTree = "<group>"; };
+		2C4AC36B0A7A23C700089872 /* StringExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringExtra.m; sourceTree = "<group>"; };
+		2C4AC36C0A7A23C700089872 /* WindowVisibilityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowVisibilityController.h; sourceTree = "<group>"; };
+		2C4AC36D0A7A23C700089872 /* WindowVisibilityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowVisibilityController.m; sourceTree = "<group>"; };
+		2C4AC4D60A7BC7C900089872 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteWindowController.h; sourceTree = "<group>"; };
+		2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteWindowController.m; sourceTree = "<group>"; };
 		2C59258409A08A9B000BC6BA /* setuphelp.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setuphelp.sh; sourceTree = "<group>"; };
 		2C6FB98006243FF3004731C7 /* MessageUtility.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = MessageUtility.applescript; sourceTree = "<group>"; };
 		2C6FB982062440FA004731C7 /* UnixScriptExecuter.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = UnixScriptExecuter.applescript; sourceTree = "<group>"; };
@@ -110,7 +121,7 @@
 		2CA3155C08AB1DB100ADA32C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/PreferenceWindow.nib; sourceTree = "<group>"; };
 		2CA3155E08AB1E6800ADA32C /* PrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = PrefsWindowController.h; sourceTree = "<group>"; };
 		2CA3155F08AB1E6800ADA32C /* PrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = PrefsWindowController.m; sourceTree = "<group>"; };
-		2CA3156408AB248200ADA32C /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		2CA3156408AB248200ADA32C /* UserDefaults.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = UserDefaults.plist; sourceTree = "<group>"; };
 		2CA315E908AB4DDF00ADA32C /* smallMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallMinus.png; sourceTree = "<group>"; };
 		2CA315EA08AB4DDF00ADA32C /* smallPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallPlus.png; sourceTree = "<group>"; };
 		2CA923B508B84A3F00A6B73C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/ScriptWindow.nib; sourceTree = "<group>"; };
@@ -123,8 +134,6 @@
 		2CF7350308A11823000BD158 /* ScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptRunner.h; sourceTree = "<group>"; };
 		2CF7350408A11823000BD158 /* ScriptRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptRunner.m; sourceTree = "<group>"; };
 		2CF7364A08A1F0E6000BD158 /* History.rd */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; lineEnding = 0; path = History.rd; sourceTree = "<group>"; };
-		2CF7373B08A20535000BD158 /* stringExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringExtra.h; sourceTree = "<group>"; };
-		2CF7373C08A20535000BD158 /* stringExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringExtra.m; sourceTree = "<group>"; };
 		2CFD5E8106521AC50068FEBB /* Scripts.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Scripts.zip; sourceTree = "<group>"; };
 		DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptKit.framework; path = /System/Library/Frameworks/AppleScriptKit.framework; sourceTree = "<absolute>"; };
 		DA206CF3015C4E8B03C91932 /* FilterScriptsPanel.applescript */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.applescript; path = FilterScriptsPanel.applescript; sourceTree = "<group>"; };
@@ -138,6 +147,7 @@
 			files = (
 				2CDBB51C08A066CA005B4E3D /* Cocoa.framework in Frameworks */,
 				2CDBB51D08A066CA005B4E3D /* AppleScriptKit.framework in Frameworks */,
+				2C4AC4EB0A7BC7CA00089872 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,11 +196,11 @@
 		29B97314FDCFA39411CA2CEA /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				2C47F83B0A7782C8001809FA /* History.txt */,
 				2CF7364A08A1F0E6000BD158 /* History.rd */,
 				2C16550909F8CBF900CE5422 /* SmartActivateLib */,
 				080E96DDFE201D6D7F000001 /* Scripts */,
 				2C42EE0D07B3797200C8005B /* ASSudioScriptLib */,
+				2C4AC3670A7A23C700089872 /* CocoaLib */,
 				2C13EBED08AF09620035C47A /* Classes */,
 				2CA3150708AA7EE400ADA32C /* Images */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -229,6 +239,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C4AC4D60A7BC7C900089872 /* Carbon.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -242,14 +253,10 @@
 				2CA9241808B8C17700A6B73C /* ScriptListController.m */,
 				2CF7350308A11823000BD158 /* ScriptRunner.h */,
 				2CF7350408A11823000BD158 /* ScriptRunner.m */,
-				2C09988B089F443C0004414C /* PaletteWindowController.h */,
-				2C09988C089F443C0004414C /* PaletteWindowController.m */,
 				2C3E042E08A0A572007344A9 /* AppController.h */,
 				2C3E042F08A0A572007344A9 /* AppController.m */,
 				2CA3155E08AB1E6800ADA32C /* PrefsWindowController.h */,
 				2CA3155F08AB1E6800ADA32C /* PrefsWindowController.m */,
-				2CF7373B08A20535000BD158 /* stringExtra.h */,
-				2CF7373C08A20535000BD158 /* stringExtra.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -273,6 +280,21 @@
 				2CB30A4C0650EC5100BD0857 /* UtilityHandlers.applescript */,
 			);
 			path = ASSudioScriptLib;
+			sourceTree = "<group>";
+		};
+		2C4AC3670A7A23C700089872 /* CocoaLib */ = {
+			isa = PBXGroup;
+			children = (
+				2C4AC3680A7A23C700089872 /* PathExtra.h */,
+				2C4AC3690A7A23C700089872 /* PathExtra.m */,
+				2C4AC36A0A7A23C700089872 /* StringExtra.h */,
+				2C4AC36B0A7A23C700089872 /* StringExtra.m */,
+				2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */,
+				2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */,
+				2C4AC36C0A7A23C700089872 /* WindowVisibilityController.h */,
+				2C4AC36D0A7A23C700089872 /* WindowVisibilityController.m */,
+			);
+			path = CocoaLib;
 			sourceTree = "<group>";
 		};
 		2CA3150708AA7EE400ADA32C /* Images */ = {
@@ -299,13 +321,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CDBB50508A066CA005B4E3D /* PaletteWindowController.h in Headers */,
 				2C3E043008A0A572007344A9 /* AppController.h in Headers */,
 				2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */,
-				2CF7373D08A20535000BD158 /* stringExtra.h in Headers */,
 				2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */,
 				2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */,
 				2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */,
+				2C4AC36E0A7A23C700089872 /* PathExtra.h in Headers */,
+				2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */,
+				2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */,
+				2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,14 +404,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CDBB51908A066CA005B4E3D /* main.m in Sources */,
-				2CDBB51A08A066CA005B4E3D /* PaletteWindowController.m in Sources */,
 				2C3E043108A0A572007344A9 /* AppController.m in Sources */,
 				2CF7350608A11823000BD158 /* ScriptRunner.m in Sources */,
-				2CF7373E08A20535000BD158 /* stringExtra.m in Sources */,
 				2CA3156108AB1E6800ADA32C /* PrefsWindowController.m in Sources */,
 				2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */,
 				2C1655C909F8CC3400CE5422 /* SmartActivate.c in Sources */,
 				2C1655CA09F8CC3400CE5422 /* SmartActivate.m in Sources */,
+				2C4AC36F0A7A23C700089872 /* PathExtra.m in Sources */,
+				2C4AC3710A7A23C700089872 /* StringExtra.m in Sources */,
+				2C4AC3730A7A23C700089872 /* WindowVisibilityController.m in Sources */,
+				2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

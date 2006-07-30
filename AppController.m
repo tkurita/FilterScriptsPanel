@@ -1,4 +1,6 @@
 #import "AppController.h"
+#import "CocoaLib/PaletteWindowController.h"
+#import "CocoaLib/WindowVisibilityController.h"
 
 #define useLog 0
 #include <signal.h>
@@ -45,6 +47,7 @@
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	[userDefaults registerDefaults:defautlsDict];
 	signal(SIGPIPE, SIG_IGN);
+	[PaletteWindowController setVisibilityController:[[[WindowVisibilityController alloc] init] autorelease]];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
