@@ -1437,17 +1437,29 @@
 		vrLoc = 0;
 	};
 	2C4AC3680A7A23C700089872 /* PathExtra.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = PathExtra.h;
+		path = "/Users/tkurita/Dev/Projects/FilterScripts for mi/trunk/CocoaLib/PathExtra.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {696, 598}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRect = "{{0, 0}, {696, 598}}";
+			sepNavIntBoundsRect = "{{0, 0}, {738, 443}}";
+			sepNavSelRange = "{47, 9}";
+			sepNavVisRect = "{{0, 0}, {738, 443}}";
 		};
 	};
 	2C4AC3690A7A23C700089872 /* PathExtra.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = PathExtra.m;
+		path = "/Users/tkurita/Dev/Projects/FilterScripts for mi/trunk/CocoaLib/PathExtra.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {696, 1018}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRect = "{{0, 0}, {696, 598}}";
+			sepNavIntBoundsRect = "{{0, 0}, {738, 1018}}";
+			sepNavSelRange = "{9, 9}";
+			sepNavVisRect = "{{0, 0}, {738, 443}}";
 		};
 	};
 	2C4AC36A0A7A23C700089872 /* StringExtra.h */ = {

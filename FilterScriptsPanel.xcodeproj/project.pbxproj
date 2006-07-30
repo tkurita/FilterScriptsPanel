@@ -36,8 +36,6 @@
 		2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */; };
 		2C3E043008A0A572007344A9 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E042E08A0A572007344A9 /* AppController.h */; };
 		2C3E043108A0A572007344A9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E042F08A0A572007344A9 /* AppController.m */; };
-		2C4AC36E0A7A23C700089872 /* PathExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC3680A7A23C700089872 /* PathExtra.h */; };
-		2C4AC36F0A7A23C700089872 /* PathExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC3690A7A23C700089872 /* PathExtra.m */; };
 		2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC36A0A7A23C700089872 /* StringExtra.h */; };
 		2C4AC3710A7A23C700089872 /* StringExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC36B0A7A23C700089872 /* StringExtra.m */; };
 		2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC36C0A7A23C700089872 /* WindowVisibilityController.h */; };
@@ -94,8 +92,6 @@
 		2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenFolderIcon.png; sourceTree = "<group>"; };
 		2C3E042E08A0A572007344A9 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		2C3E042F08A0A572007344A9 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		2C4AC3680A7A23C700089872 /* PathExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathExtra.h; sourceTree = "<group>"; };
-		2C4AC3690A7A23C700089872 /* PathExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathExtra.m; sourceTree = "<group>"; };
 		2C4AC36A0A7A23C700089872 /* StringExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExtra.h; sourceTree = "<group>"; };
 		2C4AC36B0A7A23C700089872 /* StringExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringExtra.m; sourceTree = "<group>"; };
 		2C4AC36C0A7A23C700089872 /* WindowVisibilityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowVisibilityController.h; sourceTree = "<group>"; };
@@ -285,8 +281,6 @@
 		2C4AC3670A7A23C700089872 /* CocoaLib */ = {
 			isa = PBXGroup;
 			children = (
-				2C4AC3680A7A23C700089872 /* PathExtra.h */,
-				2C4AC3690A7A23C700089872 /* PathExtra.m */,
 				2C4AC36A0A7A23C700089872 /* StringExtra.h */,
 				2C4AC36B0A7A23C700089872 /* StringExtra.m */,
 				2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */,
@@ -326,7 +320,6 @@
 				2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */,
 				2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */,
 				2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */,
-				2C4AC36E0A7A23C700089872 /* PathExtra.h in Headers */,
 				2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */,
 				2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */,
 				2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */,
@@ -410,7 +403,6 @@
 				2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */,
 				2C1655C909F8CC3400CE5422 /* SmartActivate.c in Sources */,
 				2C1655CA09F8CC3400CE5422 /* SmartActivate.m in Sources */,
-				2C4AC36F0A7A23C700089872 /* PathExtra.m in Sources */,
 				2C4AC3710A7A23C700089872 /* StringExtra.m in Sources */,
 				2C4AC3730A7A23C700089872 /* WindowVisibilityController.m in Sources */,
 				2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */,
