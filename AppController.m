@@ -1,6 +1,7 @@
 #import "AppController.h"
 #import "CocoaLib/PaletteWindowController.h"
 #import "CocoaLib/WindowVisibilityController.h"
+#import "DonationReminder/DonationReminder.h"
 
 #define useLog 0
 #include <signal.h>
@@ -48,6 +49,8 @@
 	[userDefaults registerDefaults:defautlsDict];
 	signal(SIGPIPE, SIG_IGN);
 	[PaletteWindowController setVisibilityController:[[[WindowVisibilityController alloc] init] autorelease]];
+	id donationReminder = [DonationReminder remindDonation];
+	if (donationReminder != nil) [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -64,7 +67,9 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-	NSLog(@"wll application terminate");
+#if useLog	
+	NSLog(@"willl application terminate");
+#endif	
 }
 
 @end

@@ -1,5 +1,8 @@
 To Do
 
+= 2006.07.31
+最新の PaletteWindowController に更新し、WindowVisibilityController を採用。
+
 = 2006.07.26
 実行タスクがエラーで終了？して、 pipe にデータを書き込めなくなると crash することがある。
 * Xcode から起動すると、発生しない。
