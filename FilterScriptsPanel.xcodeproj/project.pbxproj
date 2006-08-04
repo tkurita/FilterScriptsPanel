@@ -35,6 +35,7 @@
 		2C1655C909F8CC3400CE5422 /* SmartActivate.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C1655C609F8CC3300CE5422 /* SmartActivate.c */; };
 		2C1655CA09F8CC3400CE5422 /* SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1655C709F8CC3300CE5422 /* SmartActivate.m */; };
 		2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1655C809F8CC3300CE5422 /* SmartActivate.h */; };
+		2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */; };
 		2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */; };
 		2C3E043008A0A572007344A9 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E042E08A0A572007344A9 /* AppController.h */; };
 		2C3E043108A0A572007344A9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E042F08A0A572007344A9 /* AppController.m */; };
@@ -105,6 +106,7 @@
 		2C1655C609F8CC3300CE5422 /* SmartActivate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SmartActivate.c; sourceTree = "<group>"; };
 		2C1655C709F8CC3300CE5422 /* SmartActivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartActivate.m; sourceTree = "<group>"; };
 		2C1655C809F8CC3300CE5422 /* SmartActivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartActivate.h; sourceTree = "<group>"; };
+		2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = HelpSetup.plist; sourceTree = "<group>"; };
 		2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenFolderIcon.png; sourceTree = "<group>"; };
 		2C3E042E08A0A572007344A9 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		2C3E042F08A0A572007344A9 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = "-2147483647"; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */,
 				2CA3156408AB248200ADA32C /* UserDefaults.plist */,
 				2CDBB52008A066CA005B4E3D /* Info.plist */,
 				2CFD5E8106521AC50068FEBB /* Scripts.zip */,
@@ -405,6 +408,7 @@
 				2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */,
 				2CA923B608B84A3F00A6B73C /* ScriptWindow.nib in Resources */,
 				2C59258509A08A9B000BC6BA /* setuphelp.sh in Resources */,
+				2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
