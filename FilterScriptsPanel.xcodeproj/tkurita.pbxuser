@@ -197,7 +197,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 176311472;
+			PBXPerProjectTemplateStateSaveDate = 176695534;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -657,7 +657,7 @@
 				PBXModuleWindowStatusBarHidden = YES;
 				RubberWindowFrame = "440 282 746 464 0 0 1280 832 ";
 			};
-			PBXWorkspaceStateSaveDate = 176311472;
+			PBXWorkspaceStateSaveDate = 176695534;
 		};
 		sourceControlManager = 2CF80EF1059B1ACB005C53F6 /* Source Control */;
 		userBookmarkGroup = 2C72B7620521B991000AF3F1 /* PBXBookmarkGroup */;
@@ -883,14 +883,6 @@
 		location = PaletteWindowController.ob;
 		modificationTime = 175964500.357714;
 		state = 1;
-	};
-	2C59258409A08A9B000BC6BA /* setuphelp.sh */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {776, 442}}";
-			sepNavSelRange = "{98, 114}";
-			sepNavVisRect = "{{0, 0}, {776, 442}}";
-			sepNavWindowFrame = "{{15, 393}, {821, 540}}";
-		};
 	};
 	2C59260309A09970000BC6BA /* ScriptRunner.m:121 */ = {
 		isa = PBXFileBreakpoint;

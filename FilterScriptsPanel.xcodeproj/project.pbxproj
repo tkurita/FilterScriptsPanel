@@ -46,7 +46,6 @@
 		2C4AC4EB0A7BC7CA00089872 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4AC4D60A7BC7C900089872 /* Carbon.framework */; };
 		2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */; };
 		2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */; };
-		2C59258509A08A9B000BC6BA /* setuphelp.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2C59258409A08A9B000BC6BA /* setuphelp.sh */; };
 		2CA3150608AA7ED800ADA32C /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3150508AA7ED800ADA32C /* plus.png */; };
 		2CA3151208AA7F4B00ADA32C /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151108AA7F4B00ADA32C /* minus.png */; };
 		2CA3151B08AA7FF800ADA32C /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151A08AA7FF800ADA32C /* Reload.png */; };
@@ -117,7 +116,6 @@
 		2C4AC4D60A7BC7C900089872 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteWindowController.h; sourceTree = "<group>"; };
 		2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteWindowController.m; sourceTree = "<group>"; };
-		2C59258409A08A9B000BC6BA /* setuphelp.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setuphelp.sh; sourceTree = "<group>"; };
 		2C6FB98006243FF3004731C7 /* MessageUtility.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = MessageUtility.applescript; sourceTree = "<group>"; };
 		2C6FB982062440FA004731C7 /* UnixScriptExecuter.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = UnixScriptExecuter.applescript; sourceTree = "<group>"; };
 		2C7447B50793797800FDC383 /* NewFilterScriptObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = NewFilterScriptObj.applescript; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				DA206CF4015C4E8B03C91932 /* AppleScriptKit.asdictionary */,
 				2CA923B408B84A3F00A6B73C /* ScriptWindow.nib */,
 				2CA3155B08AB1DB100ADA32C /* PreferenceWindow.nib */,
-				2C59258409A08A9B000BC6BA /* setuphelp.sh */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -407,7 +404,6 @@
 				2CA315EC08AB4DE000ADA32C /* smallPlus.png in Resources */,
 				2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */,
 				2CA923B608B84A3F00A6B73C /* ScriptWindow.nib in Resources */,
-				2C59258509A08A9B000BC6BA /* setuphelp.sh in Resources */,
 				2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
