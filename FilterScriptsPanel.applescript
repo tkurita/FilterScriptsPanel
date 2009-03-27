@@ -1,9 +1,12 @@
-on loadLib(theName)
-	return loadLib(theName) of application (get "FilterScriptsLib")
-end loadLib
+property loader : proxy_with({autocollect:true}) of application (get "FilterScriptsLib")
 
-property PathAnalyzer : loadLib("PathAnalyzer")
-property StringEngine : loadLib("StringEngine")
+on load(theName)
+	return loader's load(theName)
+end load
+
+property XText : load("XText")
+property PathAnalyzer : load("PathAnalyzer")
+property StringEngine : load("StringEngine")
 
 property UtilityHandlers : missing value
 property MessageUtility : missing value
@@ -19,7 +22,7 @@ property SheetManager : missing value
 (*shared constants *)
 property dQ : ASCII character 34
 property yenmark : ASCII character 92
-property lineFeed : ASCII character 10
+property linefeed : ASCII character 10
 
 property isTaskRunning : false
 
@@ -139,7 +142,7 @@ on dialog ended theObject with reply theReply
 end dialog ended
 
 on will finish launching theObject
-	--log "start will finish launching"
+	log "start will finish launching"
 	set DefaultsManager to importScript("DefaultsManager")
 	
 	set UtilityHandlers to importScript("UtilityHandlers")
@@ -156,5 +159,5 @@ on will finish launching theObject
 	
 	set SheetManager to importScript("SheetManager")
 	
-	--log "end finish launching"
+	log "end finish launching"
 end will finish launching

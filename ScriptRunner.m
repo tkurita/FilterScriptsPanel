@@ -82,7 +82,7 @@
 	NSData *outData = [outHandle availableData];
 	NSString *whichResult = [[NSString alloc] initWithData:outData encoding:NSUTF8StringEncoding];
 	[whichResult autorelease];
-	if ([whichResult startWith:@"no "]) {
+	if ([whichResult hasPrefix:@"no "]) {
 		return nil;
 	}
 	else {
