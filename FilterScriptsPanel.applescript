@@ -1,6 +1,4 @@
 property XText : module
-property PathAnalyzer : module
-property StringEngine : module
 property FileSorter : module
 property loader : boot (module loader of application "FilterScriptsLib") for me
 
