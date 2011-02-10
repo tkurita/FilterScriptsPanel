@@ -17,15 +17,19 @@ property selectedItemAlias : missing value
 property lastRebuildDate : missing value
 
 on initialize(targetName)
-	--log "start initialize in FolderTableObj"
+	-- log "start initialize in FolderTableObj"
 	set listName to targetName & "_list"
 	set lastRebuidDateLabel to targetName & "_lastRebuildDate"
 	
 	set FolderItemSorter to makeObj(targetName) of ScriptSorterObj
-	set targetFolder to getContainer() of FolderItemSorter
+	set my targetFolder to getContainer() of FolderItemSorter
 	set isInitialized to true
-	--log "end  initialize in FolderTableObj"
+	-- log "end  initialize in FolderTableObj"
 end initialize
+
+on target_folder()
+	return my targetFolder
+end target_folder
 
 on readTableContents()
 	--log "start readTableContents"

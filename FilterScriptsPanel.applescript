@@ -1,12 +1,8 @@
-property loader : proxy_with({autocollect:true}) of application (get "FilterScriptsLib")
-
-on load(theName)
-	return loader's load(theName)
-end load
-
-property XText : load("XText")
-property PathAnalyzer : load("PathAnalyzer")
-property StringEngine : load("StringEngine")
+property XText : module
+property PathAnalyzer : module
+property StringEngine : module
+property FileSorter : module
+property loader : boot (module loader of application "FilterScriptsLib") for me
 
 property UtilityHandlers : missing value
 property MessageUtility : missing value
@@ -95,16 +91,16 @@ on clicked theObject
 		tell application "Finder"
 			open targetFolder of NewFilterScriptObj
 		end tell
-		call method "activateAppOfType:" of class "SmartAcrivate" with parameter "MACS"
+		call method "activateAppOfIdentifier:" of class "SmartActivate" with parameter "com.apple.finder"
 	else if theName is "RemoveScript" then
 		removeScript() of ScriptListObj
 	else if theName is "ReloadScripts" then
 		rebuild() of ScriptListObj
 	else if theName is "OpenScriptsFolder" then
 		tell application "Finder"
-			open targetFolder of ScriptListObj
+			open ScriptListObj's target_folder()
 		end tell
-		call method "activateAppOfType:" of class "SmartAcrivate" with parameter "MACS"
+		call method "activateAppOfIdentifier:" of class "SmartActivate" with parameter "com.apple.finder"
 	end if
 end clicked
 
@@ -142,7 +138,7 @@ on dialog ended theObject with reply theReply
 end dialog ended
 
 on will finish launching theObject
-	log "start will finish launching"
+	-- log "start will finish launching"
 	set DefaultsManager to importScript("DefaultsManager")
 	
 	set UtilityHandlers to importScript("UtilityHandlers")
@@ -159,5 +155,5 @@ on will finish launching theObject
 	
 	set SheetManager to importScript("SheetManager")
 	
-	log "end finish launching"
+	-- log "end finish launching"
 end will finish launching

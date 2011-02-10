@@ -46,6 +46,8 @@
 		2C4AC4EB0A7BC7CA00089872 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4AC4D60A7BC7C900089872 /* Carbon.framework */; };
 		2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */; };
 		2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */; };
+		2C85178E1303B12400E11FFD /* FrontAppMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C85178C1303B12400E11FFD /* FrontAppMonitor.h */; };
+		2C85178F1303B12400E11FFD /* FrontAppMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85178D1303B12400E11FFD /* FrontAppMonitor.m */; };
 		2CA3150608AA7ED800ADA32C /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3150508AA7ED800ADA32C /* plus.png */; };
 		2CA3151208AA7F4B00ADA32C /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151108AA7F4B00ADA32C /* minus.png */; };
 		2CA3151B08AA7FF800ADA32C /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151A08AA7FF800ADA32C /* Reload.png */; };
@@ -122,6 +124,8 @@
 		2C7447C307937C4E00FDC383 /* ScriptSorterObj.applescript */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.applescript; path = ScriptSorterObj.applescript; sourceTree = "<group>"; };
 		2C82E57F07939E4C00D28509 /* FolderTableObj.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = FolderTableObj.applescript; sourceTree = "<group>"; };
 		2C82E5900793A8E800D28509 /* Templates.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Templates.zip; sourceTree = "<group>"; };
+		2C85178C1303B12400E11FFD /* FrontAppMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrontAppMonitor.h; sourceTree = "<group>"; };
+		2C85178D1303B12400E11FFD /* FrontAppMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontAppMonitor.m; sourceTree = "<group>"; };
 		2C8C1DD80520B0DB009688D1 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		2C9E42C1052215F000248965 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CA3150508AA7ED800ADA32C /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 		2C4AC3670A7A23C700089872 /* CocoaLib */ = {
 			isa = PBXGroup;
 			children = (
+				2C85178C1303B12400E11FFD /* FrontAppMonitor.h */,
+				2C85178D1303B12400E11FFD /* FrontAppMonitor.m */,
 				2C4AC36A0A7A23C700089872 /* StringExtra.h */,
 				2C4AC36B0A7A23C700089872 /* StringExtra.m */,
 				2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */,
@@ -341,6 +347,7 @@
 				2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */,
 				2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */,
 				2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */,
+				2C85178E1303B12400E11FFD /* FrontAppMonitor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +434,7 @@
 				2C4AC3710A7A23C700089872 /* StringExtra.m in Sources */,
 				2C4AC3730A7A23C700089872 /* WindowVisibilityController.m in Sources */,
 				2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */,
+				2C85178F1303B12400E11FFD /* FrontAppMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

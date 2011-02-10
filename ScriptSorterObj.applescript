@@ -1,4 +1,4 @@
-property FileSorter : load("FileSorter") of application "FilterScriptsLib"
+global FileSorter
 
 on makeObj(folderName)
 	copy FileSorter to theFileSorter
@@ -25,9 +25,22 @@ on makeObj(folderName)
 			return {itemList, nameList, indexList}
 		end buildIndexArray
 		
+		on resolve_mi_folder()
+			set sub_path to "mi:"
+			set path_list to {(path to application support from user domain as Unicode text) & sub_path, Å 
+				(path to preferences from user domain as Unicode text) & sub_path}
+			try
+				repeat with a_path in path_list
+					a_path as alias
+					return a_path
+				end repeat
+			end try
+			error "Can't find mi folder." number 2061
+		end resolve_mi_folder
+		
 		on getContainer()
 			--log "start getContainer"
-			set filterScripsFolderPath to (path to preferences folder from user domain as Unicode text) & "mi:FilterScripts:"
+			set filterScripsFolderPath to resolve_mi_folder() & "FilterScripts:"
 			set targetFolderPath to filterScripsFolderPath & folderName & ":"
 			--log targetFolderPath
 			try

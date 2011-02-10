@@ -20,8 +20,12 @@ on makeObj()
 			call method "showWindow:" of WindowController
 		end openWindow
 		
+		on target_folder()
+			return continue target_folder()
+		end target_folder
+		
 		on initialize(targetName)
-			--log "start initilize of ScriptListObj"
+			-- log "start initilize of ScriptListObj"
 			set WindowController to call method "alloc" of class "ScriptListController"
 			set WindowController to call method "initWithWindowNibName:" of WindowController with parameter "ScriptWindow"
 			set my targetWindow to call method "window" of WindowController
@@ -38,7 +42,7 @@ on makeObj()
 			set selectedItem to readDefaultValueWith("selectedItem", -1) of DefaultsManager
 			set selected row of my targetTable to selectedItem + 1
 			set NewFilterScriptObj to makeObj() of NewFilterScriptObj
-			--log "end initialize of ScriptListObj"
+			-- log "end initialize of ScriptListObj"
 		end initialize
 		
 		on doRename(theReply)
@@ -70,7 +74,7 @@ on makeObj()
 			on error -128
 				return
 			end try
-			set removeConfirmMessage to getLocalizedString of UtilityHandlers given keyword:"removeConfirm", insertTexts:{my lastItemName}
+			set removeConfirmMessage to UtilityHandlers's localized_string("removeConfirm", my lastItemName)
 			display dialog removeConfirmMessage attached to my targetWindow default button 1
 			script removeTransfer
 				property targetItem : selectedItem
