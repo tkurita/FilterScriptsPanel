@@ -297,7 +297,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 270}, {272, 663}}</string>
+							<string>{{0, 0}, {272, 663}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -588,6 +588,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>2CC0B7F10F7C5B5000F3EA5E</string>
 		<string>/Users/tkurita/Dev/Projects/FilterScripts for mi/FilterScriptsPanel/trunk/FilterScriptsPanel.xcodeproj</string>
 	</array>
@@ -791,13 +793,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>2C7736841308C08E001C7FD2</string>
+				<string>2C7736E61308D365001C7FD2</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>2C7736851308C08E001C7FD2</string>
-				<string>2C7736861308C08E001C7FD2</string>
-				<string>2C7736871308C08E001C7FD2</string>
-				<string>2C7736881308C08E001C7FD2</string>
-				<string>2C7736891308C08E001C7FD2</string>
+				<string>2C7736E71308D365001C7FD2</string>
+				<string>2C7736E81308D365001C7FD2</string>
+				<string>2C7736E91308D365001C7FD2</string>
+				<string>2C7736EA1308D365001C7FD2</string>
+				<string>2C7736EB1308D365001C7FD2</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -824,14 +826,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FilterScriptsPanel.applescript</string>
+										<string></string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -852,6 +852,8 @@
 							<string>482pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -887,8 +889,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>2C77368A1308C08E001C7FD2</string>
-				<string>2C77368B1308C08E001C7FD2</string>
+				<string>2C7736DF1308D2DF001C7FD2</string>
+				<string>2C7736E01308D2DF001C7FD2</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
