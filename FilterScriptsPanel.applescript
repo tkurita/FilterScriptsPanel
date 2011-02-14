@@ -49,8 +49,9 @@ on open theObject
 		on error
 			set optionRecord to missing value
 		end try
-		
-		if theCommandID is "ShowFilterScripts" then
+		if theCommandID is "action" then
+			theObject's commandScript's do(me)
+		else if theCommandID is "ShowFilterScripts" then
 			openWindow() of ScriptListObj
 		else if theCommandID is "Help" then
 			call method "showHelp:"
@@ -93,7 +94,10 @@ on clicked theObject
 	else if theName is "RemoveScript" then
 		removeScript() of ScriptListObj
 	else if theName is "ReloadScripts" then
-		rebuild() of ScriptListObj
+		tell ScriptListObj
+			rebuild()
+			writeTableContents()
+		end tell
 	else if theName is "OpenScriptsFolder" then
 		tell application "Finder"
 			open ScriptListObj's target_folder()
