@@ -6,6 +6,10 @@
 	<string>Japanese</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0.7</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>copyright 2005-2011, Tetsuro KURITA</string>
 	<key>CFBundleGetInfoString</key>
 	<string>2.0.7 copyright 2005-2011, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
