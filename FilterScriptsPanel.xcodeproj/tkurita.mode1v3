@@ -230,6 +230,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -288,12 +290,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>63</integer>
-									<integer>62</integer>
+									<integer>1</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 748}, {272, 663}}</string>
+							<string>{{0, 514}, {272, 663}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -330,7 +332,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Info.plist</string>
+								<string>History.rd</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -338,11 +340,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Info.plist</string>
+										<string>History.rd</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2C85182F1303CB1900E11FFD</string>
+										<string>2C7736541308B064001C7FD2</string>
 										<key>history</key>
 										<array>
 											<string>2CFE98710C44FA4800B0D2A6</string>
@@ -364,6 +366,7 @@
 											<string>2C8517E81303C01000E11FFD</string>
 											<string>2C85182A1303CB1300E11FFD</string>
 											<string>2C85182B1303CB1300E11FFD</string>
+											<string>2C85185B1303CCE900E11FFD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -383,9 +386,6 @@
 											<string>2C8517521303A9D800E11FFD</string>
 											<string>2C85175E1303A9DD00E11FFD</string>
 											<string>2C8517681303B06F00E11FFD</string>
-											<string>2C8517981303B63100E11FFD</string>
-											<string>2C85179A1303B63100E11FFD</string>
-											<string>2C85179B1303B63100E11FFD</string>
 											<string>2C85182C1303CB1300E11FFD</string>
 										</array>
 									</dict>
@@ -444,9 +444,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2C85179D1303B63100E11FFD</string>
+				<string>2C77364B1308B04D001C7FD2</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2C85179E1303B63100E11FFD</string>
+				<string>2C77364C1308B04D001C7FD2</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -589,11 +589,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>2C8517B41303BCC900E11FFD</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>2CC0B7F10F7C5B5000F3EA5E</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>2CC0B7F10F7C5B5000F3EA5E</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/tkurita/Dev/Projects/FilterScripts for mi/FilterScriptsPanel/trunk/FilterScriptsPanel.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -635,12 +633,10 @@
 							<string>360pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXBuildLogShowsTranscriptDefaultKey</key>
-								<string>{{0, 234}, {1018, 64}}</string>
+								<string>{{0, 181}, {1018, 117}}</string>
 								<key>PBXProjectModuleGUID</key>
 								<string>XCMainBuildResultsModuleGUID</string>
 								<key>PBXProjectModuleLabel</key>
@@ -678,7 +674,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2CC0B7F10F7C5B5000F3EA5E</string>
-				<string>2C85179F1303B63100E11FFD</string>
+				<string>2C77364D1308B04D001C7FD2</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -689,7 +685,7 @@
 			<key>WindowToolGUID</key>
 			<string>2CC0B7F10F7C5B5000F3EA5E</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -798,13 +794,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>2C8517A01303B63100E11FFD</string>
+				<string>2C77364E1308B04D001C7FD2</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>2C8517A11303B63100E11FFD</string>
-				<string>2C8517A21303B63100E11FFD</string>
-				<string>2C8517A31303B63100E11FFD</string>
-				<string>2C8517A41303B63100E11FFD</string>
-				<string>2C8517A51303B63100E11FFD</string>
+				<string>2C77364F1308B04D001C7FD2</string>
+				<string>2C7736501308B04D001C7FD2</string>
+				<string>2C7736511308B04D001C7FD2</string>
+				<string>2C7736521308B04D001C7FD2</string>
+				<string>2C7736531308B04D001C7FD2</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -925,8 +921,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -962,7 +956,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>2C8517A81303B63100E11FFD</string>
+				<string>2C7736551308B064001C7FD2</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -972,7 +966,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
