@@ -1,5 +1,7 @@
 global ScriptSorterObj
 global DefaultsManager
+global PathInfo
+global XList
 
 property targetDataSource : missing value
 property targetFolder : missing value
@@ -21,8 +23,8 @@ on initialize(targetName)
 	set listName to targetName & "_list"
 	set lastRebuidDateLabel to targetName & "_lastRebuildDate"
 	
-	set FolderItemSorter to makeObj(targetName) of ScriptSorterObj
-	set my targetFolder to getContainer() of FolderItemSorter
+	set FolderItemSorter to ScriptSorterObj's make_with(targetName)
+	set my targetFolder to FolderItemSorter's resolve_container()
 	set isInitialized to true
 	-- log "end  initialize in FolderTableObj"
 end initialize
@@ -81,14 +83,18 @@ on makeTableContentsDefaults()
 end makeTableContentsDefaults
 
 on rebuild()
-	--log "start rebuild"
-	set {pathList, nameList, indexList} to sortByView() of FolderItemSorter
-	set itemList to {}
-	repeat with ith from 1 to length of nameList
-		set end of itemList to {|name|:item ith of nameList}
-	end repeat
+	-- log "start rebuild"
+	set pathList to FolderItemSorter's sorted_items()
+	
+	script s
+		on do(x)
+			return PathInfo's name_of(x)
+		end do
+	end script
+	set itemList to XList's make_with(pathList)'s map_as_list(s)
 	delete (every data row of targetDataSource)
 	append targetDataSource with itemList
+	-- log "end reguild"
 end rebuild
 
 on writeTableContents()

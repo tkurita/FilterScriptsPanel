@@ -7,11 +7,11 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.7</string>
+	<string>2.0.8b</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>copyright 2005-2011, Tetsuro KURITA</string>
+	<string>copyright 2005-2013, Tetsuro KURITA</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0.7 copyright 2005-2011, Tetsuro KURITA</string>
+	<string>2.0.b8 copyright 2005-2013, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>FilterScriptsPanelHelp</string>
 	<key>CFBundleHelpBookName</key>
@@ -29,7 +29,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>10</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSAppleScriptEnabled</key>
@@ -39,6 +39,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>DonationURL</key>
-	<string>http://homepage.mac.com/tkurita/scriptfactory/donationproxy.html</string>
+	<string>http://www.script-factory.net/donationproxy.html</string>
 </dict>
 </plist>

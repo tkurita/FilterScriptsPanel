@@ -1,6 +1,8 @@
 property XText : module
 property FileSorter : module
-property loader : boot (module loader of application "FilterScriptsLib") for me
+property PathInfo : module
+property XList : module
+property loader : boot ((module loader of application (get "FilterScriptsLib"))'s collecting_modules(true)) for me
 
 property UtilityHandlers : missing value
 property MessageUtility : missing value

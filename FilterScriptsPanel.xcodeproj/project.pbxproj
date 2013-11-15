@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAppleScriptBuildPhase section */
@@ -34,19 +34,13 @@
 		2C0BAF010A7E4150007AFDE3 /* DonationReminder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C0BAEFA0A7E4141007AFDE3 /* DonationReminder.framework */; };
 		2C1655C909F8CC3400CE5422 /* SmartActivate.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C1655C609F8CC3300CE5422 /* SmartActivate.c */; };
 		2C1655CA09F8CC3400CE5422 /* SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1655C709F8CC3300CE5422 /* SmartActivate.m */; };
-		2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1655C809F8CC3300CE5422 /* SmartActivate.h */; };
 		2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */; };
 		2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C34089508AC72D7001F6FFA /* OpenFolderIcon.png */; };
-		2C3E043008A0A572007344A9 /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E042E08A0A572007344A9 /* AppController.h */; };
 		2C3E043108A0A572007344A9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E042F08A0A572007344A9 /* AppController.m */; };
-		2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC36A0A7A23C700089872 /* StringExtra.h */; };
 		2C4AC3710A7A23C700089872 /* StringExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC36B0A7A23C700089872 /* StringExtra.m */; };
-		2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC36C0A7A23C700089872 /* WindowVisibilityController.h */; };
 		2C4AC3730A7A23C700089872 /* WindowVisibilityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC36D0A7A23C700089872 /* WindowVisibilityController.m */; };
 		2C4AC4EB0A7BC7CA00089872 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4AC4D60A7BC7C900089872 /* Carbon.framework */; };
-		2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4AC4FE0A7BCA5200089872 /* PaletteWindowController.h */; };
 		2C4AC5010A7BCA5200089872 /* PaletteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AC4FF0A7BCA5200089872 /* PaletteWindowController.m */; };
-		2C85178E1303B12400E11FFD /* FrontAppMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C85178C1303B12400E11FFD /* FrontAppMonitor.h */; };
 		2C85178F1303B12400E11FFD /* FrontAppMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C85178D1303B12400E11FFD /* FrontAppMonitor.m */; };
 		2CA3150608AA7ED800ADA32C /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3150508AA7ED800ADA32C /* plus.png */; };
 		2CA3151208AA7F4B00ADA32C /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3151108AA7F4B00ADA32C /* minus.png */; };
@@ -55,13 +49,11 @@
 		2CA3153808AAEB1500ADA32C /* generalpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3153708AAEB1500ADA32C /* generalpref.png */; };
 		2CA3154308AAEC4000ADA32C /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3154208AAEC4000ADA32C /* edit.png */; };
 		2CA3155D08AB1DB100ADA32C /* PreferenceWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3155B08AB1DB100ADA32C /* PreferenceWindow.nib */; };
-		2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA3155E08AB1E6800ADA32C /* PrefsWindowController.h */; };
 		2CA3156108AB1E6800ADA32C /* PrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA3155F08AB1E6800ADA32C /* PrefsWindowController.m */; };
 		2CA3156508AB248200ADA32C /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3156408AB248200ADA32C /* UserDefaults.plist */; };
 		2CA315EB08AB4DE000ADA32C /* smallMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA315E908AB4DDF00ADA32C /* smallMinus.png */; };
 		2CA315EC08AB4DE000ADA32C /* smallPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA315EA08AB4DDF00ADA32C /* smallPlus.png */; };
 		2CA923B608B84A3F00A6B73C /* ScriptWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA923B408B84A3F00A6B73C /* ScriptWindow.nib */; };
-		2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA9241708B8C17700A6B73C /* ScriptListController.h */; };
 		2CA9241A08B8C17700A6B73C /* ScriptListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA9241808B8C17700A6B73C /* ScriptListController.m */; };
 		2CDBB50708A066CA005B4E3D /* FilterScriptsPanel.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = DA206CF3015C4E8B03C91932 /* FilterScriptsPanel.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		2CDBB50808A066CA005B4E3D /* ScriptListObj.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 2C10B9910616C1AA00598626 /* ScriptListObj.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
@@ -79,7 +71,6 @@
 		2CDBB51908A066CA005B4E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		2CDBB51C08A066CA005B4E3D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2CDBB51D08A066CA005B4E3D /* AppleScriptKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */; };
-		2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF7350308A11823000BD158 /* ScriptRunner.h */; };
 		2CF7350608A11823000BD158 /* ScriptRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7350408A11823000BD158 /* ScriptRunner.m */; };
 /* End PBXBuildFile section */
 
@@ -339,15 +330,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C3E043008A0A572007344A9 /* AppController.h in Headers */,
-				2CF7350508A11823000BD158 /* ScriptRunner.h in Headers */,
-				2CA3156008AB1E6800ADA32C /* PrefsWindowController.h in Headers */,
-				2CA9241908B8C17700A6B73C /* ScriptListController.h in Headers */,
-				2C1655CB09F8CC3400CE5422 /* SmartActivate.h in Headers */,
-				2C4AC3700A7A23C700089872 /* StringExtra.h in Headers */,
-				2C4AC3720A7A23C700089872 /* WindowVisibilityController.h in Headers */,
-				2C4AC5000A7BCA5200089872 /* PaletteWindowController.h in Headers */,
-				2C85178E1303B12400E11FFD /* FrontAppMonitor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,8 +363,15 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 2C59245A09A067BD000BC6BA /* Build configuration list for PBXProject "FilterScriptsPanel" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Application */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -511,8 +500,13 @@
 		2C59245709A067BD000BC6BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+					ppc,
+				);
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -522,13 +516,13 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
+				INSTALL_PATH = "/Library/Application Support/mi3/FilterScripts";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_OSAFLAGS = "-x";
 				PRODUCT_NAME = FilterScriptsPanel;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 				SECTORDER_FLAGS = "";
 				VERSIONING_SYSTEM = apple_generic;
 				WARNING_CFLAGS = (
@@ -603,7 +597,8 @@
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				GCC_VERSION = 4.0;
+				SDKROOT = macosx10.4;
 			};
 			name = Debug;
 		};
@@ -616,8 +611,9 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = 4.0;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 			};
 			name = Release;
 		};
@@ -625,7 +621,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				GCC_VERSION = 4.0;
+				SDKROOT = macosx10.4;
 			};
 			name = SDDebug;
 		};
@@ -634,7 +631,8 @@
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				GCC_VERSION = 4.0;
+				SDKROOT = macosx10.4;
 			};
 			name = Default;
 		};

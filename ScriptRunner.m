@@ -119,7 +119,8 @@
 #endif
 	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
    	NSMutableString *string = [inputString mutableCopy];
-	[string replaceOccurrencesOfString:@"\r" withString:@"\n" options:nil range: NSMakeRange(0, [inputString length])];
+	[string replaceOccurrencesOfString:@"\r" withString:@"\n" options:0 
+								 range: NSMakeRange(0, [inputString length])];
 
 	NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
 	NSFileHandle *inputHandle;
@@ -268,7 +269,8 @@
 - (NSString *)outputString
 {
 	NSMutableString *string = [[[NSMutableString alloc] initWithData:outputData encoding:NSUTF8StringEncoding] autorelease];
-	[string replaceOccurrencesOfString:@"\n" withString:@"\r" options:nil range: NSMakeRange(0, [string length])];
+	[string replaceOccurrencesOfString:@"\n" withString:@"\r" options:0 
+								 range: NSMakeRange(0, [string length])];
 	return string;
 }
 

@@ -8,6 +8,7 @@
 
 @implementation AppController
 
+
 - (void)checkQuit:(NSTimer *)aTimer
 {
 	NSArray *appList = [[NSWorkspace sharedWorkspace] launchedApplications];
@@ -16,11 +17,11 @@
 	id appDict;
 	BOOL isMiLaunched = NO;
 	while (appDict = [enumerator nextObject]) {
-		NSString *appName = [appDict objectForKey:@"NSApplicationName"];
-		if ([appName isEqualToString:@"mi"] ) {
+		NSString *app_identifier = [appDict objectForKey:@"NSApplicationBundleIdentifier"];
+		if ([app_identifier isEqualToString:@"net.mimikaki.mi"] ) {
 			isMiLaunched = YES;
 			break;
-		}
+		}		
 	}
 	
 	if (! isMiLaunched) {
@@ -33,8 +34,10 @@
 #if useLog
 	NSLog(@"anApplicationIsTerminated");
 #endif
-	NSString *appName = [[aNotification userInfo] objectForKey:@"NSApplicationName"];
-	if ([appName isEqualToString:@"mi"] ) [[NSApplication sharedApplication] terminate:self];
+	NSDictionary *user_info = [aNotification userInfo];
+	NSString *identifier = [user_info objectForKey:@"NSApplicationBundleIdentifier"];
+	if ([identifier isEqualToString:@"net.mimikaki.mi"] ) [[NSApplication sharedApplication] terminate:self];
+	
 }
 
 #pragma mark delegate of NSApplication

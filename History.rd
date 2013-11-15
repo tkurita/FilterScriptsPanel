@@ -1,4 +1,11 @@
 To Do
+mi3 に対応すること。
+自分自身の場所から mi3 or mi2 か判断する。
+- 起動している mi からバージョンを取得すると、mi が起動していないとき、どうするのか？
+- Finder から mi のアプリケーションファイルのを取得しても、現在起動している mi である保証は有るのか？
+- FilterScriptsPanel が置かれている場所から mi の場所を類推するのが一番。
+
+マニュアルのアップデート
 
 = 2006.07.31
 最新の PaletteWindowController に更新し、WindowVisibilityController を採用。
