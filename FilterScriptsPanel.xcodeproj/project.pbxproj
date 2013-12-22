@@ -346,6 +346,7 @@
 				2C0BAC1C0A7DCD3D007AFDE3 /* CopyFiles */,
 				2CDBB51808A066CA005B4E3D /* Sources */,
 				2CDBB51B08A066CA005B4E3D /* Frameworks */,
+				2CB931B518668D3400554FD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -407,6 +408,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CB931B518668D3400554FD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "echo \"start SetupHelpBook\"\nif [ \"$BUILD_STYLE\" = 'Release' ]; then\necho \"hello\"\ncd \"$BUILT_PRODUCTS_DIR\"\nSetupHelpBook \"$FULL_PRODUCT_NAME\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CDBB51808A066CA005B4E3D /* Sources */ = {
@@ -506,7 +523,7 @@
 					ppc,
 				);
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
