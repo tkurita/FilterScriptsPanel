@@ -3,15 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>Japanese</string>
+	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleShortVersionString</key>
-	<string>2.0.8</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>copyright 2005-2013, Tetsuro KURITA</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0.8 copyright 2005-2013, Tetsuro KURITA</string>
+	<string>3.0 copyright 2005-2014, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>FilterScriptsPanelHelp</string>
 	<key>CFBundleHelpBookName</key>
@@ -26,19 +22,27 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>3.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>11</string>
+	<string>12</string>
+	<key>DonationURL</key>
+	<string>http://www.script-factory.net/donationproxy.html</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.6</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>copyright 2005-2014, Tetsuro KURITA</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>DonationURL</key>
-	<string>http://www.script-factory.net/donationproxy.html</string>
+	<key>OSAScriptingDefinition</key>
+	<string>FilterScriptsPanel.sdef</string>
 </dict>
 </plist>

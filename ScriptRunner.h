@@ -5,9 +5,14 @@
 	NSTask *scriptTask;
 	NSMutableData *outputData;
 	NSMutableData *errorData;
+	
+	BOOL isTaskEnded;
+	BOOL isGetDataEnded;
+	BOOL isGetErrorDataEnded;
 }
-
++ (id)scriptRunnerWithFile:(NSString *)path error:(NSError **)error;
 - (id)initWithScriptFile:(NSString *)path withCommand:(NSString *)command;
+- (id)initWithLoginShellAndScriptFile:(NSString *)path withCommand:(NSString *)command;
 - (void)launchTaskWithString:(NSString *)inputString;
 - (int)terminationStatus;
 - (NSString *)standardOutput;

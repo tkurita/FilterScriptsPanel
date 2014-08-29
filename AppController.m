@@ -2,6 +2,7 @@
 #import "CocoaLib/PaletteWindowController.h"
 #import "CocoaLib/WindowVisibilityController.h"
 #import "DonationReminder/DonationReminder.h"
+#import "PathExtra.h"
 
 #define useLog 0
 #include <signal.h>
@@ -56,6 +57,11 @@
 	if (donationReminder != nil) [NSApp activateIgnoringOtherApps:YES];
 }
 
+- (void)showWindow:(id)sender
+{
+	[listWindowController showWindow:self];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 #if useLog
@@ -65,7 +71,11 @@
 	[appQuitTimer retain];
 	
 	NSNotificationCenter *notifyCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
-	[notifyCenter addObserver:self selector:@selector(anApplicationIsTerminated:) name:NSWorkspaceDidTerminateApplicationNotification object:nil];
+	[notifyCenter addObserver:self selector:@selector(anApplicationIsTerminated:) 
+						 name:NSWorkspaceDidTerminateApplicationNotification object:nil];
+	
+	listWindowController = [[ListWindowController alloc] initWithWindowNibName:@"NewScriptWindow"];
+	[listWindowController showWindow:self];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

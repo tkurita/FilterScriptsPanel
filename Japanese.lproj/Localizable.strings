@@ -23,3 +23,7 @@
 "noOriginalItem" = "エイリアスファイルのオリジナルが見つかりません。";
 
 "this software" = "FilterScripts for mi";
+
+"noDocument" = "mi で開かれているファイルはありません。";
+
+"The document does not start with #!." = "書類にコマンドが設定されていません。";

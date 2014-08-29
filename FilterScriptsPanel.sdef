@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Dictionary">
+	<suite name="FilterScriptsPanel Suite" code="FlSp">
+		<command name="show help" code="TmBdsHHp" description="open a helpbook in the HelpViewer.">
+			<cocoa class="ShowHelpCommand"/>
+		</command>
+		<command name="show window" code="FlSpshWd" description="show FileterScripts window">
+			<cocoa class="ShowWindowCommand"/>
+		</command>
+	</suite>
+</dictionary>

@@ -1,7 +1,41 @@
 To Do
-* AppleScriptStudio への依存を減らす。
-* ScriptWindow を Objective-C で再実装する。-> NewScriptWindow.nib をつくる。
-* StationaryPalette の FileListView を OutlineController で再実装する。
+* warninng を無くす。
+* 公開
+* manual の執筆
+
+== 2014-08-29
+* tooltips の充実 -- 済み
+* ツールバーにヘルプボタン -- 済み
+* Scripts/Templates フォルダの初期生成の確認 -- ok
+* window の再表示 -- 済み
+* mi が終了したら、自動的に終了することの確認 -- OK
+
+== 2014-08-28
+* ローカライズ -- 済み
+* いらないファイルを削除する。 -- 済み
+* +x と ' の場合にエラーが出る不具合の対応。 -- 済み
+* 外部からの event への応答 -- 済み
+* svn commit -- 済み
+* AppleScriptKit.framework の削除 -- 済み
+* ログインシェルでの実行 -- 済み
+* 新規結果ウインドウのタイトル -- 済み
+* SmartActivate によるプロセスきりかえ -- 済み
+* window 位置の保存
+  - Autosave を設定したのがいけなかったようだ。
+* NSTreeController に insert するのではなく、model に insert しないと、model の parentNode が設定されない。 --済み
+* toolbar ボタンの first responder target が機能しない。
+  - FileTreeDataController を window の next responder にした。
+
+== 2014-08-27
+* 新規スクリプトの再実装 -- 済み
+* conflict error action の処理はどうなる？
+  - First Responder に接続した。
+* ツールバーの実装 -- 済み
+* doubleAction 時に発生した NSError をシートに表示する。--済み
+* 結果を新規ウインドウで表示できるようにする。 -- 済み
+* スクリプトの選択を User defaults に保存するようにする。--済み
+  - binding だとなぜかうまくいかない。
+* シェルスクリプトを実行できるようにする。 -- 済み
 
 == 2013-12-22
 * mi3 に対応。
