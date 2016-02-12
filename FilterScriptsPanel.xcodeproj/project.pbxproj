@@ -564,7 +564,6 @@
 		2C59245609A067BD000BC6BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
@@ -572,36 +571,24 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = FilterScriptsPanel;
-				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
 					"-Wno-unknown-pragmas",
 				);
 				WRAPPER_EXTENSION = app;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
 		2C59245709A067BD000BC6BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					x86_64,
-					i386,
-					ppc,
-				);
-				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 13;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -609,16 +596,11 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "/Library/Application Support/mi3/FilterScripts";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_OSAFLAGS = "-x";
 				PRODUCT_NAME = FilterScriptsPanel;
-				SECTORDER_FLAGS = "";
 				VERSIONING_SYSTEM = apple_generic;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -626,31 +608,23 @@
 					"-Wno-unknown-pragmas",
 				);
 				WRAPPER_EXTENSION = app;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
 		2C59245809A067BD000BC6BA /* SDDebug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../\"";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_OSAFLAGS = "-l \\\"AppleScript Debugger\\\"";
 				PRODUCT_NAME = FilterScriptsPanel;
-				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -668,16 +642,11 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../\"";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				JAVAC_SOURCE_FILE_ENCODING = "X-MAC-JAPANESE";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = FilterScriptsPanel;
-				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -690,44 +659,43 @@
 		2C59245B09A067BD000BC6BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = 4.0;
-				SDKROOT = macosx10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		2C59245C09A067BD000BC6BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = 4.0;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		2C59245D09A067BD000BC6BA /* SDDebug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = 4.0;
-				SDKROOT = macosx10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
 			};
 			name = SDDebug;
 		};
 		2C59245E09A067BD000BC6BA /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = 4.0;
-				SDKROOT = macosx10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
 			};
 			name = Default;
 		};
@@ -743,7 +711,7 @@
 				2C59245909A067BD000BC6BA /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		2C59245A09A067BD000BC6BA /* Build configuration list for PBXProject "FilterScriptsPanel" */ = {
 			isa = XCConfigurationList;
@@ -754,7 +722,7 @@
 				2C59245E09A067BD000BC6BA /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
