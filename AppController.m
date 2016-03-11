@@ -59,7 +59,7 @@
 
 - (void)showWindow:(id)sender
 {
-	[listWindowController showWindow:self];
+	[_listWindowController showWindow:self];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -67,14 +67,14 @@
 #if useLog
 	NSLog(@"start applicationDidFinishLaunching");
 #endif
-	appQuitTimer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(checkQuit:) userInfo:nil repeats:YES];
+	self.appQuitTimer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(checkQuit:) userInfo:nil repeats:YES];
 	
 	NSNotificationCenter *notifyCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
 	[notifyCenter addObserver:self selector:@selector(anApplicationIsTerminated:) 
 						 name:NSWorkspaceDidTerminateApplicationNotification object:nil];
 	
-	listWindowController = [[ListWindowController alloc] initWithWindowNibName:@"NewScriptWindow"];
-	[listWindowController showWindow:self];
+	self.listWindowController = [[ListWindowController alloc] initWithWindowNibName:@"NewScriptWindow"];
+	[_listWindowController showWindow:self];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

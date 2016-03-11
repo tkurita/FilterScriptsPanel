@@ -69,7 +69,7 @@
 	NSURL *mi_support_folder = [app_support_folder URLByAppendingPathComponent:@"mi3"];
 	NSString *mi_support_folder_path = [mi_support_folder path];
 #if useLog
-	return mi_support_folder; // for debug
+	//return mi_support_folder; // for debug
 #endif	
 	NSString *fspanel_path = [[NSBundle mainBundle] bundlePath];
 	
@@ -82,9 +82,8 @@
 	mi_support_folder = [app_support_folder URLByAppendingPathComponent:@"mi"];
 	mi_support_folder_path = [mi_support_folder path];
 	if ([mi_support_folder_path fileExists]) {
-		if ([fspanel_path hasPrefix:mi_support_folder_path]) {
+		// if ([fspanel_path hasPrefix:mi_support_folder_path])
 			return mi_support_folder;
-		}
 	}
 	// mi folder under preferences folder is not supported.
 	// 2.1.11b3 or later is required.

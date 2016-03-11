@@ -2,14 +2,15 @@
 #import "StringExtra.h"
 
 @interface ScriptRunner : NSObject {
-	NSTask *scriptTask;
-	NSMutableData *outputData;
-	NSMutableData *errorData;
-	
 	BOOL isTaskEnded;
 	BOOL isGetDataEnded;
 	BOOL isGetErrorDataEnded;
 }
+
+@property (nonatomic) NSTask *scriptTask;
+@property (nonatomic) NSMutableData *outputData;
+@property (nonatomic) NSMutableData *errorData;
+
 + (id)scriptRunnerWithFile:(NSString *)path error:(NSError **)error;
 - (id)initWithScriptFile:(NSString *)path withCommand:(NSString *)command;
 - (id)initWithLoginShellAndScriptFile:(NSString *)path withCommand:(NSString *)command;
@@ -24,8 +25,5 @@
 - (NSString *)outputString;
 - (BOOL)hasErrorData;
 - (NSString *)errorString;
-
-//accessor methods
-- (void)setScriptTask:(NSTask *)aTask;
 
 @end

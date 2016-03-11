@@ -86,17 +86,17 @@ NSString *readShebang(NSString *path, NSError **error)
 	NSLog(@"start initWithLoginShellAndScriptFile");
 #endif	
 	if (!(self = [self init])) return nil;
-	[self setScriptTask:[NSTask new]];
+	self.scriptTask = [NSTask new];
 	NSString *dir_path = [path stringByDeletingLastPathComponent];
-	[scriptTask setCurrentDirectoryPath:dir_path];
+	[_scriptTask setCurrentDirectoryPath:dir_path];
 	
-	[scriptTask setStandardError:[NSPipe pipe]];
-	[scriptTask setStandardOutput:[NSPipe pipe]];
+	[_scriptTask setStandardError:[NSPipe pipe]];
+	[_scriptTask setStandardOutput:[NSPipe pipe]];
 	
 	
 	char *ls = getenv("SHELL");
 	NSString *login_shell = @(ls);
-	[scriptTask setLaunchPath:login_shell];
+	[_scriptTask setLaunchPath:login_shell];
 	NSMutableArray *arguments = [NSMutableArray arrayWithObject:@"-lc"];
 	if (command) {
 		[arguments addObject:
@@ -107,12 +107,12 @@ NSString *readShebang(NSString *path, NSError **error)
 		[arguments addObject:path];
 	}
 
-	[scriptTask setArguments:arguments];
+	[_scriptTask setArguments:arguments];
 #if useLog
 	NSLog(@"arguments : %@", arguments);
 #endif	
-	outputData = [NSMutableData data];
-	errorData = [NSMutableData data];
+	self.outputData = [NSMutableData data];
+	self.errorData = [NSMutableData data];
 	
 	return self;
 }
@@ -125,10 +125,10 @@ NSString *readShebang(NSString *path, NSError **error)
 	if (!(self = [self init])) return nil;
 	[self setScriptTask:[self taskWithEnviroments]];
 	NSString *dirPath = [path stringByDeletingLastPathComponent];
-	[scriptTask setCurrentDirectoryPath:dirPath];
+	[_scriptTask setCurrentDirectoryPath:dirPath];
 	
-	[scriptTask setStandardError:[NSPipe pipe]];
-	[scriptTask setStandardOutput:[NSPipe pipe]];
+	[_scriptTask setStandardError:[NSPipe pipe]];
+	[_scriptTask setStandardOutput:[NSPipe pipe]];
 	
 	//set launch path
 	NSString *command_path;
@@ -158,15 +158,15 @@ NSString *readShebang(NSString *path, NSError **error)
 			}
 		}
 		[argArray addObject:path];
-		[scriptTask setArguments:argArray];		
+		[_scriptTask setArguments:argArray];
 	} else {
 		command_path = path;
 	}
 	
-	[scriptTask setLaunchPath:command_path];
+	[_scriptTask setLaunchPath:command_path];
 	
-	outputData = [NSMutableData data];
-	errorData = [NSMutableData data];
+	self.outputData = [NSMutableData data];
+	self.errorData = [NSMutableData data];
 #if useLog
 	NSLog(@"end initWithScriptFile");
 #endif
@@ -233,7 +233,7 @@ NSString *readShebang(NSString *path, NSError **error)
 #endif	
 	NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
 	NSFileHandle *inputHandle;
-	inputHandle = [[scriptTask standardInput] fileHandleForWriting];
+	inputHandle = [[_scriptTask standardInput] fileHandleForWriting];
 	@try {
 		[inputHandle writeData:inputData];
 	}
@@ -262,7 +262,7 @@ NSString *readShebang(NSString *path, NSError **error)
     NSData *data = [aNotification userInfo][NSFileHandleNotificationDataItem];
     if ([data length])
     {
-		[outputData appendData:data];
+		[_outputData appendData:data];
 		[[aNotification object] readInBackgroundAndNotify];
     } else {
 #if useLog
@@ -283,7 +283,7 @@ NSString *readShebang(NSString *path, NSError **error)
     NSData *data = [aNotification userInfo][NSFileHandleNotificationDataItem];
     if ([data length])
     {
-		[errorData appendData:data];
+		[_errorData appendData:data];
 		[[aNotification object] readInBackgroundAndNotify];
     } else {
 #if useLog
@@ -354,28 +354,28 @@ NSString *readShebang(NSString *path, NSError **error)
 	NSLog(@"start launchTaskWithString");
 #endif
 	NSPipe *inputPipe = [NSPipe pipe];
-	[scriptTask setStandardInput:inputPipe];
+	[_scriptTask setStandardInput:inputPipe];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(getData:) 
 												 name: NSFileHandleReadCompletionNotification 
-											   object: [[scriptTask standardOutput] fileHandleForReading]];
-	 [[[scriptTask standardOutput] fileHandleForReading] readInBackgroundAndNotify];
+											   object: [[_scriptTask standardOutput] fileHandleForReading]];
+	 [[[_scriptTask standardOutput] fileHandleForReading] readInBackgroundAndNotify];
 	 
 	 [[NSNotificationCenter defaultCenter] addObserver:self 
 											  selector:@selector(getErrorData:) 
 												  name: NSFileHandleReadCompletionNotification 
-												object: [[scriptTask standardError] fileHandleForReading]];
-	 [[[scriptTask standardError] fileHandleForReading] readInBackgroundAndNotify];
+												object: [[_scriptTask standardError] fileHandleForReading]];
+	 [[[_scriptTask standardError] fileHandleForReading] readInBackgroundAndNotify];
 	 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndTask:) 
-												 name:NSTaskDidTerminateNotification object:scriptTask];
+												 name:NSTaskDidTerminateNotification object:_scriptTask];
 	
 #if useLog
 	NSLog(@"task will launch");
 #endif
 	@try{
-		[scriptTask launch];
+		[_scriptTask launch];
 	}
 	@catch (NSException *exception) {
 		NSLog(@"launchTaskWithString: Caught %@: %@", [exception name], [exception reason]);
@@ -393,19 +393,19 @@ NSString *readShebang(NSString *path, NSError **error)
 
 - (BOOL)hasErrorData
 {
-	return ([errorData length] != 0);
+	return ([_errorData length] != 0);
 }
 
 - (NSString *)errorString
 {
-	NSMutableString *string = [[NSMutableString alloc] initWithData:errorData 
+	NSMutableString *string = [[NSMutableString alloc] initWithData:_errorData
 															encoding:NSUTF8StringEncoding];
 	return string;
 }
 
 - (NSString *)outputString
 {
-	NSMutableString *string = [[NSMutableString alloc] initWithData:outputData 
+	NSMutableString *string = [[NSMutableString alloc] initWithData:_outputData
 															encoding:NSUTF8StringEncoding];
 	[string replaceOccurrencesOfString:@"\n" withString:@"\r" options:0 
 								 range: NSMakeRange(0, [string length])];
@@ -414,12 +414,12 @@ NSString *readShebang(NSString *path, NSError **error)
 
 - (int)terminationStatus
 {
-	return [scriptTask terminationStatus];
+	return [_scriptTask terminationStatus];
 }
 
 - (NSString *)standardOutput
 {
-	NSPipe *outPipe = [scriptTask standardOutput];
+	NSPipe *outPipe = [_scriptTask standardOutput];
 	NSFileHandle *outHandle = [outPipe fileHandleForReading];
 	NSData *ouputData = [outHandle availableData];
 	return [[NSString alloc] initWithData:ouputData encoding:NSUTF8StringEncoding];
@@ -427,14 +427,8 @@ NSString *readShebang(NSString *path, NSError **error)
 
 - (NSString *)standardError
 {
-	NSData *ouputData = [[[scriptTask standardError] fileHandleForReading] readDataToEndOfFile];
+	NSData *ouputData = [[[_scriptTask standardError] fileHandleForReading] readDataToEndOfFile];
 	return [[NSString alloc] initWithData:ouputData encoding:NSUTF8StringEncoding];
-}
-
-#pragma mark accessor methods
-- (void)setScriptTask:(NSTask *)aTask
-{
-	scriptTask = aTask;
 }
 
 @end
