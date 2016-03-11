@@ -10,16 +10,12 @@
 	IBOutlet id window;
 	IBOutlet id errorPanel;
 	IBOutlet id errorTextView;
-	SBObject *replaceTarget;
-	miApplication *miApp;
-	ScriptRunner *currentTask;
-	NSString *currentScriptFile;
 }
 
-@property (retain) SBObject *replaceTarget;
-@property (retain) ScriptRunner *currentTask;
-@property (retain) miApplication *miApp;
-@property (retain) NSString *currentScriptFile;
+@property (strong) SBObject *replaceTarget;
+@property (strong) ScriptRunner *currentTask;
+@property (strong) miApplication *miApp;
+@property (strong) NSString *currentScriptFile;
 
 - (IBAction)errorOK:(id)sender;
 

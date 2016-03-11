@@ -1,6 +1,6 @@
 #import "AppController.h"
-#import "CocoaLib/PaletteWindowController.h"
-#import "CocoaLib/WindowVisibilityController.h"
+#import "PaletteWindowController.h"
+#import "WindowVisibilityController.h"
 #import "DonationReminder/DonationReminder.h"
 #import "PathExtra.h"
 
@@ -18,7 +18,7 @@
 	id appDict;
 	BOOL isMiLaunched = NO;
 	while (appDict = [enumerator nextObject]) {
-		NSString *app_identifier = [appDict objectForKey:@"NSApplicationBundleIdentifier"];
+		NSString *app_identifier = appDict[@"NSApplicationBundleIdentifier"];
 		if ([app_identifier isEqualToString:@"net.mimikaki.mi"] ) {
 			isMiLaunched = YES;
 			break;
@@ -36,7 +36,7 @@
 	NSLog(@"anApplicationIsTerminated");
 #endif
 	NSDictionary *user_info = [aNotification userInfo];
-	NSString *identifier = [user_info objectForKey:@"NSApplicationBundleIdentifier"];
+	NSString *identifier = user_info[@"NSApplicationBundleIdentifier"];
 	if ([identifier isEqualToString:@"net.mimikaki.mi"] ) [[NSApplication sharedApplication] terminate:self];
 	
 }
@@ -52,7 +52,7 @@
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	[userDefaults registerDefaults:defautlsDict];
 	signal(SIGPIPE, SIG_IGN);
-	[PaletteWindowController setVisibilityController:[[[WindowVisibilityController alloc] init] autorelease]];
+	[PaletteWindowController setVisibilityController:[[WindowVisibilityController alloc] init]];
 	id donationReminder = [DonationReminder remindDonation];
 	if (donationReminder != nil) [NSApp activateIgnoringOtherApps:YES];
 }
@@ -68,7 +68,6 @@
 	NSLog(@"start applicationDidFinishLaunching");
 #endif
 	appQuitTimer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(checkQuit:) userInfo:nil repeats:YES];
-	[appQuitTimer retain];
 	
 	NSNotificationCenter *notifyCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
 	[notifyCenter addObserver:self selector:@selector(anApplicationIsTerminated:) 

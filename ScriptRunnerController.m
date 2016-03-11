@@ -8,20 +8,6 @@ static const int DIALOG_OK		= 128;
 
 @implementation ScriptRunnerController
 
-@synthesize replaceTarget;
-@synthesize currentTask;
-@synthesize miApp;
-@synthesize currentScriptFile;
-
-- (void)dealloc
-{
-	[currentTask release];
-	[replaceTarget release];
-	[miApp release];
-	[currentScriptFile release];
-	[super dealloc];
-}
-
 - (void)sendDataTomi:(NSString *)aText
 {
 #if useLog
@@ -38,15 +24,13 @@ static const int DIALOG_OK		= 128;
 														timeZone:nil locale:nil];
 
 			window_title = [NSString stringWithFormat:@"%@ -stdout- %@",
-							[currentScriptFile lastPathComponent], date_str];
-			props = [NSDictionary dictionaryWithObjectsAndKeys:
-							window_title, @"name", aText, @"content", nil];
-			doc = [[[miApp classForScriptingClass:@"document"] alloc] initWithProperties:props];
-			[[miApp documents] addObject:doc];
-			[doc autorelease];
+							[_currentScriptFile lastPathComponent], date_str];
+			props = @{@"name": window_title, @"content": aText};
+			doc = [[[_miApp classForScriptingClass:@"document"] alloc] initWithProperties:props];
+			[[_miApp documents] addObject:doc];
 			break;
 		default:
-			[replaceTarget setTo:aText];
+			[_replaceTarget setTo:aText];
 			break;
 	};
 }
@@ -54,7 +38,6 @@ static const int DIALOG_OK		= 128;
 #pragma mark methods for error message sheets
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode 
 										contextInfo:(void *)contextInfo {
-    [alert release];	 
 }
 
 - (IBAction)errorOK:(id)sender
@@ -112,11 +95,10 @@ static const int DIALOG_OK		= 128;
 	NSDictionary *err_dict = nil;
 	NSAppleScript *a_script = [[NSAppleScript alloc] initWithContentsOfURL:
 										[NSURL fileURLWithPath:aPath] error:&err_dict];
-	if (a_script) [a_script autorelease];
 	if (err_dict) {
 		NSLog(@"Failed to load script file %@ with error :%@", aPath, err_dict);
 		*error = [NSError errorWithDomain:@"FilterScriptsErrorDomain"
-									 code:[[err_dict objectForKey:NSAppleScriptErrorNumber] intValue]
+									 code:[err_dict[NSAppleScriptErrorNumber] intValue]
 								 userInfo:err_dict];
 		return NO;
 	}
@@ -143,7 +125,7 @@ static const int DIALOG_OK		= 128;
 	if (err_dict) {
 		NSLog(@"Failed to execute the script file %@ with error :%@", aPath, err_dict);
 		*error = [NSError errorWithDomain:@"FilterScriptsErrorDomain"
-									 code:[[err_dict objectForKey:NSAppleScriptErrorNumber] intValue]
+									 code:[err_dict[NSAppleScriptErrorNumber] intValue]
 								 userInfo:err_dict];
 		return NO;
 	}
@@ -151,6 +133,20 @@ static const int DIALOG_OK		= 128;
 	NSLog(@"result : %@", [result_desc stringValue]);
 #endif
 	return [result_desc stringValue];
+}
+
+- (void)aftertreatmentOfDoubleAction:(NSError *)error
+{
+    [workingIndicator stopAnimation:self];
+	[workingIndicator setHidden:YES];
+    
+	if (error) {
+		NSAlert *alert = [NSAlert alertWithError:error];
+		[alert beginSheetModalForWindow:window
+						  modalDelegate:self
+						 didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+							contextInfo:nil];
+	}
 }
 
 - (IBAction)doubleAction:(id)sender
@@ -161,21 +157,20 @@ static const int DIALOG_OK		= 128;
 	self.miApp = [SBApplication applicationWithBundleIdentifier:@"net.mimikaki.mi"];
 	miDocument *front_doc = nil;
 	NSError *error = nil;
-	if ([[[miApp documents] objectAtIndex:0] exists]) {
-		front_doc = [[miApp documents] objectAtIndex:0];
+	if ([[_miApp documents][0] exists]) {
+		front_doc = [_miApp documents][0];
 	} else {
 		NSString *reason = @"noDocument";
 		error = [NSError errorWithDomain:@"FilterScriptsErrorDomain" code:1240 
-								 userInfo:[NSDictionary dictionaryWithObject:NSLocalizedString(reason, @"")
-																	  forKey:NSLocalizedDescriptionKey]];
-		goto bail;
+								 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(reason, @"")}];
+		return [self aftertreatmentOfDoubleAction:error];
 	}
 	
-	self.replaceTarget = [[[front_doc selectionObjects] objectAtIndex:0] propertyWithCode:'pcnt'];
-	NSString *selected_text = [replaceTarget get];
+	self.replaceTarget = [[front_doc selectionObjects][0] propertyWithCode:'pcnt'];
+	NSString *selected_text = [_replaceTarget get];
 	if (![selected_text length]) {
 		self.replaceTarget = [front_doc propertyWithCode:'pcnt'];
-		selected_text = [replaceTarget get];
+		selected_text = [_replaceTarget get];
 	}
 #if useLog
 	NSLog(@"selected_text : %@", selected_text);
@@ -189,9 +184,9 @@ static const int DIALOG_OK		= 128;
 	FileDatum *fd = [[controller_node representedObject] representedObject];
 	self.currentScriptFile = [fd path];
 	NSWorkspace *workspace = [NSWorkspace sharedWorkspace];	
-	NSString *uti = [workspace typeOfFile:currentScriptFile error:&error];
+	NSString *uti = [workspace typeOfFile:_currentScriptFile error:&error];
 	if (error) {
-		goto bail;
+		return [self aftertreatmentOfDoubleAction:error];
 	}
 #if useLog
 	NSLog(@"name : %@, UTI : %@", [fd name], uti);
@@ -200,34 +195,23 @@ static const int DIALOG_OK		= 128;
 #if useLog
 		NSLog(@"confirm to applescript");	
 #endif			
-		NSString *result = [self performAppleScript:currentScriptFile withText:selected_text 
+		NSString *result = [self performAppleScript:_currentScriptFile withText:selected_text
 											  error:&error];
 		if (result) {
 			[self sendDataTomi:result];
 		}
-		goto bail;
+		return [self aftertreatmentOfDoubleAction:error];
 	}
 	
-	ScriptRunner *sr = [ScriptRunner scriptRunnerWithFile:currentScriptFile
+	ScriptRunner *sr = [ScriptRunner scriptRunnerWithFile:_currentScriptFile
 													error:&error];
 	if (error) {
-		goto bail;
+		return [self aftertreatmentOfDoubleAction:error];
 	}
 	
 	[sr launchTaskWithString:selected_text];
 	self.currentTask = sr;
 	return;
-bail:
-	[workingIndicator stopAnimation:self];
-	[workingIndicator setHidden:YES];
-
-	if (error) {
-		NSAlert *alert = [[NSAlert alertWithError:error] retain];
-		[alert beginSheetModalForWindow:window
-						  modalDelegate:self 
-						 didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) 
-							contextInfo:nil];
-	}
 }
 
 

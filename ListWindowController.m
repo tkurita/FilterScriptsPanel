@@ -107,8 +107,8 @@
 		return nil;
 	}
 	NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/usr/bin/ditto"
-											arguments:[NSArray arrayWithObjects:@"--sequesterRsrc", @"-x", @"-k",
-													   script_zip_path, filter_scripts_folder, nil]];
+											arguments:@[@"--sequesterRsrc", @"-x", @"-k",
+													   script_zip_path, filter_scripts_folder]];
 	[task waitUntilExit];
 	if ([task terminationStatus] != 0) {
 		goto bail;

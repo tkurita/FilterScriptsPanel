@@ -1,4 +1,17 @@
 To Do
+
+* ARC ?
+* modern Objectiv-C
+* depreated API の置き換え
+* なんとかコンパイルできるようにする。
+* FileTreeView を StationeryPalette から抜き出して、submodule 化
+
+== 2016-03-11
+* PathExtra, StringExtra など submodule を設定
+
+== 済んだはず
+* git に移行
+* Xcode 4.6.2 に移行
 * warninng を無くす。
 * 公開
 * manual の執筆
