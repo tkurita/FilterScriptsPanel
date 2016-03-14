@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0B07C91C96CD21001DB206 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07C71C96CD21001DB206 /* Localizable.strings */; };
+		2C0B07CE1C96CE72001DB206 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07CA1C96CE72001DB206 /* MainMenu.xib */; };
+		2C0B07CF1C96CE73001DB206 /* NewScriptWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07CC1C96CE72001DB206 /* NewScriptWindow.xib */; };
 		2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */; };
 		2C1B25ED19ADBE920019C374 /* MakeFolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1B25EC19ADBE920019C374 /* MakeFolder.png */; };
 		2C1B25EF19ADBE9F0019C374 /* DarkBlueReload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1B25EE19ADBE9F0019C374 /* DarkBlueReload.png */; };
@@ -21,11 +24,9 @@
 		2C3FF8B119AB52D50061C52B /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3FF8B019AB52D50061C52B /* ScriptingBridge.framework */; };
 		2C3FFAB419ACD2DD0061C52B /* ListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3FFAB219ACD2DD0061C52B /* ListWindowController.m */; };
 		2C4AC4EB0A7BC7CA00089872 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4AC4D60A7BC7C900089872 /* Carbon.framework */; };
-		2C61216E19AF24E3000A80C6 /* NewScriptWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61216D19AF24E3000A80C6 /* NewScriptWindow.nib */; };
 		2C6121C619AF2B3B000A80C6 /* FilterScriptsPanel.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2C6121C519AF2B3B000A80C6 /* FilterScriptsPanel.sdef */; };
 		2C61220819AF2D32000A80C6 /* ShowHelpCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C61220619AF2D32000A80C6 /* ShowHelpCommand.h */; };
 		2C61220919AF2D32000A80C6 /* ShowHelpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61220719AF2D32000A80C6 /* ShowHelpCommand.m */; };
-		2C61227C19AF43DE000A80C6 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2C61227B19AF43DE000A80C6 /* MainMenu.nib */; };
 		2C627BE11C924CC3006AD87E /* NSRunningApplication+SmartActivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C627BDF1C924CC3006AD87E /* NSRunningApplication+SmartActivate.h */; };
 		2C627BE21C924CC3006AD87E /* NSRunningApplication+SmartActivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C627BE01C924CC3006AD87E /* NSRunningApplication+SmartActivate.m */; };
 		2C627BE91C924D6D006AD87E /* PathExtra_Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C627BE41C924D6D006AD87E /* PathExtra_Localizable.strings */; };
@@ -53,9 +54,6 @@
 		2CA3154308AAEC4000ADA32C /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3154208AAEC4000ADA32C /* edit.png */; };
 		2CA3156508AB248200ADA32C /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA3156408AB248200ADA32C /* UserDefaults.plist */; };
 		2CCF630519B041DD006DCAFE /* Help.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2CCF630419B041DD006DCAFE /* Help.tiff */; };
-		2CCF631719B04698006DCAFE /* MainMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CCF631319B04698006DCAFE /* MainMenu.strings */; };
-		2CCF631819B04698006DCAFE /* NewScriptWindow.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CCF631519B04698006DCAFE /* NewScriptWindow.strings */; };
-		2CDBB51508A066CA005B4E3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C9E42BE052215CB00248965 /* Localizable.strings */; };
 		2CDBB51608A066CA005B4E3D /* Templates.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2C82E5900793A8E800D28509 /* Templates.zip */; };
 		2CDBB51708A066CA005B4E3D /* Scripts.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2CFD5E8106521AC50068FEBB /* Scripts.zip */; };
 		2CDBB51908A066CA005B4E3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -98,10 +96,11 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2C0B07C11C96CBE8001DB206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		2C0B07C21C96CBE8001DB206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/NewScriptWindow.nib; sourceTree = "<group>"; };
-		2C0B07C31C96CC09001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Japanese.lproj/NewScriptWindow.strings; sourceTree = "<group>"; };
-		2C0B07C41C96CC11001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Japanese.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		2C0B07C81C96CD21001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2C0B07CB1C96CE72001DB206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2C0B07CD1C96CE72001DB206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewScriptWindow.xib; sourceTree = "<group>"; };
+		2C0B07D01C96CE79001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		2C0B07D11C96CE7D001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/NewScriptWindow.strings; sourceTree = "<group>"; };
 		2C0BAEFA0A7E4141007AFDE3 /* DonationReminder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DonationReminder.framework; path = ../DonationReminder.framework; sourceTree = SOURCE_ROOT; };
 		2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = HelpSetup.plist; sourceTree = "<group>"; };
 		2C1B25EC19ADBE920019C374 /* MakeFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MakeFolder.png; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 		2C82893919B0140100F54253 /* ShowWindowCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowWindowCommand.h; sourceTree = "<group>"; };
 		2C82893A19B0140100F54253 /* ShowWindowCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowWindowCommand.m; sourceTree = "<group>"; };
 		2C82E5900793A8E800D28509 /* Templates.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Templates.zip; sourceTree = "<group>"; };
-		2C9E42C1052215F000248965 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CA3150508AA7ED800ADA32C /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		2CA3151108AA7F4B00ADA32C /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		2CA3151A08AA7FF800ADA32C /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
@@ -162,8 +160,6 @@
 		2CA315E908AB4DDF00ADA32C /* smallMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallMinus.png; sourceTree = "<group>"; };
 		2CA315EA08AB4DDF00ADA32C /* smallPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallPlus.png; sourceTree = "<group>"; };
 		2CCF630419B041DD006DCAFE /* Help.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Help.tiff; sourceTree = "<group>"; };
-		2CCF631419B04698006DCAFE /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		2CCF631619B04698006DCAFE /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/NewScriptWindow.strings; sourceTree = "<group>"; };
 		2CDBB52008A066CA005B4E3D /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; lineEnding = 0; path = Info.plist; sourceTree = "<group>"; };
 		2CDBB52108A066CB005B4E3D /* FilterScriptsPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterScriptsPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF7350308A11823000BD158 /* ScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptRunner.h; sourceTree = "<group>"; };
@@ -248,17 +244,15 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2CCF631319B04698006DCAFE /* MainMenu.strings */,
-				2CCF631519B04698006DCAFE /* NewScriptWindow.strings */,
+				2C0B07CA1C96CE72001DB206 /* MainMenu.xib */,
+				2C0B07CC1C96CE72001DB206 /* NewScriptWindow.xib */,
+				2C0B07C71C96CD21001DB206 /* Localizable.strings */,
 				2C6121C519AF2B3B000A80C6 /* FilterScriptsPanel.sdef */,
-				2C61227B19AF43DE000A80C6 /* MainMenu.nib */,
-				2C61216D19AF24E3000A80C6 /* NewScriptWindow.nib */,
 				2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */,
 				2CA3156408AB248200ADA32C /* UserDefaults.plist */,
 				2CDBB52008A066CA005B4E3D /* Info.plist */,
 				2CFD5E8106521AC50068FEBB /* Scripts.zip */,
 				2C82E5900793A8E800D28509 /* Templates.zip */,
-				2C9E42BE052215CB00248965 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -438,7 +432,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C59245509A067BD000BC6BA /* Build configuration list for PBXNativeTarget "FilterScriptsPanel" */;
 			buildPhases = (
-				2C6122CA19AF61B2000A80C6 /* ShellScript */,
 				2CDBB50408A066CA005B4E3D /* Headers */,
 				2CDBB51308A066CA005B4E3D /* Resources */,
 				2C0BAC1C0A7DCD3D007AFDE3 /* CopyFiles */,
@@ -505,7 +498,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CDBB51508A066CA005B4E3D /* Localizable.strings in Resources */,
 				2CDBB51608A066CA005B4E3D /* Templates.zip in Resources */,
 				2CDBB51708A066CA005B4E3D /* Scripts.zip in Resources */,
 				2CA3150608AA7ED800ADA32C /* plus.png in Resources */,
@@ -514,44 +506,24 @@
 				2CA3156508AB248200ADA32C /* UserDefaults.plist in Resources */,
 				2C34089608AC72D8001F6FFA /* OpenFolderIcon.png in Resources */,
 				2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */,
-				2C61216E19AF24E3000A80C6 /* NewScriptWindow.nib in Resources */,
 				2C1B25ED19ADBE920019C374 /* MakeFolder.png in Resources */,
 				2C1B25EF19ADBE9F0019C374 /* DarkBlueReload.png in Resources */,
 				2C1B25F119ADBEAB0019C374 /* Reveal.tiff in Resources */,
 				2C1B25F319ADBF1E0019C374 /* ToolbarDeleteIcon.icns in Resources */,
 				2C6121C619AF2B3B000A80C6 /* FilterScriptsPanel.sdef in Resources */,
-				2C61227C19AF43DE000A80C6 /* MainMenu.nib in Resources */,
 				2CCF630519B041DD006DCAFE /* Help.tiff in Resources */,
-				2CCF631719B04698006DCAFE /* MainMenu.strings in Resources */,
-				2CCF631819B04698006DCAFE /* NewScriptWindow.strings in Resources */,
 				2C627BE91C924D6D006AD87E /* PathExtra_Localizable.strings in Resources */,
 				2C627C061C927411006AD87E /* FileTreeView_Localizable.strings in Resources */,
 				2C627C091C927411006AD87E /* FileTreeView_Localizable.strings in Resources */,
+				2C0B07C91C96CD21001DB206 /* Localizable.strings in Resources */,
+				2C0B07CE1C96CE72001DB206 /* MainMenu.xib in Resources */,
+				2C0B07CF1C96CE73001DB206 /* NewScriptWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C6122CA19AF61B2000A80C6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/English.lproj/MainMenu.nib",
-				"$(SRCROOT)/English.lproj/NewScriptWindow.nib",
-				"$(SRCROOT)/Japanese.lproj/MainMenu.strings",
-				"$(SRCROOT)/Japanese.lproj/NewScriptWindow.strings",
-			);
-			outputPaths = (
-				"$(SRCROOT)/Japanese.lproj/MainMenu.nib",
-				"$(SRCROOT)/Japanese.lproj/NewScriptWindow.nib",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Extract English strings (use this to check if you added new strings to your nibs)\n# ibtool --generate-strings-file Resources/English.lproj/MainWindow.strings Resources/English.lproj/MainWindow.xib\n# Generate Localized interface\n\nfunction generate_localized_interface\n{\nbase_lang=$1\ntarget_lang=$2\ntarget_nib=$3\nnib_basename=`basename ${target_nib} .nib` \n\ntarget_lang_strings=${target_lang}.lproj/${nib_basename}.strings\ntarget_lang_nib=${target_lang}.lproj/${target_nib}\n\nif ! [ -e ${target_lang_strings} ]; then\n\tibtool --generate-strings-file ${target_lang_strings} ${target_lang_nib}\nelse\n\techo \"${target_lang_strings} exist\"\U0013\nfi\n\nibtool --strings-file ${target_lang_strings} --write ${target_lang_nib} ${base_lang}.lproj/${target_nib}\nrm -rf ${target_lang_nib}/.svn\n}\n\ngenerate_localized_interface English Japanese MainMenu.nib\ngenerate_localized_interface English Japanese NewScriptWindow.nib";
-		};
 		2CB931B518668D3400554FD2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
@@ -604,22 +576,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C61216D19AF24E3000A80C6 /* NewScriptWindow.nib */ = {
+		2C0B07C71C96CD21001DB206 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2C0B07C21C96CBE8001DB206 /* Base */,
-				2C0B07C31C96CC09001DB206 /* ja */,
+				2C0B07C81C96CD21001DB206 /* ja */,
 			);
-			name = NewScriptWindow.nib;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		2C61227B19AF43DE000A80C6 /* MainMenu.nib */ = {
+		2C0B07CA1C96CE72001DB206 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2C0B07C11C96CBE8001DB206 /* Base */,
-				2C0B07C41C96CC11001DB206 /* ja */,
+				2C0B07CB1C96CE72001DB206 /* Base */,
+				2C0B07D01C96CE79001DB206 /* ja */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		2C0B07CC1C96CE72001DB206 /* NewScriptWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C0B07CD1C96CE72001DB206 /* Base */,
+				2C0B07D11C96CE7D001DB206 /* ja */,
+			);
+			name = NewScriptWindow.xib;
 			sourceTree = "<group>";
 		};
 		2C627BE41C924D6D006AD87E /* PathExtra_Localizable.strings */ = {
@@ -645,30 +625,6 @@
 				2C627C051C927411006AD87E /* ja */,
 			);
 			name = FileTreeView_Localizable.strings;
-			sourceTree = "<group>";
-		};
-		2C9E42BE052215CB00248965 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C9E42C1052215F000248965 /* Japanese */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		2CCF631319B04698006DCAFE /* MainMenu.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CCF631419B04698006DCAFE /* Japanese */,
-			);
-			name = MainMenu.strings;
-			sourceTree = "<group>";
-		};
-		2CCF631519B04698006DCAFE /* NewScriptWindow.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CCF631619B04698006DCAFE /* Japanese */,
-			);
-			name = NewScriptWindow.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
