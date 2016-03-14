@@ -8,24 +8,9 @@
 #include <signal.h>
 
 @implementation AppController
-
-
 - (void)checkQuit:(NSTimer *)aTimer
 {
-	NSArray *appList = [[NSWorkspace sharedWorkspace] launchedApplications];
-	NSEnumerator *enumerator = [appList objectEnumerator];
-	
-	id appDict;
-	BOOL isMiLaunched = NO;
-	while (appDict = [enumerator nextObject]) {
-		NSString *app_identifier = appDict[@"NSApplicationBundleIdentifier"];
-		if ([app_identifier isEqualToString:@"net.mimikaki.mi"] ) {
-			isMiLaunched = YES;
-			break;
-		}		
-	}
-	
-	if (! isMiLaunched) {
+    if (! [[NSRunningApplication runningApplicationsWithBundleIdentifier:@"net.mimikaki.mi"] count]) {
 		[[NSApplication sharedApplication] terminate:self];
 	}
 }
