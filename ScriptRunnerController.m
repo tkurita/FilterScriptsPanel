@@ -190,7 +190,10 @@ static const int DIALOG_OK		= 128;
 	}
 #if useLog
 	NSLog(@"name : %@, UTI : %@", [fd name], uti);
-#endif		
+#endif
+    if ([workspace type:uti conformsToType:@"public.folder"]) {
+        return [self aftertreatmentOfDoubleAction:error];
+    }
 	if ([workspace type:uti conformsToType:@"com.apple.applescript.script"]) {
 #if useLog
 		NSLog(@"confirm to applescript");	
