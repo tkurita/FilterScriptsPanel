@@ -168,7 +168,7 @@
 		2CDBB52108A066CB005B4E3D /* FilterScriptsPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterScriptsPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF7350308A11823000BD158 /* ScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptRunner.h; sourceTree = "<group>"; };
 		2CF7350408A11823000BD158 /* ScriptRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptRunner.m; sourceTree = "<group>"; };
-		2CF7364A08A1F0E6000BD158 /* History.rd */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; lineEnding = 0; path = History.rd; sourceTree = "<group>"; };
+		2CF7364A08A1F0E6000BD158 /* History.rd */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; lineEnding = 0; name = History.rd; path = ../History.rd; sourceTree = "<group>"; };
 		2CFD5E8106521AC50068FEBB /* Scripts.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Scripts.zip; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
