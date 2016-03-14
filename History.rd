@@ -1,12 +1,18 @@
 To Do
 
-* ARC ?
+* README.md
+* HelpBook folder layout の更新
+* nib を xib に変換
+* Use Base Internationalization
+* .gitignore を追加
+* localize 用 strings ファイルの更新
+
+== 2016-03-11
+* ARC
 * modern Objectiv-C
 * depreated API の置き換え
 * なんとかコンパイルできるようにする。
 * FileTreeView を StationeryPalette から抜き出して、submodule 化
-
-== 2016-03-11
 * PathExtra, StringExtra など submodule を設定
 
 == 済んだはず
