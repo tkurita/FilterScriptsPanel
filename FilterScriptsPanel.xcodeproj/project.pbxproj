@@ -10,6 +10,7 @@
 		2C0B07C91C96CD21001DB206 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07C71C96CD21001DB206 /* Localizable.strings */; };
 		2C0B07CE1C96CE72001DB206 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07CA1C96CE72001DB206 /* MainMenu.xib */; };
 		2C0B07CF1C96CE73001DB206 /* NewScriptWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07CC1C96CE72001DB206 /* NewScriptWindow.xib */; };
+		2C0B07D41C96D38F001DB206 /* FilterScriptsPanelHelp in Resources */ = {isa = PBXBuildFile; fileRef = 2C0B07D31C96D38F001DB206 /* FilterScriptsPanelHelp */; };
 		2C16DE370A81DC5C00B4D6E3 /* HelpSetup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */; };
 		2C1B25ED19ADBE920019C374 /* MakeFolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1B25EC19ADBE920019C374 /* MakeFolder.png */; };
 		2C1B25EF19ADBE9F0019C374 /* DarkBlueReload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1B25EE19ADBE9F0019C374 /* DarkBlueReload.png */; };
@@ -101,6 +102,7 @@
 		2C0B07CD1C96CE72001DB206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewScriptWindow.xib; sourceTree = "<group>"; };
 		2C0B07D01C96CE79001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		2C0B07D11C96CE7D001DB206 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/NewScriptWindow.strings; sourceTree = "<group>"; };
+		2C0B07D31C96D38F001DB206 /* FilterScriptsPanelHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FilterScriptsPanelHelp; sourceTree = "<group>"; };
 		2C0BAEFA0A7E4141007AFDE3 /* DonationReminder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DonationReminder.framework; path = ../DonationReminder.framework; sourceTree = SOURCE_ROOT; };
 		2C16DE360A81DC5C00B4D6E3 /* HelpSetup.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = HelpSetup.plist; sourceTree = "<group>"; };
 		2C1B25EC19ADBE920019C374 /* MakeFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MakeFolder.png; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C0B07D31C96D38F001DB206 /* FilterScriptsPanelHelp */,
 				2C0B07CA1C96CE72001DB206 /* MainMenu.xib */,
 				2C0B07CC1C96CE72001DB206 /* NewScriptWindow.xib */,
 				2C0B07C71C96CD21001DB206 /* Localizable.strings */,
@@ -518,6 +521,7 @@
 				2C0B07C91C96CD21001DB206 /* Localizable.strings in Resources */,
 				2C0B07CE1C96CE72001DB206 /* MainMenu.xib in Resources */,
 				2C0B07CF1C96CE73001DB206 /* NewScriptWindow.xib in Resources */,
+				2C0B07D41C96D38F001DB206 /* FilterScriptsPanelHelp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,7 +539,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "echo \"start SetupHelpBook\"\nif [ \"$BUILD_STYLE\" = 'Release' ]; then\necho \"hello\"\ncd \"$BUILT_PRODUCTS_DIR\"\nSetupHelpBook \"$FULL_PRODUCT_NAME\"\nfi\n";
+			shellScript = "if [ ! \"$CONFIGURATION\" = 'Release' ]; then\necho \"HelpBook setup script will run only with Release configuration\";\nexit 0\nfi\n\ncd \"$BUILT_PRODUCTS_DIR\"\nSetupHelpBook \"$FULL_PRODUCT_NAME\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -691,7 +695,6 @@
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = FilterScriptsPanel;
 				PRODUCT_VERSION = 3.1;
 				WARNING_CFLAGS = (
