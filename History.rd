@@ -5,6 +5,8 @@ To Do
 * nib を xib に変換
 * Use Base Internationalization
 * .gitignore を追加
+
+== 2016-03-14
 * localize 用 strings ファイルの更新
 
 == 2016-03-11
